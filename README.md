@@ -105,3 +105,4 @@ il ne s’agit pas d’une restriction d’accès.
 - [Choix d’architecture](documentation/adr-001-next-markdown.md).
 - [Déploiement et retour arrière](documentation/deploiement.md).
 - [Qualification et limites](documentation/qualification.md).
+- [Preuves de livraison du 7 novembre 2026](documentation/livraison-2026-11-07.md).
