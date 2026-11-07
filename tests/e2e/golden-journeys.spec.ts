@@ -210,6 +210,33 @@ test.describe('Golden Journey — Je m’informe', () => {
     }
   });
 
+  test('une ancre FAQ reste visible après interruption du défilement natif', async ({ page }) => {
+    await page.goto('/informer/faq');
+    // Exercise the hydrated filter before changing the fragment. Simulate the
+    // browser's native smooth scroll being cancelled by an earlier navigation,
+    // as observed in the CI trace: the URL and open details change, but not the viewport.
+    const search = page.getByLabel('Rechercher une question', { exact: true });
+    await search.fill('Canopée');
+    await expect(page.locator('main details')).toHaveCount(1);
+    await search.fill('');
+    await expect(page.locator('main details')).toHaveCount(39);
+    await page.evaluate(() => {
+      window.location.hash = 'faq-34';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
+    await expect(page).toHaveURL(/#faq-34$/);
+    await expect(page.locator('#faq-34')).toHaveAttribute('open', '');
+    await expect(page.locator('#faq-34 summary')).toBeInViewport();
+
+    await page.evaluate(() => {
+      window.location.hash = 'faq-inconnue';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
+    await expect(page).toHaveURL(/#faq-inconnue$/);
+    await expect(page.locator('main details[open]')).toHaveCount(1);
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+  });
+
   test('Canopée et panorama : enquêtes attribuées, limites et décisions distinctes', async ({ page }) => {
     await page.goto('/informer/faq');
     const search = page.getByLabel('Rechercher une question', { exact: true });

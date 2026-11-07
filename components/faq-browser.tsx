@@ -11,7 +11,12 @@ export function FaqBrowser({ entries }: { entries: Entry[] }) {
     const openAnchor = () => {
       const id = window.location.hash.slice(1);
       const target = document.getElementById(id);
-      if (target instanceof HTMLDetailsElement) target.open = true;
+      if (target instanceof HTMLDetailsElement) {
+        target.open = true;
+        // Position after opening: a previous native smooth scroll can otherwise
+        // leave the active fragment outside the viewport.
+        target.scrollIntoView({ behavior: 'instant', block: 'start' });
+      }
     };
     openAnchor(); window.addEventListener('hashchange', openAnchor);
     return () => window.removeEventListener('hashchange', openAnchor);

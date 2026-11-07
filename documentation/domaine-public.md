@@ -149,13 +149,17 @@ Contrôler le couple actif et le comparer au SHA et au digest de la livraison :
 ```sh
 active_revision=$(sudo -n /snap/bin/microk8s kubectl -n site-chaufferie-cil get deployment site-chaufferie-cil -o jsonpath='{.spec.template.spec.containers[?(@.name=="web")].env[?(@.name=="APP_REVISION")].value}')
 active_image=$(sudo -n /snap/bin/microk8s kubectl -n site-chaufferie-cil get deployment site-chaufferie-cil -o jsonpath='{.spec.template.spec.containers[?(@.name=="web")].image}')
-test "$active_image" = "ghcr.io/salete-sincere/site-chaufferie-cil:$active_revision" || exit 1
+case "$active_image" in
+  "ghcr.io/salete-sincere/site-chaufferie-cil:$active_revision"|"ghcr.io/salete-sincere/site-chaufferie-cil:$active_revision"@sha256:*) ;;
+  *) exit 1 ;;
+esac
 E2E_BASE_URL=https://stopchaufferiehaubourdin.fr npm run test:e2e
 node scripts/observe-health.mjs https://stopchaufferiehaubourdin.fr/health "$active_revision" 180 60
 ```
 
 Après un changement d’image, vérifier que ce couple correspond au nouveau SHA
-qualifié une fois le rollout terminé. Si le domaine est ajouté à une ancienne
+qualifié une fois le rollout terminé et que le digest du conteneur correspond
+au digest qualifié de cette image. Si le domaine est ajouté à une ancienne
 image construite avec un autre `SITE_URL`, fournir cette valeur à la suite E2E
 pour contrôler ses métadonnées réelles ; la migration des métadonnées exige la
 nouvelle image prévue dans cette livraison.
