@@ -117,3 +117,4 @@ il ne s’agit pas d’une restriction d’accès.
 - [Déploiement et retour arrière](documentation/deploiement.md).
 - [Qualification et limites](documentation/qualification.md).
 - [Preuves de livraison du 7 novembre 2026](documentation/livraison-2026-11-07.md).
+- [Livraison du communiqué et des liens HAC](documentation/livraison-publications-2026-11-07.md).
