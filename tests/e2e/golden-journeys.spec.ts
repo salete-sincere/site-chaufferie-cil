@@ -272,6 +272,7 @@ test.describe('Lecture essentielle sans JavaScript', () => {
     await page.goto('/informer');
     await expect(page.getByTestId('overview-point')).toHaveCount(10);
     await page.goto('/informer/faq');
+    await expect(page.getByText('La recherche nécessite JavaScript. Toutes les questions restent consultables ci-dessous.', { exact: true })).toBeVisible();
     await expect(page.locator('main details')).toHaveCount(34);
     await page.locator('main details').first().locator('summary').click();
     await expect(page.locator('main details').first()).toHaveAttribute('open', '');
