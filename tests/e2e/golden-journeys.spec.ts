@@ -281,8 +281,11 @@ test.describe('Lecture essentielle sans JavaScript', () => {
     await page.goto('/militer');
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     expect((await page.locator('main').innerText()).length).toBeGreaterThan(500);
-    await page.goto('/rejoindre');
+    const response = await page.goto('/rejoindre');
+    expect(await response!.text()).not.toContain('/cdn-cgi/l/email-protection');
     await expect(page.getByText(recipient, { exact: true }).first()).toBeVisible();
+    await expect(page.getByRole('contentinfo').getByRole('link', { name: recipient, exact: true }))
+      .toHaveAttribute('href', `mailto:${recipient}`);
     await expect(page.getByText(/La préparation automatique du message nécessite JavaScript\./)).toBeVisible();
     const mailto = page.getByRole('link', { name: 'Préparer mon courriel', exact: true });
     expect(composeMail(await mailto.getAttribute('href')).length).toBeGreaterThan(10);

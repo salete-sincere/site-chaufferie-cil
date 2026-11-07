@@ -63,6 +63,14 @@ exercé les régressions RED/GREEN du parser et du courriel. Le premier passage
 navigateur a fait corriger le nom accessible du message facultatif et plusieurs
 hypothèses de sélection des tests avant requalification.
 
+La première recette du domaine au SHA `15a0be0` a trouvé un défaut absent en local :
+Cloudflare masquait l'adresse et les liens de courriel sans JavaScript. Les preuves
+initiales (16 réussites, un échec) sont conservées. La correction encadre uniquement
+les liens publics avec les commentaires d'exception du CDN, et le parcours sans
+JavaScript vérifie aussi le pied de page et l'absence de liens d'obfuscation.
+Le [suivi 3](https://github.com/salete-sincere/site-chaufferie-cil/issues/3) doit être
+clos seulement après réussite de la nouvelle recette sur le domaine.
+
 ### Sources externes — contrôle du 7 novembre 2026
 
 Quinze sources sur dix-sept ont répondu HTTP 200 à une requête HEAD. S8 (ADEME)

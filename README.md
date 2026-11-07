@@ -8,6 +8,7 @@ Alternative Citoyenne. Il permet de s’informer, de partager des contenus et de
 préparer un courriel au groupe. Next.js fonctionne en production sur infra-sincere,
 avec des contenus Markdown versionnés, sans base de données. La préversion publique
 est destinée à `https://chaufferie-cil-staging.saletesincere.fr` avec non-indexation.
+Le [code source est public](https://github.com/salete-sincere/site-chaufferie-cil).
 
 ## Synthèse — 3 minutes
 

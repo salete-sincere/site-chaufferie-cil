@@ -74,9 +74,9 @@ sudo -n docker build \
 ```
 
 Vérifier un checkout propre, le SHA et la provenance du package avant publication.
-La création d'un dépôt privé et son premier package peuvent nécessiter de régler
-l'accès du workflow au package ; ne pas rendre le package public pour contourner
-une erreur d'authentification.
+Le dépôt GitHub est public, à la demande du propriétaire. La visibilité du package
+GHCR reste indépendante ; son accès de lecture est vérifié avant activation.
+Ne pas changer sa visibilité pour masquer une erreur d'authentification.
 
 ### Première installation
 
@@ -119,6 +119,13 @@ sudo -n /snap/bin/microk8s kubectl -n site-chaufferie-cil get deployment/site-ch
 Contrôler aussi le digest `imageID` du pod, les réponses de toutes les routes,
 les en-têtes de non-indexation et l'absence d'écriture/runtime cache sur la racine
 du conteneur. Conserver la preuve des résultats, limites et éventuelles erreurs.
+
+Le CDN peut modifier le HTML après le serveur : le repli contact sans JavaScript
+doit donc être testé sur le domaine. Les liens de courriel publics sont encadrés
+par les commentaires `email_off` [documentés par Cloudflare](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/).
+Seuls ces commentaires constants sont insérés en HTML brut ; les adresses, textes
+et messages restent rendus et échappés par React. Aucun réglage global de zone
+n'est modifié pour cette exception locale.
 
 ### Provisionnement des accès
 

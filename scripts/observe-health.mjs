@@ -17,6 +17,7 @@ if (!url || !['http:', 'https:'].includes(url.protocol) || url.username || url.p
 
 const started = performance.now();
 const deadline = started + durationSeconds * 1000;
+const requestTimeoutMs = 2000;
 let healthySince;
 let consecutiveFailures = 0;
 let samples = 0;
@@ -28,12 +29,15 @@ process.once('SIGTERM', () => { interrupted = true; });
 
 while (!interrupted && performance.now() < deadline) {
   const requestStarted = performance.now();
+  // Ending the observation must not turn a healthy response into a timeout.
+  // Only begin requests that can keep their full timeout within the budget.
+  if (deadline - requestStarted < requestTimeoutMs) break;
   let status = null;
   let valid = false;
   let failure = null;
   try {
     const response = await fetch(url, {
-      signal: AbortSignal.timeout(Math.max(1, Math.min(2000, Math.floor(deadline - performance.now())))),
+      signal: AbortSignal.timeout(requestTimeoutMs),
       redirect: 'error',
       cache: 'no-store',
       headers: { Accept: 'application/json', 'User-Agent': 'site-chaufferie-cil-release-check/1.0' },
