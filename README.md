@@ -17,6 +17,11 @@ répartis en huit thèmes et 17 sources. Chaque chiffre conserve son périmètre
 ses précautions. Les annonces du porteur, les positions d’HAC et les questions
 ouvertes sont identifiées. L’état documentaire est celui du 7 novembre 2026.
 
+Le communiqué d’HAC du 6 novembre 2026 se lit intégralement sur
+`/communique-de-presse`, avec sa date, son auteur et le lien vers le document source.
+Les accès au communiqué et à la page Facebook officielle sont visibles sur l’accueil,
+dans « Je milite » et dans le pied de page de toutes les pages.
+
 Les visiteurs peuvent choisir plusieurs types d’action et préparer un courriel
 adressé à `haubourdin_alternative_citoyenne@riseup.net`, objet « Comité chaufferie ».
 Le site ne l’envoie pas : la personne l’envoie depuis sa propre messagerie. Une
@@ -76,6 +81,12 @@ Les quatre fichiers dans `content/` contiennent des entrées Markdown séparées
 `figure-01`, `point-01`, `S1`, etc. Les sources sont centralisées dans `sources.md`.
 Une correction du Google Doc ne modifie pas automatiquement le site.
 
+Le fichier distinct `content/press-release.md` contient le communiqué, son auteur,
+sa date et sa provenance. Il est aussi validé au build. Son texte est conservé
+intégralement ; le contact est rendu séparément pour rester lisible sans JavaScript
+derrière Cloudflare. L’URL Facebook vérifiée depuis le Linktree HAC est centralisée
+dans `lib/hac.ts`. Il s’agit d’un lien externe, sans intégration Facebook ni traceur.
+
 1. Revoir les pièces et leur date, puis modifier le Markdown et ses références.
 2. Préserver les précautions et distinguer prévision, mesure et revendication.
 3. Mettre à jour `updatedAt` de manière cohérente dans les quatre collections.
@@ -90,7 +101,7 @@ code MDX ou JavaScript éditorial n’est exécuté.
 ### Routes et interfaces
 
 Routes publiques : `/`, `/informer`, `/informer/faq`, `/informer/chiffres`,
-`/sources`, `/militer`, `/rejoindre`. Les ancres FAQ et sources sont partageables.
+`/sources`, `/militer`, `/rejoindre`, `/communique-de-presse`. Les ancres FAQ et sources sont partageables.
 `GET /health` répond `{ "status": "ok", "revision": "<APP_REVISION>" }`, sans cache.
 Il n’existe aucune API d’inscription ou d’envoi. `APP_REVISION` désigne le SHA livré ;
 `SITE_URL` configure les métadonnées absolues au build, avec le domaine staging par défaut.

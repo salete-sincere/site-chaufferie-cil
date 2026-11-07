@@ -16,7 +16,9 @@ expose la disponibilité HTTP et la révision. Le traitement des images est réa
 au build. Aucune donnée mutable ni sortie réseau du serveur applicatif n’est nécessaire.
 
 Les collections FAQ, chiffres, introduction et sources sont chargées depuis quatre
-fichiers Markdown. Leurs références et leur format sont contrôlés avant chaque build.
+fichiers Markdown. Le communiqué de presse est un cinquième document indépendant,
+avec auteur, date et provenance, rendu intégralement sur `/communique-de-presse`.
+Leurs références et leur format sont contrôlés avant chaque build.
 Le rendu interdit les protocoles de liens dangereux et échappe le HTML brut. Le CMS
 futur remplacera ce chargement lorsqu’il sera décidé ; aucune abstraction de stockage
 ou API d’administration inutilisée n’est introduite maintenant.
@@ -29,7 +31,8 @@ sans transmettre de message réel au groupe.
 
 La préversion est publique, sans authentification, avec consigne de non-indexation.
 Ce choix autorise la relecture par lien mais ne constitue pas une confidentialité.
-Le code et l’image GHCR sont privés. Les ressources Kubernetes sont isolées dans
+Le code est public à la demande du propriétaire. L’accès au package GHCR est géré
+séparément. Les ressources Kubernetes sont isolées dans
 un namespace dédié, sans volume métier. Le retour arrière consiste à réactiver
 une image et sa révision connues ; aucune migration de données n’est nécessaire.
 

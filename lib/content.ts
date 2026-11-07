@@ -8,6 +8,7 @@ export type FigureEntry = { id: string; value: string; description: string; them
 export type OverviewEntry = { id: string; title: string; body: string; sourceIds: string[] };
 export type SourceEntry = { id: string; title: string; publisher: string; description: string; url: string };
 export type FigureThemeNote = { theme: string; body: string; sourceIds: string[] };
+export type PressRelease = { title: string; publisher: string; publishedAt: string; sourceDocument: string; body: string };
 export type Content = {
   faq: FaqEntry[];
   figures: FigureEntry[];
@@ -82,6 +83,27 @@ export async function getContent(directory = join(process.cwd(), 'content')): Pr
   return parseContentFiles(files);
 }
 
+export function parsePressRelease(markdown: string): PressRelease {
+  const { data, content } = matter(markdown);
+  const release = {
+    title: requiredText(data, 'title'),
+    publisher: requiredText(data, 'publisher'),
+    publishedAt: requiredText(data, 'publishedAt'),
+    sourceDocument: requiredText(data, 'sourceDocument'),
+    body: content.trim(),
+  };
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(release.publishedAt) || Number.isNaN(Date.parse(release.publishedAt))) {
+    throw new Error('Invalid press release date');
+  }
+  if (!webUrl(release.sourceDocument)) throw new Error('Invalid press release source URL');
+  validateMarkdownBody(release.body);
+  return release;
+}
+
+export async function getPressRelease(directory = join(process.cwd(), 'content')): Promise<PressRelease> {
+  return parsePressRelease(await readFile(join(directory, 'press-release.md'), 'utf8'));
+}
+
 function webUrl(value: string): boolean {
   try {
     const url = new URL(value);
@@ -137,18 +159,22 @@ function validateContent(content: Content): void {
     ...content.sources.map(({ description }) => description), ...content.figureThemeNotes.map(({ body }) => body),
   ];
   for (const body of markdownBodies) {
-    if (!body.trim()) throw new Error('Empty content body');
+    validateMarkdownBody(body);
     marked.walkTokens(marked.lexer(body), (token) => {
-      if (token.type === 'html') throw new Error('Raw HTML is not allowed in content');
-      if (token.type === 'image') throw new Error('Markdown images are not allowed in content');
-      if (token.type === 'link') {
-        if (!safeLink(token.href)) throw new Error(`Unsafe Markdown link: ${token.href}`);
-        if (token.href.startsWith('/sources#') && !sources.has(token.href.slice('/sources#'.length))) {
-          throw new Error(`Unknown source link: ${token.href}`);
-        }
+      if (token.type === 'link' && token.href.startsWith('/sources#') && !sources.has(token.href.slice('/sources#'.length))) {
+        throw new Error(`Unknown source link: ${token.href}`);
       }
     });
   }
+}
+
+function validateMarkdownBody(body: string): void {
+  if (!body.trim()) throw new Error('Empty content body');
+  marked.walkTokens(marked.lexer(body), (token) => {
+    if (token.type === 'html') throw new Error('Raw HTML is not allowed in content');
+    if (token.type === 'image') throw new Error('Markdown images are not allowed in content');
+    if (token.type === 'link' && !safeLink(token.href)) throw new Error(`Unsafe Markdown link: ${token.href}`);
+  });
 }
 
 function escapeHtml(value: string): string {
