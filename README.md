@@ -5,9 +5,10 @@
 Ce site permet de s’informer sur la chaufferie de la friche Lever, de partager
 des contenus et de rejoindre le comité en cours de constitution, initié par HAC.
 Next.js sert des contenus Markdown sur infra-sincere, sans base de données.
-La mise en service de `https://stopchaufferiehaubourdin.fr` est préparée, sans
-activation acquise. La préversion `https://chaufferie-cil-staging.saletesincere.fr`
-est conservée. Les deux adresses gardent la consigne de non-indexation.
+Le domaine public retenu est `https://stopchaufferiehaubourdin.fr` ; sa mise en
+service est suivie dans [l’issue dédiée](https://github.com/salete-sincere/site-chaufferie-cil/issues/8).
+La préversion `https://chaufferie-cil-staging.saletesincere.fr` est conservée.
+Les deux adresses gardent la consigne de non-indexation.
 
 ## Synthèse — 3 minutes
 

@@ -141,12 +141,24 @@ solveur ; un timeout ne justifie pas de recréer l’Issuer ou de multiplier les
 demandes de certificat. Ne pas exposer les clés des Secrets.
 
 Vérifier l’HTTP vers HTTPS, la chaîne TLS et le nom couvert, le SHA de `/health`,
-la non-indexation et les trois Golden Journeys avec `E2E_BASE_URL` :
+la non-indexation et les trois Golden Journeys avec `E2E_BASE_URL`. La révision
+attendue est celle de l’image réellement activée et qualifiée : un ajout de
+domaine seul ne change ni l’image ni `APP_REVISION`, même si le checkout a avancé.
+Contrôler le couple actif et le comparer au SHA et au digest de la livraison :
 
 ```sh
+active_revision=$(sudo -n /snap/bin/microk8s kubectl -n site-chaufferie-cil get deployment site-chaufferie-cil -o jsonpath='{.spec.template.spec.containers[?(@.name=="web")].env[?(@.name=="APP_REVISION")].value}')
+active_image=$(sudo -n /snap/bin/microk8s kubectl -n site-chaufferie-cil get deployment site-chaufferie-cil -o jsonpath='{.spec.template.spec.containers[?(@.name=="web")].image}')
+test "$active_image" = "ghcr.io/salete-sincere/site-chaufferie-cil:$active_revision" || exit 1
 E2E_BASE_URL=https://stopchaufferiehaubourdin.fr npm run test:e2e
-node scripts/observe-health.mjs https://stopchaufferiehaubourdin.fr/health "$release_commit" 180 60
+node scripts/observe-health.mjs https://stopchaufferiehaubourdin.fr/health "$active_revision" 180 60
 ```
+
+Après un changement d’image, vérifier que ce couple correspond au nouveau SHA
+qualifié une fois le rollout terminé. Si le domaine est ajouté à une ancienne
+image construite avec un autre `SITE_URL`, fournir cette valeur à la suite E2E
+pour contrôler ses métadonnées réelles ; la migration des métadonnées exige la
+nouvelle image prévue dans cette livraison.
 
 Sur Penthouse, conserver la sandbox et l’exécutable Chromium approuvé selon
 le README. Si une observation est déjà active pour la livraison, la réutiliser.
