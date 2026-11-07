@@ -12,10 +12,16 @@ Le [code source est public](https://github.com/salete-sincere/site-chaufferie-ci
 
 ## Synthèse — 3 minutes
 
-Le dossier comprend dix points introductifs, 34 questions, 48 repères chiffrés
-répartis en huit thèmes et 17 sources. Chaque chiffre conserve son périmètre et
+Le dossier comprend dix points introductifs, 39 questions, 51 repères chiffrés
+répartis en huit thèmes et 27 sources. Chaque chiffre conserve son périmètre et
 ses précautions. Les annonces du porteur, les positions d’HAC et les questions
 ouvertes sont identifiées. L’état documentaire est celui du 7 novembre 2026.
+
+Le bloc « Ailleurs en France » de `/informer` donne accès aux comparaisons avec
+Surville et Sully, aux enquêtes de Canopée et aux décisions concernant Beaunant et
+Saint-Genis-Laval. Les enquêtes associatives sont attribuées et ne sont pas présentées
+comme des preuves de l’origine du combustible d’Haubourdin. Les puissances utiles,
+la puissance du combustible et la récupération des fumées restent distinctes.
 
 Le communiqué d’HAC du 6 novembre 2026 se lit intégralement sur
 `/communique-de-presse`, avec sa date, son auteur et le lien vers le document source.

@@ -175,3 +175,103 @@ url: "https://www.cada.fr/index.php/administration/delegation-de-service-public"
 ---
 
 Fiche sur la communicabilité du contrat de délégation et de ses annexes après signature, avec protection des informations couvertes par le secret des affaires. Consultée le 7 novembre 2026.
+
+<!-- entry -->
+---
+id: "S18"
+title: "ilénergie/Dalkia — Déclaration d’intention du projet d’Haubourdin"
+publisher: "ilénergie/Dalkia ; document établi par Bureau Veritas Exploitation"
+url: "https://www.dalkia.fr/sites/default/files/2026-05/ILE-HAB-BVE-AA-DP-010-DI-VDEF.pdf"
+---
+
+11 mai 2026. Pages 14–15 : 63 MW thermiques utiles pour 60 MW PCI et récupération de chaleur des fumées. Page 21 : cuve de fioul de 30 m³ envisagée à cette date. Le dossier de concertation de septembre S1, p. 30–31, confirme le recours au fioul, sans reconfirmer ce volume dans les passages cités.
+
+<!-- entry -->
+---
+id: "S19"
+title: "ELM/Dalkia — Projet de Saint-Priest et moyens de production de Surville"
+publisher: "ELM/Dalkia ; dossier diffusé par la préfecture du Rhône"
+url: "https://www.rhone.gouv.fr/contenu/telechargement/63796/430796/file/PJ1_Description_du_projet.pdf"
+---
+
+Janvier 2025. Dossier de demande d’enregistrement rubrique 2910 de la chaufferie gaz de Saint-Priest. La section 1.2.2, p. 9, décrit les moyens de production de Surville : trois chaudières biomasse de 17 MW utiles, soit 51 MW, et des chaudières gaz/fioul complémentaires. Le document distingue les puissances utiles des puissances nominales de combustion. Compléter cette comparaison par la récupération des fumées S20. Repère bibliographique : l’annexe HAC nomme cette pièce « Description du projet de Surville » ; le PDF lié porte sur Saint-Priest et décrit aussi les moyens de Surville.
+
+<!-- entry -->
+---
+id: "S20"
+title: "Dalkia Froid Solutions — Récupération de chaleur des fumées à Surville"
+publisher: "Dalkia Froid Solutions"
+url: "https://www.dalkiafroidsolutions.com/valoriser-la-chaleur-fatale-des-fumees-dune-chaufferie-biomasse"
+---
+
+Page « Valoriser la chaleur fatale des fumées d’une chaufferie biomasse », consultée le 7 novembre 2026. PAC de 9,6 MW thermiques annoncée pour le réseau lyonnais. Ne pas additionner automatiquement cette puissance aux 51 MW des chaudières pour annoncer une puissance totale certifiée.
+
+<!-- entry -->
+---
+id: "S21"
+title: "Swiss Krono France, Dalkia et Meridiam — Dossier de presse Green Energy"
+publisher: "Swiss Krono France, Dalkia et Meridiam ; document diffusé par Meridiam"
+url: "https://www.meridiam.com/wp-content/uploads/2022/07/Dossier-de-presse-Projet-Green-Energy-Swiss-Krono-Dalkia-Meridiam-_-FR-BD.pdf"
+---
+
+2022. Pages 5 et 12 : unité industrielle à Sully-sur-Loire annoncée à 63 MW utiles. Page 15 : écorces et sous-produits de fabrication présentés comme combustibles ; bois destiné aux panneaux décrit séparément. Déclarations des partenaires, sans contrôle indépendant de l’origine des lots dans ce document.
+
+<!-- entry -->
+---
+id: "S22"
+title: "Dalkia — Inauguration de Green Energy chez Swiss Krono à Sully-sur-Loire"
+publisher: "Dalkia"
+url: "https://www.dalkia.fr/presse/dalkia-swiss-krono/"
+---
+
+Communiqué du 5 septembre 2024. Inauguration de l’unité et combustible annoncé comme provenant en majorité du processus de fabrication des matériaux à base de bois. Cette formulation ne garantit pas un approvisionnement exclusivement en résidus internes.
+
+<!-- entry -->
+---
+id: "S23"
+title: "Métropole de Lyon — Réorientation du réseau Saône-Yzeron"
+publisher: "Métropole de Lyon"
+url: "https://www.grandlyon.com/fileadmin/user_upload/media/pdf/espace-presse/cp/2025/20250108_cp_recuperation_chaleur_fatale.pdf"
+---
+
+Communiqué du 8 janvier 2025 : récupération de chaleur industrielle à Collonges-au-Mont-d’Or permettant de renoncer à la grande chaufferie bois prévue à Sainte-Foy-lès-Lyon/Francheville. Ce communiqué ne décrit pas un refus préfectoral après enquête publique.
+
+<!-- entry -->
+---
+id: "S24"
+title: "Odile Rocher — Rapport et avis sur la consultation SOLEV à Saint-Genis-Laval"
+publisher: "Odile Rocher, commissaire enquêtrice ; rapport diffusé sur le registre officiel de la consultation"
+url: "https://www.registre-dematerialise.fr/upload/boxes/6832/documents/69f998bb3565a_TA%20E25000174-69%20AUTORISATION_ENVIRONNEMENTALE_RAPPORT_ET_AVIS_DU_COMMISSAIRE-ENQUETEUR_%20arre%CC%82t_29_avril_2026%5B1%5D.pdf"
+---
+
+Rapport et avis du 29 avril 2026, après consultation du 7 janvier au 8 avril. Conclusion p. 60 : avis défavorable à la demande d’autorisation environnementale. Cet avis doit être distingué de la décision préfectorale ultérieure S25.
+
+<!-- entry -->
+---
+id: "S25"
+title: "Préfecture du Rhône — Autorisation environnementale SOLEV du 30 juillet 2026"
+publisher: "Préfecture du Rhône"
+url: "https://www.rhone.gouv.fr/layout/set/print/Actions-de-l-Etat/Environnement-transition-ecologique-risques-naturels-et-technologiques/Installations-classees-pour-la-protection-de-l-environnement/Arretes-prefectoraux/Arretes-d-autorisation-et-refus-d-autorisation"
+---
+
+Arrêté DDPP-DREAL n° 2026-139 du 30 juillet 2026 autorisant une chaufferie biomasse SOLEV au 6 chemin de la Mouche à Saint-Genis-Laval, annoncé sur la liste officielle des arrêtés le 3 août 2026. L’avis défavorable du commissaire n’a donc pas entraîné un refus d’autorisation.
+
+<!-- entry -->
+---
+id: "S26"
+title: "Canopée — Des chênes centenaires transformés en granulés de bois"
+publisher: "Canopée – Forêts vivantes"
+url: "https://www.canopee.ong/le-media/enquetes/des-chenes-centenaires-transformes-en-granules-de-bois/"
+---
+
+Enquête publiée le 9 mars 2023. Photos d’une coupe rase à Marigny-l’Église, de bois sur le parc de Biosyl à Cosne-sur-Loire et reproduction d’un courrier d’Unisylva sur la destination du bois. Relate l’action menée avec SOS Forêt et ANV-COP21 Nevers le 4 juin 2020. Les appréciations sur la qualité du bois et la justification de la coupe sont celles de l’association et sont contestées par le fournisseur.
+
+<!-- entry -->
+---
+id: "S27"
+title: "Canopée — Enquête sur la destination du bois de Mérigny vers les chaufferies de Tours"
+publisher: "Canopée – Forêts vivantes"
+url: "https://www.canopee.ong/le-media/points-de-vue/notre-reponse-a-deux-articles-du-magazine-le-point-a-propos-de-canopee/"
+---
+
+Article du 24 juillet 2026 « Notre réponse à deux articles du Magazine Le Point à propos de Canopée ». L’association décrit un suivi de camions reliant du bois de Mérigny, dans l’Indre, aux chaufferies collectives de la métropole de Tours et renvoie vers des publications et une vidéo. La qualification d’illégalité est portée par l’association ; aucun jugement ni document original de la DDT n’est cité dans cette annexe.

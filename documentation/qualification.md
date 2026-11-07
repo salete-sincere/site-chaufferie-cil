@@ -11,13 +11,19 @@ Ce document décrit les contrôles et leurs limites ; il ne remplace pas leurs r
 
 ## Synthèse — 3 minutes
 
-**Je m’informe** vérifie l’accès aux dix points, aux 34 FAQ, aux 48 chiffres et aux
-17 sources. La recherche, le filtre thématique, l’absence de résultat, les ancres
+**Je m’informe** vérifie l’accès aux dix points, aux 39 FAQ, aux 51 chiffres et aux
+27 sources. La recherche, le filtre thématique, l’absence de résultat, les ancres
 directes et le passage vers la source originale font partie du parcours.
 L’accès au communiqué complet depuis l’accueil, la page « Je milite » et le pied
 de page est vérifié, ainsi que sa provenance, son contact et le lien Facebook exact.
 La navigation Facebook est interceptée après contrôle de sa destination ; son accès
 peut dépendre des conditions de Meta et de la connexion du visiteur.
+Le panorama vérifie aussi la recherche « Canopée », l’attribution des enquêtes,
+les précautions sur Sully et Haubourdin, le fioul prévu, les périmètres des puissances,
+l’autorisation préfectorale après avis défavorable et les références S18 à S27.
+Les anciens liens directs sont conservés ; les textes à copier affichent les
+comptages actualisés. Les deux nouveaux scénarios ont échoué sur l’ancien build
+avant de qualifier le contenu mis à jour.
 
 **Je milite** vérifie la copie des trois messages et de leurs liens, le partage
 natif, son annulation et les replis lorsque partage ou presse-papiers sont absents

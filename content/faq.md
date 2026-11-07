@@ -56,6 +56,18 @@ Sources : ADEME — [S16](/sources#S16).
 
 <!-- entry -->
 ---
+id: "faq-35"
+question: "Sera-t-elle la plus grande chaufferie biomasse de France ?"
+theme: "Pour commencer"
+sourceIds: ["S18", "S19", "S20", "S21", "S22"]
+---
+
+Ce classement n’est pas établi. Les 63 MW utiles prévus à Haubourdin comprennent une récupération de chaleur des fumées. À Surville, les trois chaudières bois totalisent 51 MW, mais une récupération des fumées avec une PAC annoncée à 9,6 MW a aussi été installée. Ces périmètres ne se comparent pas par une simple division. L’unité industrielle de Swiss Krono à Sully-sur-Loire est par ailleurs annoncée à 63 MW utiles et a été inaugurée en 2024. Il faudrait définir la catégorie et disposer d’un classement actualisé pour parler de record national.
+
+Sources : ilénergie/Dalkia, p. 14–15 — [S18](/sources#S18) ; ELM/Dalkia — [S19](/sources#S19) ; Dalkia Froid Solutions — [S20](/sources#S20) ; Swiss Krono–Dalkia–Meridiam, p. 5 et 12 — [S21](/sources#S21) ; Dalkia, 5 septembre 2024 — [S22](/sources#S22).
+
+<!-- entry -->
+---
 id: "faq-05"
 question: "Pourquoi avoir choisi Haubourdin ?"
 theme: "Le site et les alternatives"
@@ -260,6 +272,44 @@ Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 21) ; HAC (retranscription
 
 <!-- entry -->
 ---
+id: "faq-36"
+question: "La chaufferie fonctionnera-t-elle uniquement au bois, sans fioul ?"
+theme: "Le bois et sa traçabilité"
+sourceIds: ["S1"]
+---
+
+Le bois est le combustible principal annoncé, mais du fioul est aussi prévu. Le dossier de concertation de septembre 2026 le mentionne pour les démarrages ou pour maintenir les conditions optimales de combustion, et décrit les émissions ponctuelles correspondantes. Les passages consultés ne chiffrent pas sa consommation annuelle. Ce n’est donc pas un projet strictement sans combustible fossile. Cela ne signifie pas non plus qu’il prévoit un fonctionnement permanent au fioul : la fréquence et les quantités doivent être précisées.
+
+Sources : ilénergie/Dalkia, p. 30–31 — [S1](/sources#S1).
+
+<!-- entry -->
+---
+id: "faq-37"
+question: "Des collectifs ont-ils documenté des coupes rases pour le bois-énergie ?"
+theme: "Le bois et sa traçabilité"
+sourceIds: ["S26", "S27"]
+---
+
+Oui. Dans une enquête publiée le 9 mars 2023, Canopée décrit des coupes rases dans le Morvan et relie du bois à l’usine de granulés Biosyl, à Cosne-sur-Loire. L’article présente des photos de parcelle et du parc à bois, ainsi qu’un courrier du fournisseur Unisylva. Il rapporte une action menée avec SOS Forêt et ANV-COP21 Nevers. Les associations et le fournisseur sont en désaccord sur la qualité du bois et la justification de la coupe.
+
+Autre cas : Canopée affirme avoir suivi des camions reliant du bois issu d’une coupe rase à Mérigny, dans l’Indre, aux chaufferies collectives de la métropole de Tours. Son article du 24 juillet 2026 décrit cette méthode et renvoie vers des vidéos. Ce sont des enquêtes associatives à attribuer à leurs auteurs. Elles justifient d’examiner la traçabilité et les contrôles du futur approvisionnement d’Haubourdin ; elles ne prouvent pas l’origine de son combustible.
+
+Sources : Canopée — [S26](/sources#S26) ; Canopée — [S27](/sources#S27).
+
+<!-- entry -->
+---
+id: "faq-38"
+question: "Les coupes rases sont-elles documentées pour la chaudière de Sully-sur-Loire ?"
+theme: "Le bois et sa traçabilité"
+sourceIds: ["S21", "S22"]
+---
+
+Nous n’avons pas identifié de source établissant un lien entre une coupe rase précise et l’approvisionnement de cette chaudière. Le dossier des partenaires de 2022 annonce des écorces et des sous-produits de fabrication ; Dalkia parle en 2024 d’un combustible provenant en majorité du processus industriel. Ce sont les déclarations des porteurs, pas une vérification indépendante de chaque livraison. Du bois livré pour fabriquer des panneaux ne prouve pas qu’il est brûlé directement. Sully ne peut donc pas être présenté ici comme un cas établi de coupes rases pour le chauffage.
+
+Sources : Swiss Krono–Dalkia–Meridiam, p. 15 — [S21](/sources#S21) ; Dalkia, 5 septembre 2024 — [S22](/sources#S22).
+
+<!-- entry -->
+---
 id: "faq-22"
 question: "Combien pèse une péniche de bois ?"
 theme: "Les péniches et les camions"
@@ -413,3 +463,15 @@ sourceIds: ["S1", "S9", "S11"]
 ilénergie sera l’interlocuteur pour le fonctionnement de la chaufferie ; la MEL est responsable de la concession et le préfet intervient pour l’autorisation environnementale. Un signalement devra décrire précisément les faits, leur lieu et leur date, auprès de l’exploitant et des autorités concernées. Le suivi présenté en concertation comprend notamment des mesures de l’air avec Atmo. Les sources réunies ici n’établissent pas encore de procédure locale complète de traitement des plaintes ni de pouvoir de sanction du comité de suivi.
 
 Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 37) ; MEL — [S9](/sources#S9) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11).
+
+<!-- entry -->
+---
+id: "faq-39"
+question: "Des projets de chaufferie ont-ils été abandonnés près de Lyon ?"
+theme: "Les décisions et le suivi"
+sourceIds: ["S23", "S24", "S25"]
+---
+
+Deux dossiers sont à distinguer. À Beaunant, sur le secteur Sainte-Foy-lès-Lyon/Francheville, la Métropole annonce le 8 janvier 2025 qu’une récupération de chaleur industrielle à Collonges-au-Mont-d’Or permettra de renoncer à la grande chaufferie bois prévue. À Saint-Genis-Laval, la consultation du 7 janvier au 8 avril 2026 a été suivie d’un avis défavorable de la commissaire enquêtrice, le 29 avril. Mais le préfet a ensuite délivré l’autorisation environnementale, le 30 juillet 2026. Il serait donc inexact de présenter Saint-Genis-Laval comme un projet bloqué par le préfet après consultation.
+
+Sources : Métropole de Lyon, 8 janvier 2025 — [S23](/sources#S23) ; Odile Rocher, conclusion p. 60 — [S24](/sources#S24) ; Préfecture du Rhône, arrêté du 30 juillet 2026 — [S25](/sources#S25).

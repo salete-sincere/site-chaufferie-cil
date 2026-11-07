@@ -122,7 +122,7 @@ function validateContent(content: Content): void {
     throw new Error('Invalid content date');
   }
   if (!webUrl(content.sourceDocument)) throw new Error('Invalid source document URL');
-  const expected = { faq: 34, figures: 48, overview: 10, sources: 17 };
+  const expected = { faq: 39, figures: 51, overview: 10, sources: 27 };
   const ids = new Set<string>();
   for (const name of collectionNames) {
     if (content[name].length !== expected[name]) throw new Error(`${name} must contain ${expected[name]} entries`);
@@ -133,7 +133,7 @@ function validateContent(content: Content): void {
     }
   }
   const sources = new Set(content.sources.map(({ id }) => id));
-  for (let index = 1; index <= 17; index++) {
+  for (let index = 1; index <= expected.sources; index++) {
     if (!sources.has(`S${index}`)) throw new Error(`Missing source S${index}`);
   }
   for (const source of content.sources) {

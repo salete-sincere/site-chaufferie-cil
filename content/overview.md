@@ -10,10 +10,10 @@ collection: "overview"
 ---
 id: "point-01"
 title: "Une chaufferie sur la friche Lever"
-sourceIds: ["S1", "S2", "S9"]
+sourceIds: ["S1", "S2", "S9", "S18"]
 ---
 
-**Le projet annoncé.** ilénergie, filiale de Dalkia, prévoit une chaufferie biomasse de **63 MW thermiques** sur la friche Lever, pour alimenter le réseau de chaleur métropolitain. La MEL a attribué la concession du réseau en 2025.
+**Le projet annoncé.** ilénergie, filiale de Dalkia, prévoit une chaufferie biomasse de **63 MW thermiques utiles** sur la friche Lever, pour alimenter le réseau de chaleur métropolitain. La MEL a attribué la concession du réseau en 2025.
 
 **La position d’HAC.** Haubourdin Alternative Citoyenne s’oppose en l’état à cette implantation et appelle à constituer un comité d’intérêt local pour obtenir son abandon par des moyens démocratiques.
 
@@ -21,10 +21,12 @@ sourceIds: ["S1", "S2", "S9"]
 ---
 id: "point-02"
 title: "63 MW : une puissance, pas un nombre de logements"
-sourceIds: ["S2", "S4", "S5"]
+sourceIds: ["S2", "S4", "S5", "S18"]
 ---
 
 **Les annonces.** Le porteur prévoit **215 GWh de chaleur par an**, présentés comme l’équivalent de la consommation de 20 000 foyers. Les **75 000 équivalents-logements** concernent l’ensemble du réseau, alimenté par plusieurs sources.
+
+**Le périmètre.** Les 63 MW utiles comprennent la récupération de chaleur des fumées. La déclaration d’intention distingue cette chaleur des **60 MW PCI** apportés par le combustible. [Comparer avec Surville et Sully-sur-Loire](/informer/faq#faq-35).
 
 **Ce qui reste à expliquer.** Production, chaleur livrée et pertes sont des grandeurs différentes. Les volumes publiés ne suffisent pas à reconstituer la part de 34 % annoncée pour Lever. Le dimensionnement après rénovation des bâtiments reste à documenter.
 
@@ -47,6 +49,8 @@ sourceIds: ["S1", "S3", "S11"]
 ---
 
 **Les annonces.** La chaufferie consommerait **65 000 tonnes de biomasse par an**. Le porteur annonce 75 % de l’approvisionnement à moins de 25 km et la totalité à moins de 100 km. Le mélange comprendrait notamment du bois en fin de vie, des déchets verts et des plaquettes forestières.
+
+**Le combustible.** Le bois est le combustible principal annoncé. Le dossier prévoit aussi du fioul pour les démarrages ou le maintien des conditions de combustion, sans chiffrer sa consommation annuelle dans les passages consultés. [Lire les précisions sur le fioul](/informer/faq#faq-36).
 
 **La demande d’HAC.** Garantir l’origine du bois et exclure celui issu de coupes rases. Les rayons annoncés ne décrivent pas les trajets réels ; fournisseurs, contrôles et clauses de remplacement restent à documenter.
 

@@ -12,7 +12,7 @@ Préserver le namespace dédié et les autres services d’infra-sincere.
 
 Lire les consignes `/home/ubuntu/AGENTS.md` et `/home/ubuntu/source/AGENTS.md` sur
 Penthouse, puis README, ADR et guide de déploiement du dépôt. Les contenus de référence
-sont dans `content/` ; les sources S1 à S17 et les ancres publiques doivent rester
+sont dans `content/` ; les identifiants des sources déjà publiées et les ancres publiques doivent rester
 stables. Ne pas transformer une annonce en mesure, supprimer une précaution utile,
 inventer une réunion, un porte-parole ou un résultat sanitaire.
 

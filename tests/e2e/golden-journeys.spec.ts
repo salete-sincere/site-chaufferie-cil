@@ -127,14 +127,14 @@ test.describe('Golden Journey — Je m’informe', () => {
     await expect(page.getByTestId('overview-point')).toHaveCount(10);
 
     await page.locator('a[href="/informer/faq"]').first().click();
-    await expect(page.locator('main details')).toHaveCount(34);
+    await expect(page.locator('main details')).toHaveCount(39);
     const question = page.locator('main details').first();
     await question.locator('summary').click();
     await expect(question).toHaveAttribute('open', '');
     await expect(question.locator('a[href^="/sources#"]').first()).toBeVisible();
 
     await page.goto('/informer/chiffres');
-    await expect(page.getByTestId('figure')).toHaveCount(48);
+    await expect(page.getByTestId('figure')).toHaveCount(51);
     const reference = page.getByTestId('figure').first().locator('a[href^="/sources#"]').first();
     const href = await reference.getAttribute('href');
     await reference.click();
@@ -173,7 +173,7 @@ test.describe('Golden Journey — Je m’informe', () => {
     await expect(questions).toHaveCount(0);
     await expect(page.getByText(/aucun.*(?:résultat|question)/i)).toBeVisible();
     await page.getByLabel('Rechercher une question', { exact: true }).fill('');
-    await expect(questions).toHaveCount(34);
+    await expect(questions).toHaveCount(39);
 
     const select = page.getByRole('combobox', { name: 'Thème', exact: true });
     const options = await select.locator('option').evaluateAll((nodes) =>
@@ -181,25 +181,120 @@ test.describe('Golden Journey — Je m’informe', () => {
     expect(options.length).toBeGreaterThan(1);
     await select.selectOption(options[1]);
     await expect.poll(() => questions.count()).toBeGreaterThan(0);
-    expect(await questions.count()).toBeLessThan(34);
+    expect(await questions.count()).toBeLessThan(39);
     await select.selectOption(options[0]);
-    await expect(questions).toHaveCount(34);
+    await expect(questions).toHaveCount(39);
   });
 
   test('lien direct vers une réponse dépliée et références complètes', async ({ page }) => {
-    await page.goto('/informer/faq');
-    const lastQuestion = page.locator('main details').last();
-    const id = await lastQuestion.getAttribute('id');
-    expect(id).toBeTruthy();
-    await page.goto(`/informer/faq#${id}`);
-    await expect(page.locator(`[id="${id}"]`)).toHaveAttribute('open', '');
-    await expect(page.locator(`[id="${id}"] summary`)).toBeInViewport();
+    // Old shared links must remain meaningful after inserting new questions
+    // within the thematic groups, including the former last question.
+    for (const [id, title] of [
+      ['faq-01', 'Qu’est-ce qui est prévu sur la friche Lever ?'],
+      ['faq-34', 'Qui contacter en cas de nuisance ?'],
+      ['faq-39', 'Des projets de chaufferie ont-ils été abandonnés près de Lyon ?'],
+    ]) {
+      await page.goto(`/informer/faq#${id}`);
+      const question = page.locator(`[id="${id}"]`);
+      await expect(question).toHaveAttribute('open', '');
+      await expect(question.locator('summary')).toContainText(title);
+      await expect(question.locator('summary')).toBeInViewport();
+    }
     await page.goto('/sources');
-    for (let number = 1; number <= 17; number += 1) {
+    for (let number = 1; number <= 27; number += 1) {
       const source = page.locator(`[id="S${number}"]`);
       await expect(source).toBeVisible();
       await expect(source.locator('a[href^="http"]').first()).toBeVisible();
     }
+  });
+
+  test('Canopée et panorama : enquêtes attribuées, limites et décisions distinctes', async ({ page }) => {
+    await page.goto('/informer/faq');
+    const search = page.getByLabel('Rechercher une question', { exact: true });
+    await search.fill('Canopée');
+    const canopy = page.locator('#faq-37');
+    await expect(page.locator('main details:visible')).toHaveCount(1);
+    await expect(canopy).toBeVisible();
+    await canopy.locator('summary').click();
+    await expect(canopy).toContainText('Canopée décrit des coupes rases dans le Morvan');
+    await expect(canopy).toContainText('Les associations et le fournisseur sont en désaccord');
+    await expect(canopy).toContainText('Ce sont des enquêtes associatives à attribuer à leurs auteurs');
+    await expect(canopy).toContainText('elles ne prouvent pas l’origine de son combustible');
+    for (const source of ['S26', 'S27']) {
+      await expect(canopy.locator(`a[href="/sources#${source}"]`).first()).toBeVisible();
+    }
+
+    await search.fill('La chaufferie fonctionnera-t-elle uniquement au bois, sans fioul ?');
+    const fuel = page.locator('#faq-36');
+    await expect(page.locator('main details:visible')).toHaveCount(1);
+    await fuel.locator('summary').click();
+    await expect(fuel).toContainText('du fioul est aussi prévu');
+    await expect(fuel).toContainText('ne chiffrent pas sa consommation annuelle');
+    await expect(fuel).toContainText('Cela ne signifie pas non plus qu’il prévoit un fonctionnement permanent au fioul');
+    await expect(fuel.locator('a[href="/sources#S1"]').first()).toBeVisible();
+
+    await page.goto('/informer');
+    await expect(page.getByRole('heading', { name: 'Ailleurs en France', exact: true })).toBeVisible();
+    const panorama = page.getByRole('navigation', { name: 'Panorama des projets et enquêtes en France', exact: true });
+    for (const id of ['faq-35', 'faq-37', 'faq-38', 'faq-39']) {
+      await expect(panorama.locator(`a[href="/informer/faq#${id}"]`)).toBeVisible();
+    }
+    await panorama.locator('a[href="/informer/faq#faq-35"]').click();
+    await expect(page).toHaveURL(/\/informer\/faq#faq-35$/);
+    const comparison = page.locator('#faq-35');
+    await expect(comparison).toHaveAttribute('open', '');
+    await expect(comparison).toContainText('Ce classement n’est pas établi');
+    await expect(comparison).toContainText('63 MW utiles');
+    await expect(comparison).toContainText('Ces périmètres ne se comparent pas par une simple division');
+    for (const source of ['S18', 'S19', 'S20', 'S21', 'S22']) {
+      await expect(comparison.locator(`a[href="/sources#${source}"]`).first()).toBeVisible();
+    }
+
+    await page.goto('/informer/faq#faq-38');
+    const sully = page.locator('#faq-38');
+    await expect(sully).toHaveAttribute('open', '');
+    await expect(sully).toContainText('Nous n’avons pas identifié de source établissant un lien entre une coupe rase précise et l’approvisionnement de cette chaudière');
+    await expect(sully).toContainText('Sully ne peut donc pas être présenté ici comme un cas établi de coupes rases pour le chauffage');
+
+    await page.goto('/informer/faq#faq-39');
+    const lyon = page.locator('#faq-39');
+    await expect(lyon).toHaveAttribute('open', '');
+    await expect(lyon).toContainText('renoncer à la grande chaufferie bois prévue');
+    await expect(lyon).toContainText('avis défavorable de la commissaire enquêtrice');
+    await expect(lyon).toContainText('le préfet a ensuite délivré l’autorisation environnementale, le 30 juillet 2026');
+    await expect(lyon).toContainText('inexact de présenter Saint-Genis-Laval comme un projet bloqué par le préfet');
+    for (const source of ['S23', 'S24', 'S25']) {
+      await expect(lyon.locator(`a[href="/sources#${source}"]`).first()).toBeVisible();
+    }
+  });
+
+  test('nouveaux repères : puissance utile, PCI et récupération des fumées', async ({ page }) => {
+    await page.goto('/informer/chiffres');
+    const lever = page.locator('#figure-01');
+    await expect(lever).toContainText('63 MWth utiles');
+    await expect(lever).toContainText('récupération de chaleur des fumées');
+    await expect(lever.locator('a[href="/sources#S18"]')).toBeVisible();
+    const inputPower = page.locator('#figure-49');
+    await expect(inputPower).toContainText('60 MW PCI');
+    await expect(inputPower).toContainText('À distinguer des 63 MW de chaleur utile');
+    const usefulPower = page.locator('#figure-50');
+    await expect(usefulPower).toContainText('51 MW utiles');
+    await expect(usefulPower).toContainText('chaudières gaz/fioul');
+    const recovery = page.locator('#figure-51');
+    await expect(recovery).toContainText('9,6 MWth');
+    await expect(recovery).toContainText('Ne pas additionner automatiquement ce chiffre aux 51 MW des chaudières');
+    for (const [figureId, sourceId] of [
+      ['figure-49', 'S18'], ['figure-50', 'S19'], ['figure-51', 'S20'],
+    ]) {
+      await page.goto(`/informer/chiffres#${figureId}`);
+      await page.locator(`#${figureId} a[href="/sources#${sourceId}"]`).click();
+      await expect(page).toHaveURL(new RegExp(`/sources#${sourceId}$`));
+      await expect(page.locator(`#${sourceId}`)).toBeInViewport();
+    }
+    await page.goto('/informer/chiffres#figure-48');
+    await expect(page.locator('#figure-48')).toBeInViewport();
+    await expect(page.locator('#figure-48')).toContainText('2032');
+    await expect(page.locator('#figure-48')).toContainText('Horizon annoncé pour le réseau ilénergie étendu');
   });
 });
 
@@ -213,6 +308,7 @@ test.describe('Golden Journey — Je milite', () => {
     const copied = await page.evaluate(() => (window as BrowserEvidence).__copiedTexts);
     expect(copied).toHaveLength(3);
     expect(new Set(copied).size).toBe(3);
+    expect(copied.join('\n')).toContain('39 questions et 51 repères');
     for (const message of copied) {
       expect(message.length).toBeGreaterThan(60);
       expect(message).toMatch(/https?:\/\/\S+/);
@@ -335,11 +431,16 @@ test.describe('Lecture essentielle sans JavaScript', () => {
     await expect(page.getByTestId('overview-point')).toHaveCount(10);
     await page.goto('/informer/faq');
     await expect(page.getByText('La recherche nécessite JavaScript. Toutes les questions restent consultables ci-dessous.', { exact: true })).toBeVisible();
-    await expect(page.locator('main details')).toHaveCount(34);
+    await expect(page.locator('main details')).toHaveCount(39);
     await page.locator('main details').first().locator('summary').click();
     await expect(page.locator('main details').first()).toHaveAttribute('open', '');
+    await page.locator('#faq-37 summary').click();
+    await expect(page.locator('#faq-37')).toHaveAttribute('open', '');
+    await expect(page.locator('#faq-37')).toContainText('elles ne prouvent pas l’origine de son combustible');
+    await expect(page.locator('#faq-37 a[href="/sources#S27"]').first()).toBeVisible();
     await page.goto('/informer/chiffres');
-    await expect(page.getByTestId('figure')).toHaveCount(48);
+    await expect(page.getByTestId('figure')).toHaveCount(51);
+    await expect(page.locator('#figure-51')).toContainText('Ne pas additionner automatiquement ce chiffre aux 51 MW des chaudières');
     await page.goto('/militer');
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     expect((await page.locator('main').innerText()).length).toBeGreaterThan(500);
@@ -382,7 +483,7 @@ test.describe('Accessibilité et rendu', () => {
 
   test('WCAG 2.1 AA : structure, champs et contrastes', async ({ page }) => {
     test.setTimeout(90_000);
-    for (const route of ['/', '/informer/faq', '/informer/chiffres', '/militer', '/rejoindre', '/sources', '/communique-de-presse']) {
+    for (const route of ['/', '/informer', '/informer/faq', '/informer/chiffres', '/militer', '/rejoindre', '/sources', '/communique-de-presse']) {
       await page.goto(route);
       if (route === '/informer/faq') await page.locator('main summary').first().click();
       const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
@@ -418,6 +519,19 @@ test.describe('Accessibilité et rendu', () => {
     await page.screenshot({ path: testInfo.outputPath('militer-desktop.png'), fullPage: true });
     await page.goto('/communique-de-presse');
     await page.screenshot({ path: testInfo.outputPath('communique-desktop.png'), fullPage: true });
+    for (const [viewportName, viewport] of [
+      ['desktop', { width: 1440, height: 1000 }],
+      ['mobile', { width: 390, height: 844 }],
+    ] as const) {
+      await page.setViewportSize(viewport);
+      await page.goto('/informer');
+      await page.locator('#ailleurs-en-france').screenshot({ path: testInfo.outputPath(`panorama-${viewportName}.png`) });
+      await page.goto('/informer/faq#faq-37');
+      await expect(page.locator('#faq-37')).toHaveAttribute('open', '');
+      await page.locator('#faq-37').screenshot({ path: testInfo.outputPath(`canopee-${viewportName}.png`) });
+      await page.goto('/informer/chiffres');
+      await page.locator('#theme-1').screenshot({ path: testInfo.outputPath(`puissances-${viewportName}.png`) });
+    }
   });
 });
 

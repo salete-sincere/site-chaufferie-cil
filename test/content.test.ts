@@ -9,10 +9,13 @@ async function files() {
 
 test('the editorial collection preserves all promised entries and the eight figure themes', async () => {
   const content = await getContent();
-  assert.equal(content.faq.length, 34);
-  assert.equal(content.figures.length, 48);
+  assert.equal(content.faq.length, 39);
+  assert.equal(content.figures.length, 51);
   assert.equal(content.overview.length, 10);
-  assert.equal(content.sources.length, 17);
+  assert.equal(content.sources.length, 27);
+  for (let index = 1; index <= 39; index++) assert.ok(content.faq.some(({ id }) => id === `faq-${String(index).padStart(2, '0')}`));
+  for (let index = 1; index <= 51; index++) assert.ok(content.figures.some(({ id }) => id === `figure-${String(index).padStart(2, '0')}`));
+  for (let index = 1; index <= 27; index++) assert.ok(content.sources.some(({ id }) => id === `S${index}`));
   assert.equal(new Set(content.figures.map(({ theme }) => theme)).size, 8);
   assert.equal(content.figureThemeNotes.length, 8);
   assert.equal(content.updatedAt, '2026-11-07');
@@ -30,7 +33,7 @@ test('a misspelled source reference fails validation instead of publishing a bro
 test('duplicate anchor IDs and missing entries fail validation', async () => {
   const input = await files();
   assert.throws(() => parseContentFiles({ ...input, faq: input.faq.replace('"faq-02"', '"faq-01"') }), /duplicate.*faq-01/i);
-  assert.throws(() => parseContentFiles({ ...input, faq: input.faq.substring(0, input.faq.lastIndexOf('<!-- entry -->')) }), /34/);
+  assert.throws(() => parseContentFiles({ ...input, faq: input.faq.substring(0, input.faq.lastIndexOf('<!-- entry -->')) }), /39/);
 });
 
 test('a non-web source URL and inconsistent dates fail validation', async () => {
