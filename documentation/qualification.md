@@ -50,7 +50,8 @@ git diff --check
 ```
 
 Le [workflow du dépôt](https://github.com/salete-sincere/site-chaufferie-cil/actions)
-conserve le SHA, l’environnement Node.js 24 / Ubuntu / Chromium, les résultats
+conserve le SHA, l’environnement Node.js 24 / Ubuntu 22.04 / Chromium avec sandbox,
+les résultats
 et l’artefact `golden-journeys-<SHA>`. Les captures, traces d’échec et rapports
 expurgés sont dans cet artefact, conservé sept jours. Toute modification d’un
 contenu applicatif testé impose une nouvelle qualification.

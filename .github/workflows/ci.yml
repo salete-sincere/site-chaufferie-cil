@@ -15,7 +15,8 @@ concurrency:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    # Keep Chromium sandboxing enabled without Ubuntu 24.04's runner namespace restriction.
+    runs-on: ubuntu-22.04
     timeout-minutes: 20
     env:
       APP_REVISION: ${{ github.sha }}
@@ -38,7 +39,7 @@ jobs:
         env:
           TESTED_SHA: ${{ github.sha }}
         run: |
-          printf '### Golden Journeys\n\nSHA: `%s`\n\nNode.js 24, Ubuntu, Chromium.\n\nCommands: `npm run build`, `npm run typecheck`, `npm test`, `npm run test:e2e`.\n\nSee the test report for actual results and simulated browser capabilities.\n' "$TESTED_SHA" >> "$GITHUB_STEP_SUMMARY"
+          printf '### Golden Journeys\n\nSHA: `%s`\n\nNode.js 24, Ubuntu 22.04, Chromium with sandbox enabled.\n\nCommands: `npm run build`, `npm run typecheck`, `npm test`, `npm run test:e2e`.\n\nSee the test report for actual results and simulated browser capabilities.\n' "$TESTED_SHA" >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
