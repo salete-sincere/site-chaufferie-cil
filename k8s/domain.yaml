@@ -1,0 +1,108 @@
+# Apply only after the OVH authoritative DNS and public resolvers publish
+# stopchaufferiehaubourdin.fr -> 141.94.98.109. See documentation/domaine-public.md.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-http01-solver
+  namespace: site-chaufferie-cil
+spec:
+  podSelector:
+    matchLabels:
+      acme.cert-manager.io/http01-solver: "true"
+      app.kubernetes.io/name: site-chaufferie-cil-http01
+  policyTypes: [Ingress]
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: ingress
+          podSelector:
+            matchLabels:
+              app.kubernetes.io/name: traefik
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: cert-manager
+          podSelector:
+            matchLabels:
+              app.kubernetes.io/name: cert-manager
+              app.kubernetes.io/component: controller
+      ports:
+        - protocol: TCP
+          port: 8089
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-production-http01
+  namespace: site-chaufferie-cil
+spec:
+  acme:
+    email: devs@saletesincere.fr
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-production-http01-account
+    solvers:
+      - selector:
+          dnsNames:
+            - stopchaufferiehaubourdin.fr
+        http01:
+          ingress:
+            ingressClassName: public
+            serviceType: ClusterIP
+            podTemplate:
+              metadata:
+                labels:
+                  app.kubernetes.io/name: site-chaufferie-cil-http01
+              spec:
+                securityContext:
+                  runAsNonRoot: true
+                  runAsUser: 1001
+                  seccompProfile:
+                    type: RuntimeDefault
+                resources:
+                  requests:
+                    cpu: 10m
+                    memory: 32Mi
+                  limits:
+                    cpu: 100m
+                    memory: 64Mi
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: site-chaufferie-cil-public
+  namespace: site-chaufferie-cil
+spec:
+  dnsNames:
+    - stopchaufferiehaubourdin.fr
+  privateKey:
+    rotationPolicy: Always
+  issuerRef:
+    kind: Issuer
+    name: letsencrypt-production-http01
+  secretName: site-chaufferie-cil-public-tls
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: site-chaufferie-cil-public
+  namespace: site-chaufferie-cil
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: site-chaufferie-cil-https-redirect@kubernetescrd,site-chaufferie-cil-staging-noindex@kubernetescrd
+spec:
+  ingressClassName: public
+  rules:
+    - host: stopchaufferiehaubourdin.fr
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: site-chaufferie-cil
+                port:
+                  name: http
+  tls:
+    - hosts:
+        - stopchaufferiehaubourdin.fr
+      secretName: site-chaufferie-cil-public-tls

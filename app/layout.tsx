@@ -7,7 +7,7 @@ import { hacFacebookUrl } from '@/lib/hac';
 import { PublicEmailLink } from '@/components/public-email-link';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.SITE_URL || 'https://chaufferie-cil-staging.saletesincere.fr'),
+  metadataBase: new URL(process.env.SITE_URL || 'https://stopchaufferiehaubourdin.fr'),
   title: { default: 'Chaufferie à Haubourdin : informons-nous, rassemblons-nous', template: '%s · Comité chaufferie Haubourdin' },
   description: 'Comprendre le projet de chaufferie sur la friche Lever, consulter les sources et rejoindre le comité en cours de constitution, à l’initiative de Haubourdin Alternative Citoyenne.',
   robots: { index: false, follow: false, noarchive: true },
