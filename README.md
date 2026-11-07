@@ -2,13 +2,12 @@
 
 ## Summary — 30 secondes
 
-Ce site présente le comité d’intérêt local en cours de constitution contre
-l’implantation d’une chaufferie sur la friche Lever, à l’initiative d’Haubourdin
-Alternative Citoyenne. Il permet de s’informer, de partager des contenus et de
-préparer un courriel au groupe. Next.js fonctionne en production sur infra-sincere,
-avec des contenus Markdown versionnés, sans base de données. La préversion publique
-est destinée à `https://chaufferie-cil-staging.saletesincere.fr` avec non-indexation.
-Le [code source est public](https://github.com/salete-sincere/site-chaufferie-cil).
+Ce site permet de s’informer sur la chaufferie de la friche Lever, de partager
+des contenus et de rejoindre le comité en cours de constitution, initié par HAC.
+Next.js sert des contenus Markdown sur infra-sincere, sans base de données.
+La mise en service de `https://stopchaufferiehaubourdin.fr` est préparée, sans
+activation acquise. La préversion `https://chaufferie-cil-staging.saletesincere.fr`
+est conservée. Les deux adresses gardent la consigne de non-indexation.
 
 ## Synthèse — 3 minutes
 
@@ -16,6 +15,7 @@ Le dossier comprend dix points introductifs, 39 questions, 51 repères chiffrés
 répartis en huit thèmes et 27 sources. Chaque chiffre conserve son périmètre et
 ses précautions. Les annonces du porteur, les positions d’HAC et les questions
 ouvertes sont identifiées. L’état documentaire est celui du 7 novembre 2026.
+Le [code source est public](https://github.com/salete-sincere/site-chaufferie-cil).
 
 Le bloc « Ailleurs en France » de `/informer` donne accès aux comparaisons avec
 Surville et Sully, aux enquêtes de Canopée et aux décisions concernant Beaunant et
@@ -47,6 +47,14 @@ partage PNG et construit le serveur Next.js standalone. La documentation
 surveillance et retour arrière. Les trois Golden Journeys sont testés par
 `npm run test:e2e` sur un build de production. Le rapport de
 [qualification](documentation/qualification.md) indique les résultats réellement obtenus.
+
+Le domaine public prévu utilise un enregistrement A chez OVH vers Penthouse,
+sans passage par Cloudflare. Au contrôle du 7 novembre 2026 à 22 h 04, heure de
+Paris, le DNS répondait encore `NXDOMAIN` ; aucune activation du nouveau domaine
+n’était réalisée. La [procédure du domaine public](documentation/domaine-public.md)
+décrit les étapes DNS, certificat HTTP-01 dans le namespace et qualification.
+La préversion reste accessible pendant cette préparation ; la non-indexation
+est conservée sur les deux adresses.
 
 ## Annexes
 
@@ -110,7 +118,18 @@ Routes publiques : `/`, `/informer`, `/informer/faq`, `/informer/chiffres`,
 `/sources`, `/militer`, `/rejoindre`, `/communique-de-presse`. Les ancres FAQ et sources sont partageables.
 `GET /health` répond `{ "status": "ok", "revision": "<APP_REVISION>" }`, sans cache.
 Il n’existe aucune API d’inscription ou d’envoi. `APP_REVISION` désigne le SHA livré ;
-`SITE_URL` configure les métadonnées absolues au build, avec le domaine staging par défaut.
+`SITE_URL` configure les métadonnées absolues au build, avec
+`https://stopchaufferiehaubourdin.fr` par défaut. Une autre valeur peut être fournie
+pour qualifier une image avec la préversion :
+
+```sh
+SITE_URL=https://chaufferie-cil-staging.saletesincere.fr npm run build
+```
+
+Pour une image Docker, utiliser l’argument de build `SITE_URL`. Les pages étant
+prérendues, modifier seulement l’environnement du conteneur déjà construit ne
+recalcule pas ces métadonnées. Cette configuration ne crée aucun enregistrement
+DNS ni certificat ; leur activation suit la procédure dédiée.
 
 Toutes les réponses portent `X-Robots-Tag: noindex, nofollow, noarchive`.
 `robots.txt` permet le crawl afin que les moteurs puissent lire cette consigne ;
@@ -121,6 +140,7 @@ il ne s’agit pas d’une restriction d’accès.
 - [Document HAC source](https://docs.google.com/document/d/1PHJvxNW0oxgmq5ryXvIcbhpM9xZVpjjvby2sBQRTNt4/edit).
 - [Choix d’architecture](documentation/adr-001-next-markdown.md).
 - [Déploiement et retour arrière](documentation/deploiement.md).
+- [Mise en service du domaine public](documentation/domaine-public.md).
 - [Qualification et limites](documentation/qualification.md).
 - [Preuves de livraison du 7 novembre 2026](documentation/livraison-2026-11-07.md).
 - [Livraison du communiqué et des liens HAC](documentation/livraison-publications-2026-11-07.md).

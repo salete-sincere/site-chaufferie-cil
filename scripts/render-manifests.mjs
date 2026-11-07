@@ -9,7 +9,7 @@ if (!/^[a-f0-9]{40}$/.test(revision || '') || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test
 }
 
 const image = `ghcr.io/${owner}/site-chaufferie-cil:${revision}`;
-const files = ['namespace.yaml', 'quota.yaml', 'network-policy.yaml', 'app.yaml', 'ingress.yaml'];
+const files = ['namespace.yaml', 'quota.yaml', 'network-policy.yaml', 'app.yaml', 'ingress.yaml', 'domain.yaml'];
 const manifests = files.map((name) => readFileSync(new URL(`../k8s/${name}`, import.meta.url), 'utf8').trim());
 process.stdout.write(`${manifests.join('\n---\n')
   .replace('REPLACE_WITH_TESTED_IMAGE', image)

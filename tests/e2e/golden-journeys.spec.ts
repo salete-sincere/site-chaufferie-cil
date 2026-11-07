@@ -5,6 +5,8 @@ const recipient = 'haubourdin_alternative_citoyenne@riseup.net';
 const facebookUrl = 'https://www.facebook.com/HaubourdinAlternativeCitoyenne';
 const pressSourceUrl = 'https://docs.google.com/document/d/1PHJvxNW0oxgmq5ryXvIcbhpM9xZVpjjvby2sBQRTNt4/edit?tab=t.tl20vqm2xga5';
 const pressTitle = 'HAC s’oppose à la chaufferie de la friche Lever';
+const metadataSiteUrl = process.env.SITE_URL || 'https://stopchaufferiehaubourdin.fr';
+const campaignPaths = ['/informer', '/informer/faq', '/rejoindre'];
 const actionLabels = [
   'Réunions publiques',
   'Porte-à-porte',
@@ -309,14 +311,14 @@ test.describe('Golden Journey — Je milite', () => {
     expect(copied).toHaveLength(3);
     expect(new Set(copied).size).toBe(3);
     expect(copied.join('\n')).toContain('39 questions et 51 repères');
-    for (const message of copied) {
+    for (const [index, message] of copied.entries()) {
       expect(message.length).toBeGreaterThan(60);
-      expect(message).toMatch(/https?:\/\/\S+/);
+      expect(message.split('\n').at(-1)).toBe(new URL(campaignPaths[index], page.url()).href);
     }
     await page.getByRole('button', { name: 'Partager le lien', exact: true }).first().click();
     await page.getByRole('button', { name: 'Copier le lien', exact: true }).first().click();
     const copiedLink = await page.evaluate(() => (window as BrowserEvidence).__copiedTexts.at(-1));
-    expect(copiedLink).toMatch(/^https?:\/\//);
+    expect(copiedLink).toBe(new URL('/informer', page.url()).href);
     await expect(page.getByRole('heading', { name: 'Être informé par mail', exact: true })).toBeVisible();
     await expect(page.getByText('À venir', { exact: true })).toBeVisible();
     await expect(page.locator('input[type="email"]')).toHaveCount(0);
@@ -325,10 +327,11 @@ test.describe('Golden Journey — Je milite', () => {
   test('partager via les fonctions natives du navigateur', async ({ page }) => {
     await browserCapabilities(page, 'available', 'available');
     await page.goto('/militer');
-    await page.getByRole('button', { name: 'Partager le lien', exact: true }).first().click();
+    const buttons = page.getByRole('button', { name: 'Partager le lien', exact: true });
+    await expect(buttons).toHaveCount(3);
+    for (const button of await buttons.all()) await button.click();
     const shared = await page.evaluate(() => (window as BrowserEvidence).__sharedLinks);
-    expect(shared).toHaveLength(1);
-    expect(shared[0].url).toMatch(/^https?:\/\//);
+    expect(shared.map((item) => item.url)).toEqual(campaignPaths.map((path) => new URL(path, page.url()).href));
     expect(await page.evaluate(() => (window as BrowserEvidence).__copiedTexts)).toEqual([]);
   });
 
@@ -536,6 +539,24 @@ test.describe('Accessibilité et rendu', () => {
 });
 
 test.describe('Exploitation du staging', () => {
+  test('image Open Graph absolue sur le domaine public et disponible dans le build', async ({ page, request }) => {
+    const expectedImageUrl = new URL('/partage.png', metadataSiteUrl).href;
+    for (const route of ['/', '/communique-de-presse']) {
+      await page.goto(route);
+      await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', expectedImageUrl);
+      await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200');
+      await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630');
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+    }
+    // Fetch from the tested server, so a configurable metadata URL does not
+    // make the local qualification depend on an already published domain.
+    const image = await request.get('/partage.png');
+    expect(image.status()).toBe(200);
+    expect(image.headers()['content-type']).toMatch(/^image\/png/);
+    expect(image.headers()['x-robots-tag']).toMatch(/noindex/);
+    expect((await image.body()).subarray(0, 8)).toEqual(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+  });
+
   test('liveness et non-indexation des pages, ressources et erreurs', async ({ page, request }) => {
     const health = await request.get('/health');
     expect(health.status()).toBe(200);
