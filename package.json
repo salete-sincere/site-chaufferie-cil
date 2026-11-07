@@ -1,0 +1,39 @@
+{
+  "name": "site-chaufferie-cil",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "npm run validate:content && npm run prepare:assets && next build --webpack",
+    "start": "next start --hostname 127.0.0.1",
+    "validate:content": "node scripts/validate-content.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test test/*.test.ts",
+    "deploy:render": "node scripts/render-manifests.mjs",
+    "test:e2e": "playwright test",
+    "test:e2e:staging": "E2E_BASE_URL=https://chaufferie-cil-staging.saletesincere.fr playwright test",
+    "prepare:assets": "node scripts/prepare-assets.mjs"
+  },
+  "dependencies": {
+    "@fontsource/open-sans": "^5.2.7",
+    "gray-matter": "4.0.3",
+    "marked": "^17.0.0",
+    "next": "16.4.5",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "sharp": "0.35.5"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
+    "@playwright/test": "1.65.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}

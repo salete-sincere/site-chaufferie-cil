@@ -1,0 +1,57 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: site-chaufferie-cil-staging
+  namespace: site-chaufferie-cil
+spec:
+  dnsNames:
+    - chaufferie-cil-staging.saletesincere.fr
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-production-cloudflare
+  secretName: site-chaufferie-cil-staging-tls
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: https-redirect
+  namespace: site-chaufferie-cil
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: staging-noindex
+  namespace: site-chaufferie-cil
+spec:
+  headers:
+    customResponseHeaders:
+      X-Robots-Tag: "noindex, nofollow, noarchive"
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: site-chaufferie-cil-staging
+  namespace: site-chaufferie-cil
+  annotations:
+    traefik.ingress.kubernetes.io/router.middlewares: site-chaufferie-cil-https-redirect@kubernetescrd,site-chaufferie-cil-staging-noindex@kubernetescrd
+spec:
+  ingressClassName: public
+  rules:
+    - host: chaufferie-cil-staging.saletesincere.fr
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: site-chaufferie-cil
+                port:
+                  name: http
+  tls:
+    - hosts:
+        - chaufferie-cil-staging.saletesincere.fr
+      secretName: site-chaufferie-cil-staging-tls
