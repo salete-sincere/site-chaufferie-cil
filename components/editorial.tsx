@@ -3,7 +3,7 @@ import { renderMarkdown } from '@/lib/content';
 import styles from './site.module.css';
 
 export function SourceLinks({ ids }: { ids: string[] }) {
-  return <span className={styles.sourceLinks}><span>Sources</span> {ids.map(id => <Link key={id} href={`/sources#${id}`} aria-label={`Consulter la source ${id}`}>{id}</Link>)}</span>;
+  return <span className={styles.sourceLinks}><span>Sources</span> {ids.map(id => <a key={id} href={`/sources#${id}`} aria-label={`Consulter la source ${id}`}>{id}</a>)}</span>;
 }
 export function Markdown({ children }: { children: string }) {
   return <div className={styles.prose} dangerouslySetInnerHTML={{ __html: renderMarkdown(children) }} />;

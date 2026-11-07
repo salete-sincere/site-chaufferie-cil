@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: { default: 'Chaufferie à Haubourdin : informons-nous, rassemblons-nous', template: '%s · Comité chaufferie Haubourdin' },
   description: 'Comprendre le projet de chaufferie sur la friche Lever, consulter les sources et rejoindre le comité en cours de constitution, à l’initiative de Haubourdin Alternative Citoyenne.',
   robots: { index: false, follow: false, noarchive: true },
+  icons: { icon: '/favicon.svg' },
   openGraph: { locale: 'fr_FR', type: 'website', siteName: 'Comité chaufferie Haubourdin', images: [{url:'/partage.png',width:1200,height:630,alt:'À Haubourdin, nous avons notre mot à dire. Comité contre la chaufferie.'}] },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
