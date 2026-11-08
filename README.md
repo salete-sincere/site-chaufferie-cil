@@ -139,6 +139,11 @@ prérendues, modifier seulement l’environnement du conteneur déjà construit 
 recalcule pas ces métadonnées. Cette configuration ne crée aucun enregistrement
 DNS ni certificat ; leur activation suit la procédure dédiée.
 
+La variable de dépôt GitHub Actions `SITE_URL` est transmise à la qualification
+et à la construction de l’image. Pour livrer sur la préversion avant activation
+du domaine public, elle vaut `https://chaufferie-cil-staging.saletesincere.fr`.
+Son changement nécessite une nouvelle image et une nouvelle qualification.
+
 Toutes les réponses portent `X-Robots-Tag: noindex, nofollow, noarchive`.
 `robots.txt` permet le crawl afin que les moteurs puissent lire cette consigne ;
 il ne s’agit pas d’une restriction d’accès.
