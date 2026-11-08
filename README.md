@@ -158,3 +158,4 @@ il ne s’agit pas d’une restriction d’accès.
 - [Preuves de livraison du 7 novembre 2026](documentation/livraison-2026-11-07.md).
 - [Livraison du communiqué et des liens d’Haubourdin Alternative Citoyenne](documentation/livraison-publications-2026-11-07.md).
 - [Livraison Canopée et panorama français](documentation/livraison-canopee-2026-11-07.md).
+- [Livraison du nom complet et de la présentation municipale](documentation/livraison-identite-2026-11-08.md).

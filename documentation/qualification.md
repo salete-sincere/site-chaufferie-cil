@@ -2,14 +2,12 @@
 
 ## Summary — 30 secondes
 
-Les trois Golden Journeys sont automatisés sur un build de production Next.js.
-Les commandes reproductibles sont `npm test`, `npm run build`,
-`npm run typecheck` et `npm run test:e2e`. Les rapports CI sont rattachés au SHA
-exact et publiés avec chaque exécution. Le déploiement doit en plus être vérifié
-sur son domaine, avec l’image effective, TLS et une fenêtre de santé continue.
-Ce document décrit les contrôles et leurs limites ; il ne remplace pas leurs résultats.
-La [correction éditoriale du 8 novembre](#correction-éditoriale-du-8-novembre-2026)
-passe les 12 tests unitaires et 20 scénarios E2E locaux ; elle n’est pas déployée.
+Les trois Golden Journeys sont automatisés sur un build de production Next.js
+via `npm run test:e2e`. Les rapports CI sont rattachés au SHA testé.
+La recette du domaine vérifie également l’image effective, TLS et une fenêtre
+de santé continue. Ce document précise les contrôles et leurs limites.
+La [livraison du 8 novembre](livraison-identite-2026-11-08.md) passe 12 tests
+unitaires et 22 scénarios E2E, après une qualification locale préalable de 20 scénarios.
 
 ## Synthèse — 3 minutes
 
@@ -80,7 +78,9 @@ Le build inclut `validate:content` : 10 points, 39 questions, 51 chiffres et
 27 sources validés. Types et diff valides, **12 tests unitaires et 20 scénarios
 E2E réussis**. Les trois Golden Journeys, leurs erreurs et replis, la non-persistance,
 la lecture sans JavaScript, le clavier et l’audit axe passent. Les 13 captures ont
-été ouvertes et relues ; aucun débordement mobile ni chevauchement constaté.
+été ouvertes et relues ; aucun nouveau débordement lié au nom complet constaté.
+Les réserves décoratives préexistantes de l’accueil sont précisées dans le
+[compte rendu de livraison](livraison-identite-2026-11-08.md).
 Les huit pages publiques générées ne contiennent plus de sigle dans leur texte
 ou leurs libellés accessibles. Les IDs, ancres, destinations et propos du communiqué
 sont préservés ; seul le nom y est développé, avec une note hors communiqué.
