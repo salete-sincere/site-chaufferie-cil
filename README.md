@@ -88,7 +88,7 @@ Sur Penthouse, réutiliser le Chromium approuvé par AppArmor :
 
 ```sh
 PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/home/ubuntu/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome npm run test:e2e
-PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/home/ubuntu/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome npm run test:e2e:staging
+SITE_URL=https://chaufferie-cil-staging.saletesincere.fr PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/home/ubuntu/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome npm run test:e2e:staging
 ```
 
 Les captures, traces et rapports sont ignorés par Git dans `test-results/` et
