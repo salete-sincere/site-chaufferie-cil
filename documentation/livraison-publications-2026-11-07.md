@@ -1,4 +1,4 @@
-# Livraison des publications HAC — 7 novembre 2026
+# Livraison des publications d’Haubourdin Alternative Citoyenne — 7 novembre 2026
 
 ## Summary — 30 secondes
 
@@ -13,11 +13,13 @@ Un timeout isolé pendant la bascule reste à expliquer.
 
 Les neuf paragraphes du communiqué d’Haubourdin Alternative Citoyenne du
 6 novembre 2026 sont conservés dans `content/press-release.md`, avec auteur,
-date et provenance. Ils ont été comparés intégralement au document HAC.
+date et provenance. Ils ont été comparés intégralement au document d’Haubourdin
+Alternative Citoyenne.
 La nouvelle page est lisible sans JavaScript ; son contact reste accessible
 derrière Cloudflare. La page des sources renvoie aussi vers le communiqué.
-L’URL Facebook a été confirmée depuis le Linktree public d’HAC ; le site propose
-un lien externe, sans intégrer de contenu ou de traceur Facebook.
+L’URL Facebook a été confirmée depuis le Linktree public d’Haubourdin Alternative
+Citoyenne ; le site propose un lien externe, sans intégrer de contenu ou de traceur
+Facebook.
 
 La [CI de cette révision](https://github.com/salete-sincere/site-chaufferie-cil/actions/runs/42387190153)
 a validé le contenu, le build, les types, les 12 tests unitaires et les
@@ -39,7 +41,8 @@ conserve cette question ; aucune absence absolue de coupure n’est revendiquée
 Les métriques récentes du nœud et du replica sont conformes, sans alerte ciblée.
 La sonde HTTP permanente propre au site reste absente
 ([suivi 2](https://github.com/salete-sincere/site-chaufferie-cil/issues/2)).
-Les fichiers graphiques HAC/Canva restent attendus
+Les fichiers graphiques d’Haubourdin Alternative Citoyenne et les exports Canva
+restent attendus
 ([suivi 1](https://github.com/salete-sincere/site-chaufferie-cil/issues/1)).
 Les destinations externes sont interceptées après contrôle de leur URL dans les
 tests ; leur disponibilité et la compatibilité de toutes les messageries ne sont

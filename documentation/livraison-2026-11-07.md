@@ -7,7 +7,8 @@ infra-sincere au SHA `b92efa6d5be9b5a796a85af3f8763afb3908847d`.
 Le [dépôt est public](https://github.com/salete-sincere/site-chaufferie-cil).
 Dix tests unitaires et 17 Golden Journeys passent en CI ; les 17 scénarios passent
 également sur le domaine. L’image active, TLS et 102 secondes de santé continue
-sont vérifiés. Restent les fichiers HAC/Canva et la surveillance permanente.
+sont vérifiés. Restent les fichiers graphiques d’Haubourdin Alternative Citoyenne,
+les exports Canva et la surveillance permanente.
 
 ## Synthèse — 3 minutes
 

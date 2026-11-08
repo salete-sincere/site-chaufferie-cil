@@ -8,6 +8,8 @@ Les commandes reproductibles sont `npm test`, `npm run build`,
 exact et publiés avec chaque exécution. Le déploiement doit en plus être vérifié
 sur son domaine, avec l’image effective, TLS et une fenêtre de santé continue.
 Ce document décrit les contrôles et leurs limites ; il ne remplace pas leurs résultats.
+La [correction éditoriale du 8 novembre](#correction-éditoriale-du-8-novembre-2026)
+passe les 12 tests unitaires et 20 scénarios E2E locaux ; elle n’est pas déployée.
 
 ## Synthèse — 3 minutes
 
@@ -46,7 +48,56 @@ délivrabilité d’un message. L’ouverture d’une source externe est interce
 vérification de sa destination afin de ne pas dépendre du site tiers. Un audit axe
 automatique ne constitue pas une certification d’accessibilité.
 
+Le nom Haubourdin Alternative Citoyenne est développé dans les textes publics,
+les libellés accessibles et les partages. Le groupe d’opposition au conseil municipal
+d’Haubourdin est présenté distinctement du comité en cours de constitution.
+
 ## Annexes
+
+### Correction éditoriale du 8 novembre 2026
+
+Qualification locale du répertoire de travail, sans commit ni déploiement : base
+`6af048e5acd577bbdd5b0a4e81d3afd65090b2ec`, complétée par le diff applicatif
+et les tests (`app`, `components`, `content`, `lib`, `test`, `tests`). Le
+[patch qualifié](../test-results/nom-complet-local-20261108/candidate.patch) a pour
+SHA-256 `c6307c42d66d1f50677a37129a0331e3f9f5a68716e010011180585ee0bb3491`.
+Ce SHA de base seul ne désigne donc pas les modifications qualifiées.
+
+Environnement : `game-prod-ovh-gra`, compte `ubuntu`, Node.js 24.22.2, build
+Next.js de production servi sur `127.0.0.1:3100`, Chromium 1243 avec sandbox.
+Commandes exactes, après sélection de Node.js 24 :
+
+```sh
+export PATH=/tmp/chaufferie-domain-toolchain/node_modules/node/bin:$PATH
+npm run build
+npm test
+npm run typecheck
+PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/home/ubuntu/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome npm run test:e2e
+git diff --check
+```
+
+Le build inclut `validate:content` : 10 points, 39 questions, 51 chiffres et
+27 sources validés. Types et diff valides, **12 tests unitaires et 20 scénarios
+E2E réussis**. Les trois Golden Journeys, leurs erreurs et replis, la non-persistance,
+la lecture sans JavaScript, le clavier et l’audit axe passent. Les 13 captures ont
+été ouvertes et relues ; aucun débordement mobile ni chevauchement constaté.
+Les huit pages publiques générées ne contiennent plus de sigle dans leur texte
+ou leurs libellés accessibles. Les IDs, ancres, destinations et propos du communiqué
+sont préservés ; seul le nom y est développé, avec une note hors communiqué.
+
+Preuves locales ignorées par Git : [rapport E2E](../test-results/nom-complet-local-20261108/playwright-report/index.html),
+[résultats JSON](../test-results/nom-complet-local-20261108/results.json),
+[journal du build](../test-results/nom-complet-local-20261108/build.log),
+[tests unitaires](../test-results/nom-complet-local-20261108/unit.log),
+[types](../test-results/nom-complet-local-20261108/typecheck.log),
+[journal E2E](../test-results/nom-complet-local-20261108/e2e.log),
+[contrôle éditorial](../test-results/nom-complet-local-20261108/editorial-check.log).
+Les essais initiaux ont révélé deux attentes de date devenues obsolètes, corrigées,
+et des restrictions du harnais sur les sous-processus et le serveur local ; les
+commandes concernées ont ensuite réussi avec l’élévation autorisée, sans désactiver
+la sandbox Chromium. Les simulations externes décrites en synthèse restent les
+mêmes. Cette qualification ne constitue pas une recette du domaine ni une preuve
+de publication ; tout changement applicatif ultérieur doit être requalifié.
 
 ### Commandes et preuves par révision
 
@@ -86,7 +137,8 @@ clos seulement après réussite de la nouvelle recette sur le domaine.
 Quinze sources sur dix-sept ont répondu HTTP 200 à une requête HEAD. S8 (ADEME)
 et S10 (Pappers) ont répondu 403 en HEAD et GET limité : disponibilité automatisée
 non vérifiée, sans preuve de lien mort. S14 a été contrôlée uniquement par HEAD,
-sans lecture de contenu supplémentaire. Les sources restent celles du document HAC.
+sans lecture de contenu supplémentaire. Les sources restent celles du document
+d’Haubourdin Alternative Citoyenne.
 
 ### Recette sur le domaine
 

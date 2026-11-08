@@ -2,20 +2,23 @@
 
 ## Summary — 30 secondes
 
-Ce site permet de s’informer sur la chaufferie de la friche Lever, de partager
-des contenus et de rejoindre le comité en cours de constitution, initié par HAC.
-Next.js sert des contenus Markdown sur infra-sincere, sans base de données.
-Le domaine public retenu est `https://stopchaufferiehaubourdin.fr` ; sa mise en
-service est suivie dans [l’issue dédiée](https://github.com/salete-sincere/site-chaufferie-cil/issues/8).
-La préversion `https://chaufferie-cil-staging.saletesincere.fr` est conservée.
+Ce site présente le comité en cours de constitution, à l’initiative d’Haubourdin
+Alternative Citoyenne, groupe d’opposition au conseil municipal d’Haubourdin.
+Il permet de s’informer, de partager et de préparer un courriel, sans collecte.
+Next.js sert des contenus Markdown, sans base de données.
+La préversion est `https://chaufferie-cil-staging.saletesincere.fr` ; la préparation
+de `https://stopchaufferiehaubourdin.fr` reste suivie dans [l’issue dédiée](https://github.com/salete-sincere/site-chaufferie-cil/issues/8).
 Les deux adresses gardent la consigne de non-indexation.
 
 ## Synthèse — 3 minutes
 
 Le dossier comprend dix points introductifs, 39 questions, 51 repères chiffrés
 répartis en huit thèmes et 27 sources. Chaque chiffre conserve son périmètre et
-ses précautions. Les annonces du porteur, les positions d’HAC et les questions
-ouvertes sont identifiées. L’état documentaire est celui du 7 novembre 2026.
+ses précautions. Les annonces du porteur, les positions d’Haubourdin Alternative
+Citoyenne et les questions ouvertes sont identifiées. L’état documentaire est celui
+du 7 novembre 2026.
+Haubourdin Alternative Citoyenne est le groupe d’opposition à l’initiative du
+comité d’intérêt local ; ce comité en cours de constitution est une entité distincte.
 Le [code source est public](https://github.com/salete-sincere/site-chaufferie-cil).
 
 Le bloc « Ailleurs en France » de `/informer` donne accès aux comparaisons avec
@@ -24,8 +27,9 @@ Saint-Genis-Laval. Les enquêtes associatives sont attribuées et ne sont pas pr
 comme des preuves de l’origine du combustible d’Haubourdin. Les puissances utiles,
 la puissance du combustible et la récupération des fumées restent distinctes.
 
-Le communiqué d’HAC du 6 novembre 2026 se lit intégralement sur
+Le communiqué d’Haubourdin Alternative Citoyenne du 6 novembre 2026 se lit sur
 `/communique-de-presse`, avec sa date, son auteur et le lien vers le document source.
+Ses propos sont conservés et le nom du groupe y est développé en toutes lettres.
 Les accès au communiqué et à la page Facebook officielle sont visibles sur l’accueil,
 dans « Je milite » et dans le pied de page de toutes les pages.
 
@@ -37,9 +41,11 @@ La sélection reste en mémoire dans la page et disparaît au rechargement. Aucu
 formulaire ne transmet d’adresse, aucun traceur n’est ajouté. Les journaux techniques
 de l’hébergement restent distincts de cette absence de collecte applicative.
 
-La palette HAC et Open Sans sont utilisés. Handelson Four, le logo original et les
-exports flyer/carrousel seront intégrés lorsque les fichiers exploitables seront
-accessibles. La signature textuelle est provisoire ; aucun logo HAC n’a été recréé.
+La palette d’Haubourdin Alternative Citoyenne et la police Open Sans sont utilisées.
+Handelson Four, le logo original et les exports flyer/carrousel seront intégrés
+lorsque les fichiers exploitables seront
+accessibles. La signature textuelle est provisoire ; aucun logo d’Haubourdin
+Alternative Citoyenne n’a été recréé.
 L’inscription aux nouvelles, Strapi et PostgreSQL sont hors de cette première version.
 
 Node.js 24 est requis. `npm run build` valide le contenu, produit le visuel de
@@ -82,7 +88,7 @@ Sur Penthouse, réutiliser le Chromium approuvé par AppArmor :
 
 ```sh
 PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/home/ubuntu/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome npm run test:e2e
-PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/home/ubuntu/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome npm run test:e2e:staging
+SITE_URL=https://chaufferie-cil-staging.saletesincere.fr PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/home/ubuntu/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome npm run test:e2e:staging
 ```
 
 Les captures, traces et rapports sont ignorés par Git dans `test-results/` et
@@ -97,9 +103,10 @@ Les quatre fichiers dans `content/` contiennent des entrées Markdown séparées
 Une correction du Google Doc ne modifie pas automatiquement le site.
 
 Le fichier distinct `content/press-release.md` contient le communiqué, son auteur,
-sa date et sa provenance. Il est aussi validé au build. Son texte est conservé
-intégralement ; le contact est rendu séparément pour rester lisible sans JavaScript
-derrière Cloudflare. L’URL Facebook vérifiée depuis le Linktree HAC est centralisée
+sa date et sa provenance. Il est aussi validé au build. Ses propos sont conservés,
+avec le nom du groupe développé en toutes lettres ; le contact est rendu séparément
+pour rester lisible sans JavaScript derrière Cloudflare. L’URL Facebook vérifiée
+depuis le Linktree d’Haubourdin Alternative Citoyenne est centralisée
 dans `lib/hac.ts`. Il s’agit d’un lien externe, sans intégration Facebook ni traceur.
 
 1. Revoir les pièces et leur date, puis modifier le Markdown et ses références.
@@ -132,17 +139,22 @@ prérendues, modifier seulement l’environnement du conteneur déjà construit 
 recalcule pas ces métadonnées. Cette configuration ne crée aucun enregistrement
 DNS ni certificat ; leur activation suit la procédure dédiée.
 
+La variable de dépôt GitHub Actions `SITE_URL` est transmise à la qualification
+et à la construction de l’image. Pour livrer sur la préversion avant activation
+du domaine public, elle vaut `https://chaufferie-cil-staging.saletesincere.fr`.
+Son changement nécessite une nouvelle image et une nouvelle qualification.
+
 Toutes les réponses portent `X-Robots-Tag: noindex, nofollow, noarchive`.
 `robots.txt` permet le crawl afin que les moteurs puissent lire cette consigne ;
 il ne s’agit pas d’une restriction d’accès.
 
 ### Références
 
-- [Document HAC source](https://docs.google.com/document/d/1PHJvxNW0oxgmq5ryXvIcbhpM9xZVpjjvby2sBQRTNt4/edit).
+- [Document source d’Haubourdin Alternative Citoyenne](https://docs.google.com/document/d/1PHJvxNW0oxgmq5ryXvIcbhpM9xZVpjjvby2sBQRTNt4/edit).
 - [Choix d’architecture](documentation/adr-001-next-markdown.md).
 - [Déploiement et retour arrière](documentation/deploiement.md).
 - [Mise en service du domaine public](documentation/domaine-public.md).
 - [Qualification et limites](documentation/qualification.md).
 - [Preuves de livraison du 7 novembre 2026](documentation/livraison-2026-11-07.md).
-- [Livraison du communiqué et des liens HAC](documentation/livraison-publications-2026-11-07.md).
+- [Livraison du communiqué et des liens d’Haubourdin Alternative Citoyenne](documentation/livraison-publications-2026-11-07.md).
 - [Livraison Canopée et panorama français](documentation/livraison-canopee-2026-11-07.md).

@@ -7,7 +7,7 @@ import { PublicEmailLink } from '@/components/public-email-link';
 import { ShareLink } from '@/components/copy-button';
 import styles from '@/components/site.module.css';
 
-export const metadata: Metadata = { title: 'Le communiqué de presse d’HAC' };
+export const metadata: Metadata = { title: 'Le communiqué de presse d’Haubourdin Alternative Citoyenne' };
 
 export default async function PressReleasePage() {
   const release = await getPressRelease();
@@ -18,8 +18,9 @@ export default async function PressReleasePage() {
       <p>Communiqué de presse · Haubourdin, le <time dateTime={release.publishedAt}>{date}</time></p>
     </PageHeading>
     <div className={styles['press-release']}>
-      <p className={styles['press-byline']}>{release.publisher}</p>
-      <article aria-label="Texte du communiqué d’HAC"><Markdown>{release.body}</Markdown></article>
+      <p className={styles['press-byline']}>{release.publisher}, groupe d’opposition au conseil municipal d’Haubourdin</p>
+      <p className={styles.small}>Le nom Haubourdin Alternative Citoyenne est écrit en toutes lettres dans cette reproduction du communiqué.</p>
+      <article aria-label="Texte du communiqué d’Haubourdin Alternative Citoyenne"><Markdown>{release.body}</Markdown></article>
       <section className={styles['press-contact']} aria-labelledby="press-contact">
         <h2 id="press-contact">Contact presse et comité d’intérêt local</h2>
         <p className={styles.email}><PublicEmailLink href={makeMailto('')}>{contactEmail}</PublicEmailLink></p>

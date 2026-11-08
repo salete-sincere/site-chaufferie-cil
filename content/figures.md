@@ -1,5 +1,5 @@
 ---
-updatedAt: "2026-11-07"
+updatedAt: "2026-11-08"
 sourceDocument: "https://docs.google.com/document/d/1PHJvxNW0oxgmq5ryXvIcbhpM9xZVpjjvby2sBQRTNt4/edit"
 collection: "figures"
 themeNotes: [{"theme": "Énergie et dimensionnement", "body": "À demander : le bilan qui relie production, livraison, pertes et échanges entre réseaux, puis le besoin après rénovation des bâtiments raccordables.", "sourceIds": ["S2", "S18", "S4", "S5", "S19", "S20"]}, {"theme": "Bois et approvisionnement", "body": "À demander : le plan d’approvisionnement, les fournisseurs et les contrôles des bois de classe A. La liste des fournisseurs et la localisation précise de la plateforme étaient déclarées confidentielles dans l’atelier fonctionnement.", "sourceIds": ["S1", "S3"]}, {"theme": "Péniches et circulation", "body": "À demander : le bilan du trajet complet jusqu’à Haubourdin, le nombre d’allers et retours, les itinéraires du secours routier et les flux de cendres.", "sourceIds": ["S1", "S11"]}, {"theme": "Argent public et concession", "body": "À demander : un tableau des dépenses et recettes de chaque acteur, les redevances annuelles de la MEL et le partage des risques. Le coût public total ne peut pas se déduire du seul montant foncier.", "sourceIds": ["S3", "S4", "S6", "S7", "S8", "S9", "S10"]}, {"theme": "Air et bruit", "body": "À demander : les résultats de dispersion et de risques sanitaires, les rejets annuels de chaque polluant et les résultats acoustiques aux habitations. Les performances ci-dessus sont des annonces, pas des mesures de l’usine en service.", "sourceIds": ["S14", "S3", "S11"]}, {"theme": "Habitants et cadre de vie", "body": "À demander : les bénéfices accessibles aux riverains non raccordés, les aménagements engagés indépendamment de l’usine et les études sur les sols et l’immobilier.", "sourceIds": ["S4", "S1", "S7", "S11", "S12"]}, {"theme": "Factures et raccordement", "body": "À demander : une comparaison de facture complète pour chaque bâtiment, en incluant puissance, consommation, indexation et travaux sur le réseau intérieur. Le raccordement sans facturation est soumis à des conditions et à la cession des CEE au concessionnaire [S9, p. 3].", "sourceIds": ["S13", "S9"]}, {"theme": "Calendrier et décisions", "body": "À demander : le calendrier actualisé de l’autorisation, de l’enquête publique et des décisions contractuelles. La MEL décide de la concession ; le préfet décide de l’autorisation environnementale.", "sourceIds": ["S9", "S2", "S4"]}]
@@ -384,12 +384,12 @@ Soutien annuel annoncé à des projets locaux de boisement.
 id: "figure-29"
 value: "1 mg par Nm³"
 theme: "Air et bruit"
-publisher: "HAC (retranscription) — Propos : François Dardenne, ilénergie/Dalkia"
+publisher: "Haubourdin Alternative Citoyenne (retranscription) — Propos : François Dardenne, ilénergie/Dalkia"
 sourceIds: ["S14"]
 note: "Réunion à 00:50:27. Concentration dans les fumées ; le débit est nécessaire pour calculer les rejets horaires."
 ---
 
-Objectif annoncé par François Dardenne, retranscrit par HAC.
+Objectif annoncé par François Dardenne, retranscrit par Haubourdin Alternative Citoyenne.
 
 <!-- entry -->
 ---

@@ -1,5 +1,5 @@
 ---
-updatedAt: "2026-11-07"
+updatedAt: "2026-11-08"
 sourceDocument: "https://docs.google.com/document/d/1PHJvxNW0oxgmq5ryXvIcbhpM9xZVpjjvby2sBQRTNt4/edit"
 collection: "faq"
 ---
@@ -76,7 +76,7 @@ sourceIds: ["S1", "S14"]
 
 La MEL a retenu la friche Lever. En réunion, Ghislain Ferran a expliqué qu’il fallait un terrain assez grand, déjà artificialisé, proche du réseau et accessible par canal. Selon lui, Haubourdin était le seul site trouvé réunissant ces critères. Ce sont les raisons avancées par la MEL ; la comparaison détaillée avec les autres terrains n’a pas été présentée dans cet échange.
 
-Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 14 et 17) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 01 ; 01:21:22–01:23:28).
+Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 14 et 17) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 01 ; 01:21:22–01:23:28).
 
 <!-- entry -->
 ---
@@ -88,7 +88,7 @@ sourceIds: ["S2", "S14"]
 
 Le projet combine plusieurs sources de chaleur récupérée, notamment dans les déchets, les eaux usées et les activités industrielles. En réunion, Charlotte Brun présente la chaufferie bois comme un complément pour les besoins hivernaux. Chez Cargill, Dalkia évoque un potentiel de récupération et des difficultés techniques et économiques. L’étude était encore en cours : son potentiel définitif et sa disponibilité pendant les périodes froides restent à préciser.
 
-Sources : ilénergie/Dalkia — [S2](/sources#S2) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (cartes 02 et 16).
+Sources : ilénergie/Dalkia — [S2](/sources#S2) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (cartes 02 et 16).
 
 <!-- entry -->
 ---
@@ -100,7 +100,7 @@ sourceIds: ["S14", "S2"]
 
 Isoler réduit les besoins de chauffage, donc la chaleur qu’il faudra produire. En réunion, Charlotte Brun a présenté la rénovation, notamment avec Amelio, et la décarbonation du chauffage restant comme deux démarches complémentaires. Cela explique le principe retenu, mais la réunion ne donne ni le rythme de rénovation intégré au calcul, ni l’effet d’une rénovation plus rapide sur la taille et le fonctionnement de la chaufferie. On ne peut donc pas conclure au bon dimensionnement après rénovation à partir des seuls 63 MW.
 
-Sources : HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 15 ; 00:59:18–01:01:45) ; ilénergie/Dalkia — [S2](/sources#S2).
+Sources : Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 15 ; 00:59:18–01:01:45) ; ilénergie/Dalkia — [S2](/sources#S2).
 
 <!-- entry -->
 ---
@@ -112,7 +112,7 @@ sourceIds: ["S1", "S14"]
 
 Les pompes à chaleur sont déjà prévues dans le réseau pour valoriser des chaleurs à basse température, selon François Dardenne. Elles utilisent de l’électricité pour récupérer et transférer de la chaleur. La question est donc aussi celle de leur place dans le bouquet énergétique. Les documents consultés ne présentent pas de comparaison chiffrée complète avec la biomasse : coûts, puissance électrique, sources de chaleur disponibles et performances en hiver restent à comparer pour un service équivalent.
 
-Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 14–15) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 16 ; 01:04:10).
+Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 14–15) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 16 ; 01:04:10).
 
 <!-- entry -->
 ---
@@ -124,7 +124,7 @@ sourceIds: ["S5", "S9", "S14"]
 
 C’est possible pour certaines maisons proches du réseau, mais cela se vérifie adresse par adresse. Thomas Delabuxière a expliqué que le réseau vise surtout les immeubles et les équipements ; la distance aux canalisations et le chauffage existant comptent. La MEL annonce des raccordements de bâtiments existants sans facturation, sous conditions et avec cession des certificats d’économies d’énergie. Une étude doit préciser les travaux intérieurs, l’abonnement, la facture prévisible et le calendrier.
 
-Sources : MEL — [S5](/sources#S5) ; MEL — [S9](/sources#S9) (p. 3) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 03).
+Sources : MEL — [S5](/sources#S5) ; MEL — [S9](/sources#S9) (p. 3) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 03).
 
 <!-- entry -->
 ---
@@ -158,9 +158,9 @@ theme: "Les habitants et les factures"
 sourceIds: ["S14"]
 ---
 
-Nous ne disposons d’aucune étude immobilière chiffrée sur ce projet. En réunion, Thomas Delabuxière estime que le parc, les aménagements paysagers et la remise en état du site devraient améliorer la situation par rapport à la friche. C’est une appréciation du porteur de projet, rapportée par HAC. Elle ne permet de garantir ni l’absence de dévalorisation d’une maison ni une indemnisation : aucun dispositif de compensation n’est présenté dans cette réponse.
+Nous ne disposons d’aucune étude immobilière chiffrée sur ce projet. En réunion, Thomas Delabuxière estime que le parc, les aménagements paysagers et la remise en état du site devraient améliorer la situation par rapport à la friche. C’est une appréciation du porteur de projet, rapportée par Haubourdin Alternative Citoyenne. Elle ne permet de garantir ni l’absence de dévalorisation d’une maison ni une indemnisation : aucun dispositif de compensation n’est présenté dans cette réponse.
 
-Sources : HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 17).
+Sources : Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 17).
 
 <!-- entry -->
 ---
@@ -172,7 +172,7 @@ sourceIds: ["S14"]
 
 Aucun engagement de baisse de taxe foncière n’a été relevé dans les sources de cette annexe. En réunion, Thomas Delabuxière évoque des recettes fiscales liées à l’activité, sans en donner le montant ni expliquer ce qui reviendrait aux habitants. Les sources consultées ne chiffrent pas les recettes par collectivité bénéficiaire. Nous ne pouvons donc annoncer ni un gain budgétaire net pour la commune ni une économie sur les impôts des ménages.
 
-Sources : HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 18).
+Sources : Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 18).
 
 <!-- entry -->
 ---
@@ -184,7 +184,7 @@ sourceIds: ["S3", "S1", "S14"]
 
 Oui, brûler du bois produit des fumées et des polluants, même avec une filtration. Dalkia annonce une filtration de plus de 99,5 % des particules et un objectif de 1 mg/Nm³ de poussières à la cheminée. Ces chiffres décrivent des performances prévues sur les fumées, pas l’air respiré dans le quartier. Les quantités annuelles rejetées et les effets aux habitations nécessitent les études complètes.
 
-Sources : ilénergie/Dalkia — [S3](/sources#S3) ; ilénergie/Dalkia — [S1](/sources#S1) (p. 32–33) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 05 ; 00:50:27).
+Sources : ilénergie/Dalkia — [S3](/sources#S3) ; ilénergie/Dalkia — [S1](/sources#S1) (p. 32–33) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 05 ; 00:50:27).
 
 <!-- entry -->
 ---
@@ -196,7 +196,7 @@ sourceIds: ["S1", "S11", "S14"]
 
 Les effets dépendront des rejets, de leur dispersion et de la pollution déjà présente. ilénergie prévoit des études de dispersion selon les vents et une évaluation des risques sanitaires dans son dossier d’autorisation environnementale. Le compte rendu de l’atelier présente une contribution modélisée comme faible, mais préliminaire. Les documents consultés ne permettent pas de décrire précisément l’exposition à chaque habitation ni de garantir l’absence d’effet sanitaire.
 
-Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 32–33) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 5, 8 et 10) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 06).
+Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 32–33) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 5, 8 et 10) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 06).
 
 <!-- entry -->
 ---
@@ -208,7 +208,7 @@ sourceIds: ["S11", "S14"]
 
 Deux suivis sont annoncés : ilénergie contrôlera les émissions à la cheminée ; Atmo Hauts-de-France mesurera l’air ambiant autour du site et dans des secteurs habités voisins. Le compte rendu annonce un état initial avant la mise en service, puis une campagne de huit semaines, jour et nuit, à une période comparable après démarrage. Un rapport public est prévu. Les emplacements précis ne sont pas détaillés dans ces documents.
 
-Sources : ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 6 et 9) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (cartes 06 et 08).
+Sources : ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 6 et 9) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (cartes 06 et 08).
 
 <!-- entry -->
 ---
@@ -220,7 +220,7 @@ sourceIds: ["S11", "S14"]
 
 En réunion, Atmo Hauts-de-France a été présentée comme une association agréée par l’État pour surveiller la qualité de l’air. Sa gouvernance réunit l’État, les collectivités, des acteurs économiques et des associations ou experts. La participation des industriels à son financement a été expliquée par cette organisation réglementaire. Une seconde expertise choisie avec les habitants a été demandée, mais aucun engagement à la financer n’apparaît dans l’échange enregistré.
 
-Sources : ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 6) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 07 ; 01:24:36).
+Sources : ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 6) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 07 ; 01:24:36).
 
 <!-- entry -->
 ---
@@ -232,7 +232,7 @@ sourceIds: ["S1", "S11", "S14"]
 
 Certaines installations pourront produire du bruit : cheminées, convoyeurs et manutention du bois, notamment. ilénergie prévoit une implantation à distance des maisons, des aménagements paysagers et une étude acoustique. Un bruit existant d’environ 40 dB a été rapporté en atelier : ce n’est pas le niveau futur de l’usine. Les documents consultés ne donnent pas les résultats détaillés attendus à chaque habitation, de jour et de nuit.
 
-Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 30) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 5) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 04).
+Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 30) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 5) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 04).
 
 <!-- entry -->
 ---
@@ -242,9 +242,9 @@ theme: "Le bois et sa traçabilité"
 sourceIds: ["S1", "S11", "S14"]
 ---
 
-Le porteur annonce du bois de classe A : propre, non revêtu et non pollué. Cela peut inclure certaines palettes en fin de vie, mais toutes les palettes ne répondent pas à ces critères. Bois Énergie France, filiale de Dalkia chargée de l’approvisionnement, doit vérifier la conformité du bois. Cette intention ne remplace pas des contrôles : aucun résultat d’analyse de lots n’a été montré dans l’échange repris par HAC.
+Le porteur annonce du bois de classe A : propre, non revêtu et non pollué. Cela peut inclure certaines palettes en fin de vie, mais toutes les palettes ne répondent pas à ces critères. Bois Énergie France, filiale de Dalkia chargée de l’approvisionnement, doit vérifier la conformité du bois. Cette intention ne remplace pas des contrôles : aucun résultat d’analyse de lots n’a été montré dans l’échange repris par Haubourdin Alternative Citoyenne.
 
-Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 22) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 2) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 09 ; 01:27:24).
+Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 22) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 2) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 09 ; 01:27:24).
 
 <!-- entry -->
 ---
@@ -268,7 +268,7 @@ sourceIds: ["S1", "S14"]
 
 Le criblage trie le bois selon la taille des morceaux et écarte ceux qui sont trop gros. Le déferraillage retire les éléments métalliques résiduels. Ces opérations seraient réalisées avant d’alimenter les chaudières. Selon Dalkia, le bois arriverait déjà préparé et mélangé en amont. Ces étapes protègent les équipements ; elles ne suffisent pas à établir que le bois ne contient aucune pollution chimique.
 
-Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 21) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 10 ; 01:03:11 et 01:03:52).
+Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 21) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 10 ; 01:03:11 et 01:03:52).
 
 <!-- entry -->
 ---
@@ -330,7 +330,7 @@ sourceIds: ["S1", "S4", "S11", "S14"]
 
 Le bois serait collecté puis préparé sur une plateforme du Pas-de-Calais, avant le trajet final par péniche jusqu’à Haubourdin. Bois Énergie France doit organiser cet approvisionnement. Harnes a été évoqué en réunion ; l’atelier indique que la localisation exacte reste confidentielle pendant les négociations. Des camions restent nécessaires en amont. Les 160 camions évités par semaine annoncés par le porteur comparent le fluvial à un approvisionnement entièrement routier ; ce n’est pas un bilan routier de toute la chaîne.
 
-Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 24) ; ilénergie/Dalkia — [S4](/sources#S4) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 11) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 11).
+Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 24) ; ilénergie/Dalkia — [S4](/sources#S4) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 11) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 11).
 
 <!-- entry -->
 ---
@@ -354,7 +354,7 @@ sourceIds: ["S1", "S11", "S14"]
 
 Le dossier prévoit une évacuation routière des résidus de combustion vers des filières adaptées à leur nature : valorisation possible de certains résidus, traitement ou stabilisation des autres. ilénergie annonce deux à trois camions par semaine dans le dossier, tandis que le compte rendu d’atelier évoque un camion tous les deux jours. La fréquence exacte, les tonnages et les destinations restent à confirmer. L’évacuation par péniche a été évoquée sans engagement ferme.
 
-Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 19 et 24) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 11) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 13).
+Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 19 et 24) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 11) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 13).
 
 <!-- entry -->
 ---
@@ -366,7 +366,7 @@ sourceIds: ["S1", "S12", "S14"]
 
 La friche Lever est un ancien site industriel. ilénergie annonce des études et un plan de gestion : certaines terres seraient évacuées en filières adaptées ; d’autres pourraient rester si leur gestion est compatible avec l’usage prévu. Le projet de parc prévoit notamment de recouvrir des terres polluées par des terres non polluées. Cela ne signifie pas que toute pollution disparaîtra. Le diagnostic complet, les volumes et les éventuelles restrictions restent à préciser.
 
-Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 27 et 29) ; ilénergie/Dalkia (compte rendu) — [S12](/sources#S12) (p. 15) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 12 ; 01:13:54).
+Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 27 et 29) ; ilénergie/Dalkia (compte rendu) — [S12](/sources#S12) (p. 15) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 12 ; 01:13:54).
 
 <!-- entry -->
 ---
@@ -378,7 +378,7 @@ sourceIds: ["S1", "S11", "S12", "S14"]
 
 Oui, ilénergie propose un parc accessible aux habitants au nord du site, dont la MEL est propriétaire. Sa surface varie selon les documents, d’un hectare à un hectare et demi, et ses équipements restent à définir. Le parc a été présenté comme une proposition complémentaire du concessionnaire. En revanche, aucune réponse claire ne garantit sa réalisation si la chaufferie est abandonnée : ce point demeure ouvert.
 
-Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 27) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 14) ; ilénergie/Dalkia (compte rendu) — [S12](/sources#S12) (p. 6 et 15) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 14).
+Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 27) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 14) ; ilénergie/Dalkia (compte rendu) — [S12](/sources#S12) (p. 6 et 15) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 14).
 
 <!-- entry -->
 ---
@@ -438,7 +438,7 @@ sourceIds: ["S9", "S1", "S14"]
 
 La MEL a déjà attribué la concession du réseau en 2025. En réunion, Thomas Delabuxière et Charlotte Brun expliquent que les grandes caractéristiques techniques sont largement fixées ; la concertation porte surtout sur les aménagements, le paysage, le parc et la piste cyclable. La chaufferie doit toutefois encore suivre la procédure d’autorisation environnementale annoncée par ilénergie. L’attribution de la concession ne garantit donc pas que la chaufferie sera autorisée.
 
-Sources : MEL — [S9](/sources#S9) ; ilénergie/Dalkia — [S1](/sources#S1) (p. 37) ; HAC (retranscription et carrousel) — [S14](/sources#S14) (carte 14).
+Sources : MEL — [S9](/sources#S9) ; ilénergie/Dalkia — [S1](/sources#S1) (p. 37) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 14).
 
 <!-- entry -->
 ---
