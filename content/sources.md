@@ -1,5 +1,5 @@
 ---
-updatedAt: "2026-11-07"
+updatedAt: "2026-11-08"
 sourceDocument: "https://docs.google.com/document/d/1PHJvxNW0oxgmq5ryXvIcbhpM9xZVpjjvby2sBQRTNt4/edit"
 collection: "sources"
 ---
@@ -139,12 +139,12 @@ Période allant du 1er novembre 2025 au 31 décembre 2029, valeurs au 30 septemb
 <!-- entry -->
 ---
 id: "S14"
-title: "HAC — Réunion publique, transcript corrigé et carrousel"
-publisher: "Haubourdin Alternative Citoyenne (HAC) — retranscription et contenu éditorial"
+title: "Haubourdin Alternative Citoyenne — Réunion publique, transcript corrigé et carrousel"
+publisher: "Haubourdin Alternative Citoyenne — retranscription et contenu éditorial"
 url: "https://docs.google.com/document/d/1QOdJNhA_2o_IBNjWub7SjxhrhBi9Q1QMA_zwdpVR2qA/edit"
 ---
 
-Réunion du 14 septembre 2026. Objectif de 1 mg/Nm³ : François Dardenne, onglet « Transcript corrigé », à 00:50:27. Questions : onglet « Facebook et carrousel », 18 cartes. Relu le 7 novembre 2026.
+Haubourdin Alternative Citoyenne est un groupe d’opposition au conseil municipal d’Haubourdin. Réunion du 14 septembre 2026. Objectif de 1 mg/Nm³ : François Dardenne, onglet « Transcript corrigé », à 00:50:27. Questions : onglet « Facebook et carrousel », 18 cartes. Relu le 7 novembre 2026.
 
 <!-- entry -->
 ---
@@ -194,7 +194,7 @@ publisher: "ELM/Dalkia ; dossier diffusé par la préfecture du Rhône"
 url: "https://www.rhone.gouv.fr/contenu/telechargement/63796/430796/file/PJ1_Description_du_projet.pdf"
 ---
 
-Janvier 2025. Dossier de demande d’enregistrement rubrique 2910 de la chaufferie gaz de Saint-Priest. La section 1.2.2, p. 9, décrit les moyens de production de Surville : trois chaudières biomasse de 17 MW utiles, soit 51 MW, et des chaudières gaz/fioul complémentaires. Le document distingue les puissances utiles des puissances nominales de combustion. Compléter cette comparaison par la récupération des fumées S20. Repère bibliographique : l’annexe HAC nomme cette pièce « Description du projet de Surville » ; le PDF lié porte sur Saint-Priest et décrit aussi les moyens de Surville.
+Janvier 2025. Dossier de demande d’enregistrement rubrique 2910 de la chaufferie gaz de Saint-Priest. La section 1.2.2, p. 9, décrit les moyens de production de Surville : trois chaudières biomasse de 17 MW utiles, soit 51 MW, et des chaudières gaz/fioul complémentaires. Le document distingue les puissances utiles des puissances nominales de combustion. Compléter cette comparaison par la récupération des fumées S20. Repère bibliographique : l’annexe d’Haubourdin Alternative Citoyenne nomme cette pièce « Description du projet de Surville » ; le PDF lié porte sur Saint-Priest et décrit aussi les moyens de Surville.
 
 <!-- entry -->
 ---

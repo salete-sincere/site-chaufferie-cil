@@ -47,7 +47,7 @@ Aucune cause n’est démontrée ; la récurrence est rattachée au
 
 Les métriques récentes du nœud et du replica sont conformes, sans alerte ciblée.
 La sonde HTTP permanente reste absente ([suivi 2](https://github.com/salete-sincere/site-chaufferie-cil/issues/2))
-et les fichiers graphiques HAC restent attendus ([suivi 1](https://github.com/salete-sincere/site-chaufferie-cil/issues/1)).
+et les fichiers graphiques d’Haubourdin Alternative Citoyenne restent attendus ([suivi 1](https://github.com/salete-sincere/site-chaufferie-cil/issues/1)).
 Les tests interceptent les destinations externes après contrôle des URL et
 simulent certaines capacités du navigateur. Aucun courriel réel n’est envoyé.
 Le bilan Telegram a été accepté ; sa lecture n’est pas attestée.

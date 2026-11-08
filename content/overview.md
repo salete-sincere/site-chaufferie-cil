@@ -1,5 +1,5 @@
 ---
-updatedAt: "2026-11-07"
+updatedAt: "2026-11-08"
 sourceDocument: "https://docs.google.com/document/d/1PHJvxNW0oxgmq5ryXvIcbhpM9xZVpjjvby2sBQRTNt4/edit"
 collection: "overview"
 ---
@@ -15,7 +15,7 @@ sourceIds: ["S1", "S2", "S9", "S18"]
 
 **Le projet annoncé.** ilénergie, filiale de Dalkia, prévoit une chaufferie biomasse de **63 MW thermiques utiles** sur la friche Lever, pour alimenter le réseau de chaleur métropolitain. La MEL a attribué la concession du réseau en 2025.
 
-**La position d’HAC.** Haubourdin Alternative Citoyenne s’oppose en l’état à cette implantation et appelle à constituer un comité d’intérêt local pour obtenir son abandon par des moyens démocratiques.
+**La position d’Haubourdin Alternative Citoyenne.** Ce groupe d’opposition au conseil municipal d’Haubourdin s’oppose en l’état à cette implantation et appelle à constituer un comité d’intérêt local pour obtenir son abandon par des moyens démocratiques.
 
 <!-- entry -->
 ---
@@ -39,7 +39,7 @@ sourceIds: ["S1", "S4", "S9", "S13"]
 
 **Les annonces.** Le porteur identifie **28 bâtiments à Haubourdin**, soit environ 2 000 équivalents-logements, équipements compris. Certains raccordements sont annoncés sans facturation, sous conditions et avec cession des certificats d’économies d’énergie. La chaleur consommée et l’abonnement restent payants.
 
-**La position d’HAC.** Les bénéfices locaux et les contreparties sont jugés très insuffisants face aux nuisances pour les riverains. Cela ne signifie pas qu’aucun habitant ne bénéficierait du réseau.
+**La position d’Haubourdin Alternative Citoyenne.** Les bénéfices locaux et les contreparties sont jugés très insuffisants face aux nuisances pour les riverains. Cela ne signifie pas qu’aucun habitant ne bénéficierait du réseau.
 
 <!-- entry -->
 ---
@@ -52,7 +52,7 @@ sourceIds: ["S1", "S3", "S11"]
 
 **Le combustible.** Le bois est le combustible principal annoncé. Le dossier prévoit aussi du fioul pour les démarrages ou le maintien des conditions de combustion, sans chiffrer sa consommation annuelle dans les passages consultés. [Lire les précisions sur le fioul](/informer/faq#faq-36).
 
-**La demande d’HAC.** Garantir l’origine du bois et exclure celui issu de coupes rases. Les rayons annoncés ne décrivent pas les trajets réels ; fournisseurs, contrôles et clauses de remplacement restent à documenter.
+**La demande d’Haubourdin Alternative Citoyenne.** Garantir l’origine du bois et exclure celui issu de coupes rases. Les rayons annoncés ne décrivent pas les trajets réels ; fournisseurs, contrôles et clauses de remplacement restent à documenter.
 
 <!-- entry -->
 ---
@@ -63,7 +63,7 @@ sourceIds: ["S1", "S4", "S11"]
 
 **Les annonces.** Le bois arriverait par péniche. En cas d’avarie exceptionnelle sur la voie d’eau, le porteur prévoit **jusqu’à 30 camions par jour en secours**. Le dossier prévoit cinq jours habituels de livraison fluviale, la FAQ en indique six : le scénario actualisé reste à confirmer.
 
-**La position d’HAC.** Ce trafic de secours est refusé. Le comité doit pouvoir connaître les itinéraires, la durée maximale, les flux de cendres et l’ensemble des trajets en amont. Les 160 camions « évités » par semaine comparent le fluvial à un scénario entièrement routier.
+**La position d’Haubourdin Alternative Citoyenne.** Ce trafic de secours est refusé. Le comité doit pouvoir connaître les itinéraires, la durée maximale, les flux de cendres et l’ensemble des trajets en amont. Les 160 camions « évités » par semaine comparent le fluvial à un scénario entièrement routier.
 
 <!-- entry -->
 ---
@@ -74,7 +74,7 @@ sourceIds: ["S1", "S3", "S11", "S14"]
 
 **Les annonces.** Dalkia prévoit une filtration de plus de 99,5 % des particules et un objectif de 1 mg/Nm³ de poussières dans les fumées. Ces chiffres ne décrivent pas l’air respiré dans le quartier. Une campagne Atmo de huit semaines est annoncée après démarrage ; les résultats détaillés aux habitations restent à obtenir.
 
-**La demande d’HAC.** Des mesures indépendantes et permanentes près des habitations, des résultats publics et des règles pour réduire ou arrêter le fonctionnement si nécessaire. Les effets du bruit doivent aussi être documentés de jour et de nuit.
+**La demande d’Haubourdin Alternative Citoyenne.** Des mesures indépendantes et permanentes près des habitations, des résultats publics et des règles pour réduire ou arrêter le fonctionnement si nécessaire. Les effets du bruit doivent aussi être documentés de jour et de nuit.
 
 <!-- entry -->
 ---
@@ -96,7 +96,7 @@ sourceIds: ["S1", "S11", "S12"]
 
 **Les annonces.** Un parc est envisagé, avec une superficie variant de 1 à 1,5 hectare selon les documents. La voie verte et la renaturation de la Tortue sont portées par la MEL. Leur calendrier et leur financement ne se confondent pas avec ceux de la chaufferie.
 
-**La demande d’HAC.** Publier les rues concernées par les travaux, les déviations, leur durée et les accès maintenus. Le communiqué d’HAC demande aussi les plans, la localisation et les conséquences du bassin de demi-tour VNF évoqué dans le secteur Santes–Haubourdin, notamment pour les berges et la Canteraine.
+**La demande d’Haubourdin Alternative Citoyenne.** Publier les rues concernées par les travaux, les déviations, leur durée et les accès maintenus. Le communiqué d’Haubourdin Alternative Citoyenne demande aussi les plans, la localisation et les conséquences du bassin de demi-tour VNF évoqué dans le secteur Santes–Haubourdin, notamment pour les berges et la Canteraine.
 
 <!-- entry -->
 ---
@@ -116,6 +116,6 @@ title: "Un vrai débat et un comité à constituer"
 sourceIds: ["S2", "S14", "S17"]
 ---
 
-**Les demandes d’HAC.** Publier le cahier des charges, comparer publiquement les autres sites possibles sur la métropole et débattre des choix de fond. La mairie et la MEL doivent aussi porter un plan local d’isolation avec budget, calendrier et objectifs annuels ; les bailleurs sociaux doivent préciser leurs échéances de rénovation.
+**Les demandes d’Haubourdin Alternative Citoyenne.** Publier le cahier des charges, comparer publiquement les autres sites possibles sur la métropole et débattre des choix de fond. La mairie et la MEL doivent aussi porter un plan local d’isolation avec budget, calendrier et objectifs annuels ; les bailleurs sociaux doivent préciser leurs échéances de rénovation.
 
 **L’étape actuelle.** Rassembler les habitants volontaires pour constituer le comité contre l’implantation sur la friche Lever. Il pourra partager les informations et préparer réunions publiques, porte-à-porte et distributions de tracts. Même avec peu de temps, vous pouvez participer.

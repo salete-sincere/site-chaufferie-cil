@@ -18,7 +18,7 @@ test('the editorial collection preserves all promised entries and the eight figu
   for (let index = 1; index <= 27; index++) assert.ok(content.sources.some(({ id }) => id === `S${index}`));
   assert.equal(new Set(content.figures.map(({ theme }) => theme)).size, 8);
   assert.equal(content.figureThemeNotes.length, 8);
-  assert.equal(content.updatedAt, '2026-11-07');
+  assert.equal(content.updatedAt, '2026-11-08');
   assert.match(content.figures.find(({ value }) => value === '30 camions par jour')!.note!, /exceptionnel/);
   assert.match(content.figures.find(({ value }) => value === 'Une par jour sur cinq jours')!.note!, /six jours/);
   assert.match(content.faq.find(({ id }) => id === 'faq-34')!.answer, /procédure locale complète/);
@@ -39,7 +39,7 @@ test('duplicate anchor IDs and missing entries fail validation', async () => {
 test('a non-web source URL and inconsistent dates fail validation', async () => {
   const input = await files();
   assert.throws(() => parseContentFiles({ ...input, sources: input.sources.replace(/url: "https:[^\n]+/, 'url: "javascript:alert(1)"') }), /URL/i);
-  assert.throws(() => parseContentFiles({ ...input, faq: input.faq.replace('2026-11-07', '2026-11-08') }), /date/i);
+  assert.throws(() => parseContentFiles({ ...input, faq: input.faq.replace(/updatedAt: "[^"]+"/, 'updatedAt: "2000-01-01"') }), /date/i);
 });
 
 test('authored HTML and unsafe Markdown links fail validation', async () => {

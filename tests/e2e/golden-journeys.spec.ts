@@ -4,7 +4,7 @@ import AxeBuilder from '@axe-core/playwright';
 const recipient = 'haubourdin_alternative_citoyenne@riseup.net';
 const facebookUrl = 'https://www.facebook.com/HaubourdinAlternativeCitoyenne';
 const pressSourceUrl = 'https://docs.google.com/document/d/1PHJvxNW0oxgmq5ryXvIcbhpM9xZVpjjvby2sBQRTNt4/edit?tab=t.tl20vqm2xga5';
-const pressTitle = 'HAC s’oppose à la chaufferie de la friche Lever';
+const pressTitle = 'Haubourdin Alternative Citoyenne s’oppose à la chaufferie de la friche Lever';
 const metadataSiteUrl = process.env.SITE_URL || 'https://stopchaufferiehaubourdin.fr';
 const campaignPaths = ['/informer', '/informer/faq', '/rejoindre'];
 const actionLabels = [
@@ -61,18 +61,18 @@ function composeMail(href: string | null) {
 }
 
 test.describe('Golden Journey — Je m’informe', () => {
-  test('publications d’HAC : communiqué, source et Facebook', async ({ page, context }) => {
+  test('publications d’Haubourdin Alternative Citoyenne : communiqué, source et Facebook', async ({ page, context }) => {
     await page.goto('/');
-    const publications = page.getByRole('navigation', { name: 'Publications d’HAC', exact: true });
-    const homepageFacebook = publications.getByRole('link', { name: /^HAC sur Facebook(?: \(nouvel onglet\))?$/ });
+    const publications = page.getByRole('navigation', { name: 'Publications d’Haubourdin Alternative Citoyenne', exact: true });
+    const homepageFacebook = publications.getByRole('link', { name: /^Haubourdin Alternative Citoyenne sur Facebook(?: \(nouvel onglet\))?$/ });
     await expect(homepageFacebook).toHaveAttribute('href', facebookUrl);
     await expect(homepageFacebook).toHaveAttribute('target', '_blank');
     expect((await homepageFacebook.getAttribute('rel'))?.split(/\s+/)).toEqual(expect.arrayContaining(['noopener', 'noreferrer']));
-    await publications.getByRole('link', { name: 'Lire le communiqué d’HAC', exact: true }).click();
+    await publications.getByRole('link', { name: 'Lire le communiqué d’Haubourdin Alternative Citoyenne', exact: true }).click();
     await expect(page).toHaveURL(/\/communique-de-presse$/);
     await expect(page.getByRole('heading', { level: 1, name: pressTitle, exact: true })).toBeVisible();
     await expect(page.getByText(/6 novembre 2026/).first()).toBeVisible();
-    const statement = page.getByRole('article', { name: 'Texte du communiqué d’HAC', exact: true });
+    const statement = page.getByRole('article', { name: 'Texte du communiqué d’Haubourdin Alternative Citoyenne', exact: true });
     await expect(statement.locator('p')).toHaveCount(9);
     await expect(statement.locator('p').first()).toContainText('Haubourdin Alternative Citoyenne s’oppose en l’état au projet de chaufferie biomasse');
     await expect(statement).toContainText('un maximum de 30 camions par jour en secours lorsque les péniches ne peuvent plus livrer le bois');
@@ -95,7 +95,7 @@ test.describe('Golden Journey — Je m’informe', () => {
       await page.goto('/communique-de-presse');
     }
 
-    const facebook = page.getByRole('contentinfo').getByRole('link', { name: /^HAC sur Facebook(?: \(nouvel onglet\))?$/ });
+    const facebook = page.getByRole('contentinfo').getByRole('link', { name: /^Haubourdin Alternative Citoyenne sur Facebook(?: \(nouvel onglet\))?$/ });
     await expect(facebook).toHaveAttribute('href', facebookUrl);
     await expect(facebook).toHaveAttribute('target', '_blank');
     expect((await facebook.getAttribute('rel'))?.split(/\s+/)).toEqual(expect.arrayContaining(['noopener', 'noreferrer']));
@@ -111,10 +111,10 @@ test.describe('Golden Journey — Je m’informe', () => {
     await facebookPopup.close();
 
     await page.goto('/militer');
-    const activistPublications = page.getByRole('navigation', { name: 'Publications d’HAC', exact: true });
-    await expect(activistPublications.getByRole('link', { name: 'Lire le communiqué d’HAC', exact: true }))
+    const activistPublications = page.getByRole('navigation', { name: 'Publications d’Haubourdin Alternative Citoyenne', exact: true });
+    await expect(activistPublications.getByRole('link', { name: 'Lire le communiqué d’Haubourdin Alternative Citoyenne', exact: true }))
       .toHaveAttribute('href', '/communique-de-presse');
-    const activistFacebook = activistPublications.getByRole('link', { name: /^HAC sur Facebook(?: \(nouvel onglet\))?$/ });
+    const activistFacebook = activistPublications.getByRole('link', { name: /^Haubourdin Alternative Citoyenne sur Facebook(?: \(nouvel onglet\))?$/ });
     await expect(activistFacebook).toHaveAttribute('href', facebookUrl);
     await expect(activistFacebook).toHaveAttribute('target', '_blank');
     expect((await activistFacebook.getAttribute('rel'))?.split(/\s+/)).toEqual(expect.arrayContaining(['noopener', 'noreferrer']));
@@ -477,9 +477,9 @@ test.describe('Lecture essentielle sans JavaScript', () => {
     const pressResponse = await page.goto('/communique-de-presse');
     expect(await pressResponse!.text()).not.toContain('/cdn-cgi/l/email-protection');
     await expect(page.getByRole('heading', { level: 1, name: pressTitle, exact: true })).toBeVisible();
-    const statement = page.getByRole('article', { name: 'Texte du communiqué d’HAC', exact: true });
+    const statement = page.getByRole('article', { name: 'Texte du communiqué d’Haubourdin Alternative Citoyenne', exact: true });
     await expect(statement.locator('p')).toHaveCount(9);
-    await expect(statement).toContainText('HAC appelle les habitants volontaires à se faire connaître pour constituer un comité d’intérêt local');
+    await expect(statement).toContainText('Haubourdin Alternative Citoyenne appelle les habitants volontaires à se faire connaître pour constituer un comité d’intérêt local');
     const pressContact = page.locator('main').getByRole('link', { name: recipient, exact: true });
     await expect(pressContact).toBeVisible();
     composeMail(await pressContact.getAttribute('href'));
@@ -530,7 +530,7 @@ test.describe('Accessibilité et rendu', () => {
       const footer = page.getByRole('contentinfo');
       await expect(footer.getByRole('link', { name: 'Communiqué de presse', exact: true }))
         .toHaveAttribute('href', '/communique-de-presse');
-      await expect(footer.getByRole('link', { name: /^HAC sur Facebook(?: \(nouvel onglet\))?$/ }))
+      await expect(footer.getByRole('link', { name: /^Haubourdin Alternative Citoyenne sur Facebook(?: \(nouvel onglet\))?$/ }))
         .toHaveAttribute('href', facebookUrl);
     }
     await page.getByRole('checkbox', { name: actionLabels[0], exact: true }).check();
