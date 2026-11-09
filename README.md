@@ -6,8 +6,8 @@ Ce site présente le comité en cours de constitution, à l’initiative d’Hau
 Alternative Citoyenne, groupe d’opposition au conseil municipal d’Haubourdin.
 Il permet de s’informer, de partager et de préparer un courriel, sans collecte.
 Next.js sert des contenus Markdown, sans base de données.
-La préversion est `https://chaufferie-cil-staging.saletesincere.fr` ; la préparation
-de `https://stopchaufferiehaubourdin.fr` reste suivie dans [l’issue dédiée](https://github.com/salete-sincere/site-chaufferie-cil/issues/8).
+Le site public est `https://stopchaufferiehaubourdin.fr` ; la préversion
+`https://chaufferie-cil-staging.saletesincere.fr` reste accessible.
 Les deux adresses gardent la consigne de non-indexation.
 
 ## Synthèse — 3 minutes
@@ -55,13 +55,11 @@ surveillance et retour arrière. Les trois Golden Journeys sont testés par
 `npm run test:e2e` sur un build de production. Le rapport de
 [qualification](documentation/qualification.md) indique les résultats réellement obtenus.
 
-Le domaine public prévu utilise un enregistrement A chez OVH vers Penthouse,
-sans passage par Cloudflare. Au contrôle du 7 novembre 2026 à 22 h 04, heure de
-Paris, le DNS répondait encore `NXDOMAIN` ; aucune activation du nouveau domaine
-n’était réalisée. La [procédure du domaine public](documentation/domaine-public.md)
-décrit les étapes DNS, certificat HTTP-01 dans le namespace et qualification.
-La préversion reste accessible pendant cette préparation ; la non-indexation
-est conservée sur les deux adresses.
+Le domaine public est actif depuis le 9 novembre 2026, avec DNS OVH et HTTPS
+vers Penthouse, sans passage par Cloudflare. Les cartes de partage utilisent
+ce domaine pour chaque page et pour leur image PNG 1200 × 630. La préversion
+partage ces mêmes URL canoniques. La [procédure du domaine public](documentation/domaine-public.md)
+décrit DNS, certificat et qualification ; la non-indexation reste active.
 
 ## Annexes
 
@@ -88,7 +86,7 @@ Sur Penthouse, réutiliser le Chromium approuvé par AppArmor :
 
 ```sh
 PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/home/ubuntu/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome npm run test:e2e
-SITE_URL=https://chaufferie-cil-staging.saletesincere.fr PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/home/ubuntu/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome npm run test:e2e:staging
+PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/home/ubuntu/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome npm run test:e2e:staging
 ```
 
 Les captures, traces et rapports sont ignorés par Git dans `test-results/` et
@@ -132,11 +130,13 @@ Routes publiques : `/`, `/informer`, `/informer/faq`, `/informer/chiffres`,
 `GET /health` répond `{ "status": "ok", "revision": "<APP_REVISION>" }`, sans cache.
 Il n’existe aucune API d’inscription ou d’envoi. `APP_REVISION` désigne le SHA livré ;
 `SITE_URL` configure les métadonnées absolues au build, avec
-`https://stopchaufferiehaubourdin.fr` par défaut. Une autre valeur peut être fournie
-pour qualifier une image avec la préversion :
+`https://stopchaufferiehaubourdin.fr` par défaut. La recette du staging utilise
+`E2E_BASE_URL` pour changer la cible HTTP, tout en vérifiant les URL publiques
+annoncées aux messageries :
 
 ```sh
-SITE_URL=https://chaufferie-cil-staging.saletesincere.fr npm run build
+npm run build
+E2E_BASE_URL=https://chaufferie-cil-staging.saletesincere.fr npm run test:e2e
 ```
 
 Pour une image Docker, utiliser l’argument de build `SITE_URL`. Les pages étant
@@ -144,10 +144,13 @@ prérendues, modifier seulement l’environnement du conteneur déjà construit 
 recalcule pas ces métadonnées. Cette configuration ne crée aucun enregistrement
 DNS ni certificat ; leur activation suit la procédure dédiée.
 
-La variable de dépôt GitHub Actions `SITE_URL` est transmise à la qualification
-et à la construction de l’image. Pour livrer sur la préversion avant activation
-du domaine public, elle vaut `https://chaufferie-cil-staging.saletesincere.fr`.
-Son changement nécessite une nouvelle image et une nouvelle qualification.
+Le workflow versionne `SITE_URL=https://stopchaufferiehaubourdin.fr` pour les
+deux builds ; une ancienne variable de dépôt ne peut plus réintroduire le staging.
+Les neuf pages ont un canonical, `og:url`, titre, description, image absolue et
+carte Twitter explicites. `partage-20261109.png` renouvelle l’URL de l’image ; les
+anciens alias restent disponibles. `npm run prepare:assets` régénère les SVG
+et PNG avec les contours Open Sans locaux. Les tests d’aperçus lisent le HTML
+brut et récupèrent l’image annoncée, sans exécuter les scripts du site.
 
 Toutes les réponses portent `X-Robots-Tag: noindex, nofollow, noarchive`.
 `robots.txt` permet le crawl afin que les moteurs puissent lire cette consigne ;
@@ -162,6 +165,7 @@ il ne s’agit pas d’une restriction d’accès.
 - [Qualification et limites](documentation/qualification.md).
 - [Qualification de l’import documentaire du 9 novembre 2026](documentation/qualification-contenus-2026-11-09.md).
 - [Livraison du dossier documentaire du 9 novembre 2026](documentation/livraison-contenus-2026-11-09.md).
+- [Qualification des aperçus de partage](documentation/qualification-partage-2026-11-09.md).
 - [Preuves de livraison du 7 novembre 2026](documentation/livraison-2026-11-07.md).
 - [Livraison du communiqué et des liens d’Haubourdin Alternative Citoyenne](documentation/livraison-publications-2026-11-07.md).
 - [Livraison Canopée et panorama français](documentation/livraison-canopee-2026-11-07.md).

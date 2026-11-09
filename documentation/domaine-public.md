@@ -2,12 +2,12 @@
 
 ## Summary — 30 secondes
 
-Le domaine demandé est `stopchaufferiehaubourdin.fr`, avec DNS OVH et un A vers
-Penthouse `141.94.98.109`. Les ressources sont préparées dans `k8s/domain.yaml` :
-Issuer HTTP01, certificat, Ingress et accès réseau limité aux solveurs. Elles
-n’étaient pas appliquées lors de la préparation du 7 novembre 2026. Attendre la
-publication DNS avant l’émission ACME, puis vérifier TLS, les Golden Journeys et
-la santé continue. Le staging reste accessible pendant cette opération.
+Le domaine `stopchaufferiehaubourdin.fr` est actif depuis le 9 novembre 2026,
+avec DNS OVH et HTTPS vers Penthouse. Le staging reste accessible. Les cartes
+de partage doivent annoncer le domaine public pour chaque page et image ; le
+workflow versionne cette configuration. Toute nouvelle image reste soumise à
+la qualification des Golden Journeys, à TLS et à une fenêtre de santé continue.
+Les procédures de création et les constats historiques sont conservés ci-dessous.
 
 ## Synthèse — 3 minutes
 

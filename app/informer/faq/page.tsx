@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 import { getContent, renderMarkdown } from '@/lib/content';
 import { PageHeading, JoinBanner } from '@/components/editorial';
 import { FaqBrowser } from '@/components/faq-browser';
 import styles from '@/components/site.module.css';
-export const metadata: Metadata = { title: 'FAQ : vos questions sur le projet' };
+export const metadata = pageMetadata("/informer/faq", "FAQ : vos questions sur le projet", "Retrouvez les réponses documentées aux questions sur la chaufferie à Haubourdin : air, santé, bois, trafic, coûts et alternatives, avec leurs sources.");
 export default async function FaqPage() {
   const { faq, updatedAt } = await getContent();
   const date = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(updatedAt));

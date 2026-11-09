@@ -8,8 +8,9 @@ La recette du domaine vérifie également l’image effective, TLS et une fenêt
 de santé continue. Ce document précise les contrôles et leurs limites.
 La [mise à jour documentaire du 9 novembre](qualification-contenus-2026-11-09.md)
 décrit la qualification locale du nouveau corpus et ses limites de livraison.
-La dernière [livraison du 8 novembre](livraison-identite-2026-11-08.md) reste
-distincte de cette préparation locale.
+La [livraison du corpus du 9 novembre](livraison-contenus-2026-11-09.md) et la
+[qualification des aperçus de partage](qualification-partage-2026-11-09.md)
+distinguent les révisions livrées des préparations locales.
 
 ## Synthèse — 3 minutes
 
@@ -32,7 +33,12 @@ dans les comptes rendus en annexe.
 
 **Je milite** vérifie la copie des trois messages et de leurs liens, le partage
 natif, son annulation et les replis lorsque partage ou presse-papiers sont absents
-ou refusés. L’inscription aux nouvelles reste annoncée à venir, sans collecte.
+ou refusés. Cinq profils HTTP d’aperçu lisent les cartes des neuf pages sans
+JavaScript, avec canonical, `og:url`, titres/descriptions et PNG annoncés sur le
+domaine public. Les dimensions et le poids de l’image sont contrôlés. En recette
+réelle, l’URL absolue est récupérée ; en local, son chemin vise le build testé.
+Ces profils ne certifient pas les réseaux, caches ou réglages des messageries.
+L’inscription aux nouvelles reste annoncée à venir, sans collecte.
 
 **Je rejoins** vérifie les choix multiples, la possibilité de ne rien sélectionner,
 le message facultatif, les accents et l’encodage de l’adresse, du sujet et du corps

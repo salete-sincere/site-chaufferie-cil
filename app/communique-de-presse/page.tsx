@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 import { getPressRelease } from '@/lib/content';
 import { contactEmail, makeMailto } from '@/lib/contact';
@@ -7,7 +7,7 @@ import { PublicEmailLink } from '@/components/public-email-link';
 import { ShareLink } from '@/components/copy-button';
 import styles from '@/components/site.module.css';
 
-export const metadata: Metadata = { title: 'Le communiqué de presse d’Haubourdin Alternative Citoyenne' };
+export const metadata = pageMetadata("/communique-de-presse", "Le communiqué de presse d’Haubourdin Alternative Citoyenne", "Lisez le communiqué du 6 novembre 2026 d’Haubourdin Alternative Citoyenne sur le projet de chaufferie et la constitution d’un comité d’intérêt local.");
 
 export default async function PressReleasePage() {
   const release = await getPressRelease();
