@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 import { getContent } from '@/lib/content';
 import { PageHeading, SourceLinks, Markdown, JoinBanner } from '@/components/editorial';
 import styles from '@/components/site.module.css';
-export const metadata: Metadata = { title: 'Chiffres clés et leurs sources' };
+export const metadata = pageMetadata("/informer/chiffres", "Chiffres clés et leurs sources", "Consultez les chiffres du projet de chaufferie à Haubourdin, avec leurs unités, hypothèses, périmètres et documents de référence.");
 export default async function FiguresPage() {
   const content = await getContent();
   const themes = [...new Set(content.figures.map(item => item.theme))];

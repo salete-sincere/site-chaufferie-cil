@@ -1,9 +1,9 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 import { getContent } from '@/lib/content';
 import { PageHeading, Markdown } from '@/components/editorial';
 import styles from '@/components/site.module.css';
-export const metadata: Metadata = { title: 'Sources et documents de référence' };
+export const metadata = pageMetadata("/sources", "Sources et documents de référence", "Accédez aux documents du projet de chaufferie à Haubourdin, aux données publiques et aux rapports de suivi cités dans le dossier.");
 export default async function SourcesPage() {
   const { sources } = await getContent();
   return <><div className={styles.breadcrumb}><Link href="/">Accueil</Link><span>/</span><span>Sources</span></div><PageHeading eyebrow="Le dossier / Les références" title="Remonter aux sources."><p>Qui publie quoi ? Voici les {sources.length} références utilisées dans le dossier, avec les précisions utiles pour les consulter.</p></PageHeading><div className={styles.readingNote}><p>ilénergie est la société concessionnaire du groupe Dalkia. Les publications du porteur, les décisions publiques, la retranscription d’Haubourdin Alternative Citoyenne et les ressources associatives de Canopée, CABE, Stop Enfumage et Respire 62 sont identifiées séparément. Un lien peut mener vers un PDF ou un document nécessitant un accès.</p><p>La position d’Haubourdin Alternative Citoyenne, groupe d’opposition au conseil municipal d’Haubourdin, est également disponible dans le <Link href="/communique-de-presse">communiqué de presse d’Haubourdin Alternative Citoyenne du 6 novembre 2026</Link>.</p></div><div className={styles.sourcesList}>{sources.map(source => <article id={source.id} key={source.id} className={styles.source}><span className={styles.sourceId}>{source.id}</span><h2>{source.title}</h2><p><strong>Publié par : {source.publisher}</strong></p><Markdown>{source.description}</Markdown><a className={styles.buttonOutline} href={source.url} target="_blank" rel="noopener noreferrer">Consulter le document <span aria-hidden="true">↗</span><span className="sr-only"> (nouvel onglet)</span></a></article>)}</div></>;

@@ -5,7 +5,7 @@ const recipient = 'haubourdin_alternative_citoyenne@riseup.net';
 const facebookUrl = 'https://www.facebook.com/HaubourdinAlternativeCitoyenne';
 const pressSourceUrl = 'https://docs.google.com/document/d/1PHJvxNW0oxgmq5ryXvIcbhpM9xZVpjjvby2sBQRTNt4/edit?tab=t.tl20vqm2xga5';
 const pressTitle = 'Haubourdin Alternative Citoyenne s’oppose à la chaufferie de la friche Lever';
-const metadataSiteUrl = process.env.SITE_URL || 'https://stopchaufferiehaubourdin.fr';
+const metadataSiteUrl = 'https://stopchaufferiehaubourdin.fr';
 const campaignPaths = ['/informer', '/informer/faq', '/rejoindre'];
 const actionLabels = [
   'Réunions publiques',
@@ -669,7 +669,7 @@ test.describe('Accessibilité et rendu', () => {
 
 test.describe('Exploitation du staging', () => {
   test('image Open Graph absolue sur le domaine public et disponible dans le build', async ({ page, request }) => {
-    const expectedImageUrl = new URL('/partage.png', metadataSiteUrl).href;
+    const expectedImageUrl = new URL('/partage-20261109.png', metadataSiteUrl).href;
     for (const route of ['/', '/communique-de-presse']) {
       await page.goto(route);
       await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', expectedImageUrl);
@@ -679,7 +679,7 @@ test.describe('Exploitation du staging', () => {
     }
     // Fetch from the tested server, so a configurable metadata URL does not
     // make the local qualification depend on an already published domain.
-    const image = await request.get('/partage.png');
+    const image = await request.get('/partage-20261109.png');
     expect(image.status()).toBe(200);
     expect(image.headers()['content-type']).toMatch(/^image\/png/);
     expect(image.headers()['x-robots-tag']).toMatch(/noindex/);

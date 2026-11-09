@@ -10,7 +10,8 @@ permissions:
   contents: read
 
 env:
-  SITE_URL: ${{ vars.SITE_URL || 'https://stopchaufferiehaubourdin.fr' }}
+  # Keep published cards on the public origin; repository variables cannot revert them to staging.
+  SITE_URL: https://stopchaufferiehaubourdin.fr
 
 concurrency:
   group: ci-${{ github.ref }}

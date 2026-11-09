@@ -43,7 +43,11 @@ Ce choix permet la relecture par lien mais ne constitue pas une confidentialité
 `https://stopchaufferiehaubourdin.fr` comme valeur par défaut. Il peut être remplacé
 pour une qualification de la préversion, y compris via l’argument de build Docker
 du même nom. Les pages étant prérendues, un changement de cette valeur exige un
-nouveau build. Le choix du domaine ne déclenche ni publication ni activation DNS.
+nouveau build. Le workflow versionne désormais le domaine public pour la qualification et
+l’image ; il ne dépend plus d’une variable de dépôt susceptible de rester au
+staging. La recette des deux adresses conserve ces mêmes URL publiques. Chaque
+page définit une carte Open Graph/Twitter complète et son URL canonique.
+Le choix du domaine ne déclenche ni publication ni activation DNS.
 
 Le code est public à la demande du propriétaire. L’accès au package GHCR est géré
 séparément. Les ressources Kubernetes sont isolées dans

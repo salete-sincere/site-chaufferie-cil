@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 import { getContent } from '@/lib/content';
 import { PageHeading, Markdown, SourceLinks, JoinBanner } from '@/components/editorial';
 import styles from '@/components/site.module.css';
 
-export const metadata: Metadata = { title: 'Compléments documentaires : navigation, coûts, alternatives et santé' };
+export const metadata = pageMetadata("/informer/complements", "Compléments documentaires : navigation, coûts, alternatives et santé", "Explorez les compléments du dossier chaufferie à Haubourdin : navigation, raccordement, alternatives, coûts, industries et santé, avec leurs limites et sources.");
 
 export default async function ComplementsPage() {
   const { complements, updatedAt } = await getContent();

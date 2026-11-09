@@ -1,11 +1,11 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 import { getContent } from '@/lib/content';
 import { PageHeading, JoinBanner } from '@/components/editorial';
 import { CopyButton, ShareLink } from '@/components/copy-button';
 import styles from '@/components/site.module.css';
 import { HacLinks } from '@/components/hac-links';
-export const metadata: Metadata = { title: 'Je milite : faire circuler l’information' };
+export const metadata = pageMetadata("/militer", "Je milite : faire circuler l’information", "Des textes et des liens à partager pour faire connaître le projet de chaufferie à Haubourdin, ouvrir la discussion et rassembler les habitants.");
 export default async function CampaignPage() {
   const content = await getContent();
 const messages = [

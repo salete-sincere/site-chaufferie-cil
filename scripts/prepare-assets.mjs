@@ -19,8 +19,24 @@ function outline(text, x, y, size, fill, font = bold) {
   }).join('');
 }
 
-// Glyph outlines make the exported asset independent of host font libraries.
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><title>À Haubourdin, on a notre mot à dire.</title><rect width="1200" height="630" fill="#4f6826"/><path d="M60 95h1080" stroke="#a0b281"/>${outline('COMITÉ CHAUFFERIE · HAUBOURDIN',60,65,23,'#fff')}${outline('ICI, ON A',60,230,100,'#fff')}${outline('NOTRE MOT',60,340,100,'#fff')}${outline('À DIRE.',60,450,100,'#f4b50e')}${outline('Une initiative d’Haubourdin Alternative Citoyenne',60,570,25,'#fff',regular)}</svg>`;
-await writeFile(new URL('../public/partage.svg', import.meta.url), svg + '\n');
-await sharp(Buffer.from(svg)).png().toFile(new URL('../public/partage.png', import.meta.url).pathname);
-console.log('Visuels SVG et PNG préparés avec les contours Open Sans locaux.');
+// Large subject and slogan remain legible in messaging previews. Glyph outlines
+// keep the exported asset independent of host fonts and external resources.
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<title>Chaufferie à Haubourdin — Ici, on a notre mot à dire.</title>
+<desc>Haubourdin Alternative Citoyenne, à l’initiative du comité d’intérêt local en cours de constitution.</desc>
+<rect width="1200" height="630" fill="#4f6826"/>
+<rect width="1200" height="145" fill="#f4b50e"/>
+${outline('CHAUFFERIE À HAUBOURDIN',64,104,62,'#1f251b')}
+${outline('ICI, ON A NOTRE',64,280,116,'#fff')}
+${outline('MOT À DIRE.',64,430,130,'#f4b50e')}
+<rect y="490" width="1200" height="140" fill="#fff"/>
+${outline('Haubourdin Alternative Citoyenne',64,546,34,'#1f251b')}
+${outline('À l’initiative du comité d’intérêt local en cours de constitution',64,589,24,'#1f251b',regular)}
+</svg>`;
+const png = await sharp(Buffer.from(svg)).png({ compressionLevel: 9, adaptiveFiltering: true }).toBuffer();
+// The dated URLs renew preview caches; the original URLs remain valid aliases.
+for (const name of ['partage-20261109', 'partage']) {
+  await writeFile(new URL(`../public/${name}.svg`, import.meta.url), svg + '\n');
+  await writeFile(new URL(`../public/${name}.png`, import.meta.url), png);
+}
+console.log(`Cartes de partage SVG et PNG préparées : 1200 × 630, PNG ${(png.length / 1024).toFixed(1)} Ko.`);
