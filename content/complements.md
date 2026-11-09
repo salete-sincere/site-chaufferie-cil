@@ -418,7 +418,7 @@ Sources : [S69](/sources#S69).
 
 Boulevard du Marais, Sequedin — Méthanisation, compostage et transfert
 
-Rapport du 21 janvier 2026 : contrôle de mai 2025 non conforme en ammoniac au biofiltre 1 ; défauts de lavage/injection d’acide identifiés puis réparés. Ce site n’est pas un incinérateur.
+Rapport du 21 janvier 2026 : contrôle de mai 2025 non conforme en ammoniac au biofiltre 1 ; défauts de lavage/injection d’acide identifiés puis réparés. Le contrôle des rejets des biofiltres du 14 au 17 décembre 2025 ne relève pas de non-conformité aux valeurs limites applicables. L’inspection demande encore de compléter les procédures et fréquences de contrôle. Ce site n’est pas un incinérateur.
 
 Publié par : DREAL Hauts-de-France ; Rejet mesuré et correctifs rapportés.
 

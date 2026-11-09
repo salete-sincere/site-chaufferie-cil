@@ -712,7 +712,7 @@ publisher: "DREAL Hauts-de-France"
 url: "https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/RaS7pTRPGSjBfgH9KMVCCdY98gaFlEW1"
 ---
 
-SEQUOIA / CVO de Sequedin, rapport du 21 janvier 2026, p. 10 : contrôle NH3 du 26 mai 2025 et correctifs décrits. Méthanisation/compostage et transfert, pas incinération.
+SEQUOIA / CVO de Sequedin, rapport du 21 janvier 2026, p. 10 : contrôle NH3 du 26 mai 2025, correctifs décrits et contrôle des rejets des biofiltres du 14 au 17 décembre 2025 sans non-conformité aux valeurs limites applicables. Des procédures et fréquences de contrôle restent à compléter. Méthanisation/compostage et transfert, pas incinération.
 
 <!-- entry -->
 ---

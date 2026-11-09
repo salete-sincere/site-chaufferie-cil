@@ -121,3 +121,25 @@ externes sont interceptées après vérification de leurs URL ; leur accessibili
 réelle et l’authenticité de leur contenu ne sont pas prouvées par ces simulations.
 L’audit axe ne constitue pas une certification d’accessibilité. Le décor incliné
 et la typographie serrée des unités sur l’accueil sont préexistants à cet import.
+
+### Revue des originaux avant publication
+
+La revue Copilot de la PR 11 sur `a138b7693cee2141045901ac11317d863c09ae61`
+ne relève pas de défaut de code, mais demande de vérifier les affirmations
+sanitaires et industrielles contre les pièces originales. Cette réserve est
+traitée par une lecture ciblée des documents, distincte des simulations E2E.
+
+Pour S63 à S67, les PDF MRAe, OR2S, registre des tumeurs et Santé publique France
+confirment les chiffres, périodes et échelles retenus. Les graphiques OR2S et
+le tableau du registre sont aussi vérifiés visuellement. Le scénario de 380
+cancers évitables reste conditionnel ; les données territoriales ne permettent
+pas d'attribuer un risque sanitaire au seul projet de chaufferie.
+
+Le contrôle du rapport S70, p. 10, conduit à compléter la chronologie du CVO de
+Sequedin : après le défaut de mai et les réparations, le contrôle des rejets des
+biofiltres du 14 au 17 décembre 2025 ne relève pas de non-conformité aux valeurs
+limites applicables. Les procédures et fréquences de contrôle restent à compléter.
+Cette précision est ajoutée au complément et à la source. Elle est postérieure
+au patch local qualifié ci-dessus : la CI doit donc requalifier la révision
+candidate avant fusion. Ce contrôle ciblé ne vaut pas audit exhaustif des 54
+nouvelles références.
