@@ -129,7 +129,7 @@ test.describe('Golden Journey — Je m’informe', () => {
     await expect(page.getByTestId('overview-point')).toHaveCount(10);
 
     await page.locator('a[href="/informer/faq"]').first().click();
-    await expect(page.locator('main details')).toHaveCount(39);
+    await expect(page.locator('main details')).toHaveCount(51);
     const question = page.locator('main details').first();
     await question.locator('summary').click();
     await expect(question).toHaveAttribute('open', '');
@@ -175,7 +175,7 @@ test.describe('Golden Journey — Je m’informe', () => {
     await expect(questions).toHaveCount(0);
     await expect(page.getByText(/aucun.*(?:résultat|question)/i)).toBeVisible();
     await page.getByLabel('Rechercher une question', { exact: true }).fill('');
-    await expect(questions).toHaveCount(39);
+    await expect(questions).toHaveCount(51);
 
     const select = page.getByRole('combobox', { name: 'Thème', exact: true });
     const options = await select.locator('option').evaluateAll((nodes) =>
@@ -183,9 +183,9 @@ test.describe('Golden Journey — Je m’informe', () => {
     expect(options.length).toBeGreaterThan(1);
     await select.selectOption(options[1]);
     await expect.poll(() => questions.count()).toBeGreaterThan(0);
-    expect(await questions.count()).toBeLessThan(39);
+    expect(await questions.count()).toBeLessThan(51);
     await select.selectOption(options[0]);
-    await expect(questions).toHaveCount(39);
+    await expect(questions).toHaveCount(51);
   });
 
   test('lien direct vers une réponse dépliée et références complètes', async ({ page }) => {
@@ -203,7 +203,7 @@ test.describe('Golden Journey — Je m’informe', () => {
       await expect(question.locator('summary')).toBeInViewport();
     }
     await page.goto('/sources');
-    for (let number = 1; number <= 27; number += 1) {
+    for (let number = 1; number <= 81; number += 1) {
       const source = page.locator(`[id="S${number}"]`);
       await expect(source).toBeVisible();
       await expect(source.locator('a[href^="http"]').first()).toBeVisible();
@@ -219,7 +219,7 @@ test.describe('Golden Journey — Je m’informe', () => {
     await search.fill('Canopée');
     await expect(page.locator('main details')).toHaveCount(1);
     await search.fill('');
-    await expect(page.locator('main details')).toHaveCount(39);
+    await expect(page.locator('main details')).toHaveCount(51);
     await page.evaluate(() => {
       window.location.hash = 'faq-34';
       window.scrollTo({ top: 0, behavior: 'instant' });
@@ -325,6 +325,98 @@ test.describe('Golden Journey — Je m’informe', () => {
     await expect(page.locator('#figure-48')).toContainText('2032');
     await expect(page.locator('#figure-48')).toContainText('Horizon annoncé pour le réseau ilénergie étendu');
   });
+
+  test('compléments : hypothèses, échelles sanitaires et suites des inspections restent consultables', async ({ page, context }) => {
+    await page.goto('/informer');
+    await page.getByRole('link', { name: /^Les compléments documentaires(?: ↗)?$/ }).click();
+    await expect(page).toHaveURL(/\/informer\/complements$/);
+    for (const id of [
+      'navigation', 'climat', 'raccordement', 'associations', 'documents',
+      'hydrothermie', 'couts', 'industries', 'sante', 'cumul',
+    ]) {
+      await expect(page.locator(`#complement-${id}`)).toHaveCount(1);
+    }
+    await page.locator('main nav a[href="#complement-hydrothermie"]').click();
+    await expect(page).toHaveURL(/#complement-hydrothermie$/);
+    const hydrothermy = page.locator('#complement-hydrothermie');
+    await expect(hydrothermy.locator('h2')).toBeInViewport();
+    await expect(hydrothermy).toContainText(/3,35\s*m³\/s/);
+    await expect(hydrothermy).toContainText('ni une autorisation ni une condition garantie');
+    await expect(hydrothermy).toContainText(/aucune étude publique retrouvée/i);
+    await page.reload();
+    await expect(hydrothermy.locator('h2')).toBeInViewport();
+
+    await page.locator('main nav a[href="#complement-sante"]').click();
+    const health = page.locator('#complement-sante');
+    await expect(health.locator('h2')).toBeInViewport();
+    await expect(health).toContainText('101 communes');
+    await expect(health).toContainText('pas nombre de cas de la seule commune');
+    await expect(health).toContainText(/aucun diagnostic individuel ni attribution causale/i);
+    expect(await page.locator('main').innerText()).not.toMatch(/\bHAC\b|Anne-Sophie|rapportée oralement|Pour le site\s*:/);
+
+    const industry = page.locator('#complement-industries');
+    await industry.locator('a[href="/sources#S69"]').first().click();
+    await expect(page).toHaveURL(/\/sources#S69$/);
+    const refinal = page.locator('#S69');
+    await expect(refinal).toContainText(/suivi.*septembre/is);
+    const followupUrl = 'https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/3cwnvUaula2bu177unhf9KrtxS3ZmXiW';
+    const followup = refinal.locator(`a[href="${followupUrl}"]`);
+    await expect(followup).toBeVisible();
+    await context.route(followupUrl, (route) => route.fulfill({
+      status: 200, contentType: 'text/html', body: '<h1>Rapport de suivi simulé</h1>',
+    }));
+    // The second inspection must remain reachable alongside the initial finding.
+    // Only the destination is qualified; the third-party report is not fetched.
+    if (await followup.getAttribute('target') === '_blank') {
+      const popupPromise = page.waitForEvent('popup');
+      await followup.click();
+      const popup = await popupPromise;
+      await expect(popup).toHaveURL(followupUrl);
+      await popup.close();
+    } else {
+      await followup.click();
+      await expect(page).toHaveURL(followupUrl);
+    }
+    await page.goto('/sources#S73');
+    await expect(page.locator('#S73')).toContainText(/26 août 2025/);
+    await expect(page.locator('#S73 a[href="https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/hb7CKy5yoIajvFNncpaiMPjj43F8j8za"]')).toBeVisible();
+  });
+
+  test('nouvelles FAQ : recherche, thème et lien partageable après rechargement', async ({ page }) => {
+    await page.goto('/informer/faq');
+    const search = page.getByLabel('Rechercher une question', { exact: true });
+    await search.fill('La chaleur de la Deule peut-elle remplacer les 63 MW de biomasse ?');
+    await expect(page.locator('main details')).toHaveCount(1);
+    const hydrothermy = page.locator('#faq-46');
+    await expect(hydrothermy).toBeVisible();
+    // Read the option label before CSS text-transform uppercases its display.
+    const themeText = await hydrothermy.locator('summary small').textContent();
+    expect(themeText).not.toBeNull();
+    const theme = themeText!.trim();
+    await search.fill('');
+    await page.getByRole('combobox', { name: 'Thème', exact: true }).selectOption({ label: theme });
+    await expect(hydrothermy).toBeVisible();
+    expect(await page.locator('main details').count()).toBeLessThan(51);
+    await hydrothermy.locator('summary').click();
+    await expect(hydrothermy).toContainText('aucun potentiel exploitable publié');
+    await hydrothermy.getByRole('link', { name: 'Lien vers cette question', exact: true }).click();
+    await expect(page).toHaveURL(/\/informer\/faq#faq-46$/);
+    await page.reload();
+    await expect(hydrothermy).toHaveAttribute('open', '');
+    await expect(hydrothermy.locator('summary')).toBeInViewport();
+    await expect(search).toHaveValue('');
+    await expect(page.getByRole('combobox', { name: 'Thème', exact: true })).toHaveValue('');
+    await expect(page.locator('main details')).toHaveCount(51);
+
+    await page.goto('/informer/faq#faq-47');
+    await expect(page.locator('#faq-47')).toHaveAttribute('open', '');
+    await expect(page.locator('#faq-47 summary')).toContainText('exemples chiffrés');
+    await page.goto('/informer/faq#faq-50');
+    const health = page.locator('#faq-50');
+    await expect(health).toHaveAttribute('open', '');
+    await expect(health).toContainText('Les sources retrouvées ne permettent pas cette attribution');
+    await expect(health.locator('a[href="/sources#S66"]').first()).toBeVisible();
+  });
 });
 
 test.describe('Golden Journey — Je milite', () => {
@@ -337,7 +429,7 @@ test.describe('Golden Journey — Je milite', () => {
     const copied = await page.evaluate(() => (window as BrowserEvidence).__copiedTexts);
     expect(copied).toHaveLength(3);
     expect(new Set(copied).size).toBe(3);
-    expect(copied.join('\n')).toContain('39 questions et 51 repères');
+    expect(copied.join('\n')).toContain('51 questions et 51 repères');
     for (const [index, message] of copied.entries()) {
       expect(message.length).toBeGreaterThan(60);
       expect(message.split('\n').at(-1)).toBe(new URL(campaignPaths[index], page.url()).href);
@@ -461,7 +553,7 @@ test.describe('Lecture essentielle sans JavaScript', () => {
     await expect(page.getByTestId('overview-point')).toHaveCount(10);
     await page.goto('/informer/faq');
     await expect(page.getByText('La recherche nécessite JavaScript. Toutes les questions restent consultables ci-dessous.', { exact: true })).toBeVisible();
-    await expect(page.locator('main details')).toHaveCount(39);
+    await expect(page.locator('main details')).toHaveCount(51);
     await page.locator('main details').first().locator('summary').click();
     await expect(page.locator('main details').first()).toHaveAttribute('open', '');
     await page.locator('#faq-37 summary').click();
@@ -471,6 +563,12 @@ test.describe('Lecture essentielle sans JavaScript', () => {
     await page.goto('/informer/chiffres');
     await expect(page.getByTestId('figure')).toHaveCount(51);
     await expect(page.locator('#figure-51')).toContainText('Ne pas additionner automatiquement ce chiffre aux 51 MW des chaudières');
+    await page.goto('/informer/complements#complement-hydrothermie');
+    await expect(page.locator('#complement-hydrothermie')).toContainText('ni une autorisation ni une condition garantie');
+    await expect(page.locator('#complement-sante')).toContainText('pas nombre de cas de la seule commune');
+    await page.locator('#complement-industries a[href="/sources#S69"]').first().click();
+    await expect(page).toHaveURL(/\/sources#S69$/);
+    await expect(page.locator('#S69 a[href="https://www.georisques.gouv.fr/webappReport/ws/installations/inspection/3cwnvUaula2bu177unhf9KrtxS3ZmXiW"]')).toBeVisible();
     await page.goto('/militer');
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     expect((await page.locator('main').innerText()).length).toBeGreaterThan(500);
@@ -513,7 +611,7 @@ test.describe('Accessibilité et rendu', () => {
 
   test('WCAG 2.1 AA : structure, champs et contrastes', async ({ page }) => {
     test.setTimeout(90_000);
-    for (const route of ['/', '/informer', '/informer/faq', '/informer/chiffres', '/militer', '/rejoindre', '/sources', '/communique-de-presse']) {
+    for (const route of ['/', '/informer', '/informer/faq', '/informer/chiffres', '/informer/complements', '/militer', '/rejoindre', '/sources', '/communique-de-presse']) {
       await page.goto(route);
       if (route === '/informer/faq') await page.locator('main summary').first().click();
       const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
@@ -523,7 +621,7 @@ test.describe('Accessibilité et rendu', () => {
 
   test('mobile : parcours lisibles sans débordement horizontal', async ({ page }, testInfo) => {
     await page.setViewportSize({ width: 390, height: 844 });
-    for (const route of ['/', '/informer', '/informer/faq', '/informer/chiffres', '/sources', '/militer', '/communique-de-presse', '/rejoindre']) {
+    for (const route of ['/', '/informer', '/informer/faq', '/informer/chiffres', '/informer/complements', '/sources', '/militer', '/communique-de-presse', '/rejoindre']) {
       await page.goto(route);
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), route).toBe(true);
@@ -561,6 +659,10 @@ test.describe('Accessibilité et rendu', () => {
       await page.locator('#faq-37').screenshot({ path: testInfo.outputPath(`canopee-${viewportName}.png`) });
       await page.goto('/informer/chiffres');
       await page.locator('#theme-1').screenshot({ path: testInfo.outputPath(`puissances-${viewportName}.png`) });
+      await page.goto('/informer/complements#complement-hydrothermie');
+      await page.locator('#complement-hydrothermie').screenshot({ path: testInfo.outputPath(`hydrothermie-${viewportName}.png`) });
+      await page.goto('/sources#S69');
+      await page.locator('#S69').screenshot({ path: testInfo.outputPath(`suivi-inspection-${viewportName}.png`) });
     }
   });
 });
@@ -588,7 +690,7 @@ test.describe('Exploitation du staging', () => {
     const health = await request.get('/health');
     expect(health.status()).toBe(200);
     expect(health.headers()['content-type']).toMatch(/application\/json/);
-    for (const route of ['/', '/informer/faq', '/rejoindre', '/communique-de-presse', '/favicon.svg', '/route-inexistante-e2e']) {
+    for (const route of ['/', '/informer/faq', '/informer/complements', '/rejoindre', '/communique-de-presse', '/favicon.svg', '/route-inexistante-e2e']) {
       const response = await request.get(route);
       expect(response.status(), route).toBe(route === '/route-inexistante-e2e' ? 404 : 200);
       expect(response.headers()['x-robots-tag'], route).toMatch(/noindex/i);

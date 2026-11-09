@@ -16,8 +16,10 @@ sont prérendues au build et servies par le runtime Node.js standalone ; `/healt
 expose la disponibilité HTTP et la révision. Le traitement des images est réalisé
 au build. Aucune donnée mutable ni sortie réseau du serveur applicatif n’est nécessaire.
 
-Les collections FAQ, chiffres, introduction et sources sont chargées depuis quatre
-fichiers Markdown. Le communiqué de presse est un cinquième document indépendant,
+Les collections FAQ, chiffres, introduction, sources et compléments documentaires
+sont chargées depuis cinq fichiers Markdown. Les compléments regroupent les cas
+détaillés sans modifier les huit thèmes des chiffres ni les anciennes ancres.
+Le communiqué de presse est un sixième document indépendant,
 avec auteur, date et provenance, rendu intégralement sur `/communique-de-presse`.
 Leurs références et leur format sont contrôlés avant chaque build.
 Le rendu interdit les protocoles de liens dangereux et échappe le HTML brut. Le CMS

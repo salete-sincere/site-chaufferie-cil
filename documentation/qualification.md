@@ -6,13 +6,15 @@ Les trois Golden Journeys sont automatisés sur un build de production Next.js
 via `npm run test:e2e`. Les rapports CI sont rattachés au SHA testé.
 La recette du domaine vérifie également l’image effective, TLS et une fenêtre
 de santé continue. Ce document précise les contrôles et leurs limites.
-La [livraison du 8 novembre](livraison-identite-2026-11-08.md) passe 12 tests
-unitaires et 22 scénarios E2E, après une qualification locale préalable de 20 scénarios.
+La [mise à jour documentaire du 9 novembre](qualification-contenus-2026-11-09.md)
+décrit la qualification locale du nouveau corpus et ses limites de livraison.
+La dernière [livraison du 8 novembre](livraison-identite-2026-11-08.md) reste
+distincte de cette préparation locale.
 
 ## Synthèse — 3 minutes
 
-**Je m’informe** vérifie l’accès aux dix points, aux 39 FAQ, aux 51 chiffres et aux
-27 sources. La recherche, le filtre thématique, l’absence de résultat, les ancres
+**Je m’informe** vérifie l’accès aux dix points, aux 51 FAQ, aux 51 chiffres et aux
+81 sources, ainsi qu’aux dix compléments documentaires. La recherche, le filtre thématique, l’absence de résultat, les ancres
 directes et le passage vers la source originale font partie du parcours.
 L’accès au communiqué complet depuis l’accueil, la page « Je milite » et le pied
 de page est vérifié, ainsi que sa provenance, son contact et le lien Facebook exact.
@@ -22,8 +24,11 @@ Le panorama vérifie aussi la recherche « Canopée », l’attribution des enqu
 les précautions sur Sully et Haubourdin, le fioul prévu, les périmètres des puissances,
 l’autorisation préfectorale après avis défavorable et les références S18 à S27.
 Les anciens liens directs sont conservés ; les textes à copier affichent les
-comptages actualisés. Les deux nouveaux scénarios ont échoué sur l’ancien build
-avant de qualifier le contenu mis à jour.
+comptages actualisés. Les compléments vérifient les hypothèses de l’hydrothermie,
+l’échelle des données sanitaires et l’accès aux pièces de suivi des inspections.
+Les nouvelles FAQ sont cherchées et filtrées ; leurs ancres restent ouvertes
+après rechargement. Le cycle RED/GREEN et les résultats par révision sont détaillés
+dans les comptes rendus en annexe.
 
 **Je milite** vérifie la copie des trois messages et de leurs liens, le partage
 natif, son annulation et les replis lorsque partage ou presse-papiers sont absents
@@ -51,6 +56,12 @@ les libellés accessibles et les partages. Le groupe d’opposition au conseil m
 d’Haubourdin est présenté distinctement du comité en cours de constitution.
 
 ## Annexes
+
+### Import du document source du 9 novembre 2026
+
+Voir la [qualification de la mise à jour documentaire](qualification-contenus-2026-11-09.md) :
+périmètre, révision de base et empreinte du patch, commandes reproductibles,
+résultats et limites. Cette préparation locale ne constitue pas une livraison.
 
 ### Correction éditoriale du 8 novembre 2026
 

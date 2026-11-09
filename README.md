@@ -12,11 +12,11 @@ Les deux adresses gardent la consigne de non-indexation.
 
 ## Synthèse — 3 minutes
 
-Le dossier comprend dix points introductifs, 39 questions, 51 repères chiffrés
-répartis en huit thèmes et 27 sources. Chaque chiffre conserve son périmètre et
+Le dossier comprend dix points introductifs, 51 questions, 51 repères chiffrés
+répartis en huit thèmes et 81 sources, ainsi que dix compléments documentaires. Chaque chiffre conserve son périmètre et
 ses précautions. Les annonces du porteur, les positions d’Haubourdin Alternative
 Citoyenne et les questions ouvertes sont identifiées. L’état documentaire est celui
-du 7 novembre 2026.
+du 9 novembre 2026.
 Haubourdin Alternative Citoyenne est le groupe d’opposition à l’initiative du
 comité d’intérêt local ; ce comité en cours de constitution est une entité distincte.
 Le [code source est public](https://github.com/salete-sincere/site-chaufferie-cil).
@@ -97,10 +97,15 @@ désactiver la sandbox du navigateur pour résoudre un problème du harnais.
 
 ### Mettre à jour les contenus
 
-Les quatre fichiers dans `content/` contiennent des entrées Markdown séparées par
+Les cinq collections dans `content/` (`overview`, `faq`, `figures`, `sources` et
+`complements`) contiennent des entrées Markdown séparées par
 `<!-- entry -->`, avec un front matter YAML. Les IDs sont stables : `faq-01`,
 `figure-01`, `point-01`, `S1`, etc. Les sources sont centralisées dans `sources.md`.
 Une correction du Google Doc ne modifie pas automatiquement le site.
+Les dix compléments de `/informer/complements` conservent les cas de navigation,
+coûts, alternatives, inspections et données sanitaires avec leurs limites. Les
+descriptions des sources acceptent des liens Markdown vers les pièces de suivi ;
+plusieurs documents peuvent donc relever du même identifiant de source.
 
 Le fichier distinct `content/press-release.md` contient le communiqué, son auteur,
 sa date et sa provenance. Il est aussi validé au build. Ses propos sont conservés,
@@ -111,7 +116,7 @@ dans `lib/hac.ts`. Il s’agit d’un lien externe, sans intégration Facebook n
 
 1. Revoir les pièces et leur date, puis modifier le Markdown et ses références.
 2. Préserver les précautions et distinguer prévision, mesure et revendication.
-3. Mettre à jour `updatedAt` de manière cohérente dans les quatre collections.
+3. Mettre à jour `updatedAt` de manière cohérente dans les cinq collections.
 4. Exécuter validation, tests et build. Une modification du nombre d’entrées exige
    aussi d’actualiser les attentes de validation et la présentation publique.
 5. Qualifier le nouveau SHA avant publication et activation sur OVH.
@@ -123,7 +128,7 @@ code MDX ou JavaScript éditorial n’est exécuté.
 ### Routes et interfaces
 
 Routes publiques : `/`, `/informer`, `/informer/faq`, `/informer/chiffres`,
-`/sources`, `/militer`, `/rejoindre`, `/communique-de-presse`. Les ancres FAQ et sources sont partageables.
+`/informer/complements`, `/sources`, `/militer`, `/rejoindre`, `/communique-de-presse`. Les ancres FAQ et sources sont partageables.
 `GET /health` répond `{ "status": "ok", "revision": "<APP_REVISION>" }`, sans cache.
 Il n’existe aucune API d’inscription ou d’envoi. `APP_REVISION` désigne le SHA livré ;
 `SITE_URL` configure les métadonnées absolues au build, avec
@@ -155,6 +160,7 @@ il ne s’agit pas d’une restriction d’accès.
 - [Déploiement et retour arrière](documentation/deploiement.md).
 - [Mise en service du domaine public](documentation/domaine-public.md).
 - [Qualification et limites](documentation/qualification.md).
+- [Qualification de l’import documentaire du 9 novembre 2026](documentation/qualification-contenus-2026-11-09.md).
 - [Preuves de livraison du 7 novembre 2026](documentation/livraison-2026-11-07.md).
 - [Livraison du communiqué et des liens d’Haubourdin Alternative Citoyenne](documentation/livraison-publications-2026-11-07.md).
 - [Livraison Canopée et panorama français](documentation/livraison-canopee-2026-11-07.md).
