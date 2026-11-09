@@ -166,6 +166,7 @@ il ne s’agit pas d’une restriction d’accès.
 - [Qualification de l’import documentaire du 9 novembre 2026](documentation/qualification-contenus-2026-11-09.md).
 - [Livraison du dossier documentaire du 9 novembre 2026](documentation/livraison-contenus-2026-11-09.md).
 - [Qualification des aperçus de partage](documentation/qualification-partage-2026-11-09.md).
+- [Livraison des aperçus de partage du 9 novembre 2026](documentation/livraison-partage-2026-11-09.md).
 - [Preuves de livraison du 7 novembre 2026](documentation/livraison-2026-11-07.md).
 - [Livraison du communiqué et des liens d’Haubourdin Alternative Citoyenne](documentation/livraison-publications-2026-11-07.md).
 - [Livraison Canopée et panorama français](documentation/livraison-canopee-2026-11-07.md).
