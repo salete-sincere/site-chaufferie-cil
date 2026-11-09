@@ -6,6 +6,7 @@ import { marked, Renderer } from 'marked';
 export type FaqEntry = { id: string; question: string; theme: string; answer: string; sourceIds: string[] };
 export type FigureEntry = { id: string; value: string; description: string; theme: string; publisher: string; sourceIds: string[]; note?: string };
 export type OverviewEntry = { id: string; title: string; body: string; sourceIds: string[] };
+export type ComplementEntry = { id: string; title: string; body: string; sourceIds: string[] };
 export type SourceEntry = { id: string; title: string; publisher: string; description: string; url: string };
 export type FigureThemeNote = { theme: string; body: string; sourceIds: string[] };
 export type PressRelease = { title: string; publisher: string; publishedAt: string; sourceDocument: string; body: string };
@@ -13,15 +14,16 @@ export type Content = {
   faq: FaqEntry[];
   figures: FigureEntry[];
   overview: OverviewEntry[];
+  complements: ComplementEntry[];
   sources: SourceEntry[];
   figureThemeNotes: FigureThemeNote[];
   updatedAt: string;
   sourceDocument: string;
 };
 
-type CollectionName = 'faq' | 'figures' | 'overview' | 'sources';
+type CollectionName = 'faq' | 'figures' | 'overview' | 'sources' | 'complements';
 export type ContentFiles = Record<CollectionName, string>;
-const collectionNames: CollectionName[] = ['faq', 'figures', 'overview', 'sources'];
+const collectionNames: CollectionName[] = ['faq', 'figures', 'overview', 'sources', 'complements'];
 
 function requiredText(metadata: Record<string, unknown>, key: string): string {
   const value = metadata[key];
@@ -58,6 +60,9 @@ export function parseContentFiles(files: ContentFiles): Content {
       description: body.trim(), sourceIds: references(data), note: requiredText(data, 'note'),
     })),
     overview: parsed.overview.entries.map(({ data, content: body }) => ({
+      id: requiredText(data, 'id'), title: requiredText(data, 'title'), body: body.trim(), sourceIds: references(data),
+    })),
+    complements: parsed.complements.entries.map(({ data, content: body }) => ({
       id: requiredText(data, 'id'), title: requiredText(data, 'title'), body: body.trim(), sourceIds: references(data),
     })),
     sources: parsed.sources.entries.map(({ data, content: body }) => ({
@@ -122,7 +127,7 @@ function validateContent(content: Content): void {
     throw new Error('Invalid content date');
   }
   if (!webUrl(content.sourceDocument)) throw new Error('Invalid source document URL');
-  const expected = { faq: 39, figures: 51, overview: 10, sources: 27 };
+  const expected = { faq: 51, figures: 51, overview: 10, sources: 81, complements: 10 };
   const ids = new Set<string>();
   for (const name of collectionNames) {
     if (content[name].length !== expected[name]) throw new Error(`${name} must contain ${expected[name]} entries`);
@@ -139,7 +144,7 @@ function validateContent(content: Content): void {
   for (const source of content.sources) {
     if (!webUrl(source.url)) throw new Error(`Invalid URL for source ${source.id}`);
   }
-  const citedEntries = [...content.faq, ...content.figures, ...content.overview, ...content.figureThemeNotes];
+  const citedEntries = [...content.faq, ...content.figures, ...content.overview, ...content.complements, ...content.figureThemeNotes];
   for (const entry of citedEntries) {
     for (const id of entry.sourceIds) {
       if (!sources.has(id)) throw new Error(`Unknown source ${id}`);
@@ -157,6 +162,7 @@ function validateContent(content: Content): void {
     ...content.faq.map(({ answer }) => answer), ...content.overview.map(({ body }) => body),
     ...content.figures.map(({ description, note }) => `${description}\n\n${note}`),
     ...content.sources.map(({ description }) => description), ...content.figureThemeNotes.map(({ body }) => body),
+    ...content.complements.map(({ body }) => body),
   ];
   for (const body of markdownBodies) {
     validateMarkdownBody(body);

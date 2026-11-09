@@ -1,5 +1,5 @@
 ---
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-09"
 sourceDocument: "https://docs.google.com/document/d/1PHJvxNW0oxgmq5ryXvIcbhpM9xZVpjjvby2sBQRTNt4/edit"
 collection: "faq"
 ---
@@ -116,6 +116,18 @@ Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 14–15) ; Haubourdin Alte
 
 <!-- entry -->
 ---
+id: "faq-46"
+question: "La chaleur de la Deûle peut-elle remplacer les 63 MW de biomasse ?"
+theme: "Le site et les alternatives"
+sourceIds: ["S1", "S56", "S58"]
+---
+
+Des PAC sur l’eau peuvent atteindre des puissances de cet ordre, comme à Esbjerg. Pour Haubourdin, aucun potentiel exploitable publié n’a été retrouvé. Il faut une étude locale des températures et débits hivernaux, des rejets refroidis, de l’électricité et des appoints, avec une comparaison des GWh annuels. La conclusion sur la géothermie du sous-sol ne suffit pas à répondre à cette piste.
+
+Sources : ilénergie — [S1](/sources#S1) ; FfE — [S56](/sources#S56) ; partenaires Esbjerg — [S58](/sources#S58).
+
+<!-- entry -->
+---
 id: "faq-09"
 question: "Ma maison pourra-t-elle être raccordée ?"
 theme: "Les habitants et les factures"
@@ -140,6 +152,18 @@ Sources : MEL — [S9](/sources#S9) (p. 3) ; ilénergie — [S13](/sources#S13).
 
 <!-- entry -->
 ---
+id: "faq-43"
+question: "Le raccordement est annoncé gratuit : restera-t-il des travaux à payer ?"
+theme: "Les habitants et les factures"
+sourceIds: ["S9", "S40", "S41"]
+---
+
+C’est possible. Ilénergie annonce le raccordement gratuit sous conditions pour les bâtiments existants de plus de 70 kW, et des frais pour le neuf ou à partir de 2032. La MEL précise la cession des CEE. Les adaptations intérieures éventuelles restent à la charge des propriétaires. Il faut donc un devis précisant la limite entre prestations comprises et travaux à financer.
+
+Sources : MEL — [S9](/sources#S9) ; ilénergie — [S40](/sources#S40) et [S41](/sources#S41).
+
+<!-- entry -->
+---
 id: "faq-11"
 question: "Combien coûtera le chauffage après raccordement ?"
 theme: "Les habitants et les factures"
@@ -149,6 +173,30 @@ sourceIds: ["S13", "S4"]
 Il n’existe pas de prix unique par logement. ilénergie publie, au 30 septembre 2026, une part consommée de 73,31 € HT/MWh et un abonnement de 45,08 € HT par kW souscrit et par an, avec une TVA de 5,5 %. La facture dépend donc de la consommation et de la puissance prévue au contrat, auxquelles peuvent s’ajouter des frais propres à l’immeuble. Ces tarifs sont révisables : ils ne garantissent pas le prix à la mise en service envisagée en 2030.
 
 Sources : ilénergie — [S13](/sources#S13) ; ilénergie/Dalkia — [S4](/sources#S4).
+
+<!-- entry -->
+---
+id: "faq-47"
+question: "Dispose-t-on d’exemples chiffrés de raccordement de copropriétés ?"
+theme: "Les habitants et les factures"
+sourceIds: ["S61", "S62"]
+---
+
+Oui : le PV de La Tour du Rond à Montauban vote 10 680 € TTC en 2021. À Auxerre, une proposition pour Douaumont distingue le coût total et les CEE attendus. Ce sont un montant voté et une proposition, pas des factures finales contrôlées ; les pièces de Douaumont ne prouvent pas ici un vote ni le coût final. Ces exemples montrent l’intérêt d’obtenir un devis net et détaillé. Aucun tarif par logement applicable à Haubourdin ne peut s’en déduire.
+
+Sources : syndicat La Tour du Rond — [S61](/sources#S61) ; Domanys — [S62](/sources#S62).
+
+<!-- entry -->
+---
+id: "faq-48"
+question: "Un raccordement gratuit peut-il malgré tout avoir un coût ?"
+theme: "Les habitants et les factures"
+sourceIds: ["S60", "S41"]
+---
+
+Oui. À Écully, les droits de raccordement étaient chiffrés mais devaient être couverts par une contribution liée aux CEE ; le reste nul était conditionnel. À Haubourdin, il faut surtout connaître les travaux intérieurs exclus de la gratuité et les aides réellement acquises.
+
+Sources : Ville d’Écully — [S60](/sources#S60) ; ilénergie — [S41](/sources#S41).
 
 <!-- entry -->
 ---
@@ -233,6 +281,42 @@ sourceIds: ["S1", "S11", "S14"]
 Certaines installations pourront produire du bruit : cheminées, convoyeurs et manutention du bois, notamment. ilénergie prévoit une implantation à distance des maisons, des aménagements paysagers et une étude acoustique. Un bruit existant d’environ 40 dB a été rapporté en atelier : ce n’est pas le niveau futur de l’usine. Les documents consultés ne donnent pas les résultats détaillés attendus à chaque habitation, de jour et de nuit.
 
 Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 30) ; ilénergie/Dalkia (compte rendu) — [S11](/sources#S11) (p. 5) ; Haubourdin Alternative Citoyenne (retranscription et carrousel) — [S14](/sources#S14) (carte 04).
+
+<!-- entry -->
+---
+id: "faq-49"
+question: "Quels sites faut-il regarder autour de la future chaufferie ?"
+theme: "L’air et le bruit"
+sourceIds: ["S68", "S69", "S70", "S71", "S72", "S73", "S74", "S75"]
+---
+
+Le panorama retient Cargill, Refinal, le CVO de Sequedin, Kuhlmann, Stockmeier, Recynov, Ramery Environnement et Baudelet Matériaux. Les documents ne montrent pas la même chose pour chacun : rejets mesurés, poussières, risques accidentels ou conformité sur des points contrôlés. Une liste de sites doit être accompagnée des dates et des suites données.
+
+Sources : DREAL — [S68](/sources#S68), [S69](/sources#S69), [S70](/sources#S70), [S71](/sources#S71), [S72](/sources#S72), [S73](/sources#S73), [S74](/sources#S74), [S75](/sources#S75).
+
+<!-- entry -->
+---
+id: "faq-50"
+question: "Peut-on affirmer qu’il y a davantage de cancers à Haubourdin à cause des usines ?"
+theme: "L’air et le bruit"
+sourceIds: ["S66", "S65", "S67"]
+---
+
+Les sources retrouvées ne permettent pas cette attribution. Les chiffres disponibles portent sur le territoire du registre, celui de Lille, le département ou la région. Ils doivent garder leur période et leur définition. Le lien général entre pollution de l’air et risques sanitaires justifie d’étudier les expositions locales, sans inventer un nombre de cancers imputables à une usine.
+
+Sources : Registre — [S66](/sources#S66) ; OR2S — [S65](/sources#S65) ; Atmo/SPF — [S67](/sources#S67).
+
+<!-- entry -->
+---
+id: "faq-51"
+question: "Pourquoi demander une étude des effets cumulés ?"
+theme: "L’air et le bruit"
+sourceIds: ["S63"]
+---
+
+Parce que les habitants vivent avec plusieurs sources de nuisances à la fois. Il faut savoir ce que le projet ajoute à la situation existante et aux autres projets pertinents, et comparer les alternatives sur cette base. La MRAe avait déjà demandé une telle analyse pour un autre projet à Santes.
+
+Source : MRAe — [S63](/sources#S63).
 
 <!-- entry -->
 ---
@@ -346,6 +430,42 @@ Sources : ilénergie/Dalkia — [S1](/sources#S1) (p. 7) ; ilénergie/Dalkia (co
 
 <!-- entry -->
 ---
+id: "faq-40"
+question: "Les péniches pourront-elles toujours livrer la chaufferie ?"
+theme: "Les péniches et les camions"
+sourceIds: ["S28", "S29", "S30", "S31", "S1"]
+---
+
+Non : des arrêts sont documentés, notamment à Don après un accident en avril 2026 et sur la Deûle à Haubourdin lors d’une pollution. Mais leurs effets dépendent du trajet, de la durée, du stock disponible et de la consommation. Un arrêt court peut être absorbé par le stockage.
+
+Sources : VNF — [S28](/sources#S28), [S29](/sources#S29), [S30](/sources#S30), [S31](/sources#S31) ; ilénergie/Dalkia — [S1](/sources#S1).
+
+<!-- entry -->
+---
+id: "faq-41"
+question: "Ces incidents prouvent-ils qu’il y aura 30 camions par jour ?"
+theme: "Les péniches et les camions"
+sourceIds: ["S1", "S11", "S28", "S29", "S30", "S31"]
+---
+
+Non. Les 30 camions sont un maximum de secours annoncé par ilénergie en atelier, pas une fréquence observée. Les deux coupures locales d’avril 2026 retrouvées sont plus courtes que les trois à quatre jours d’autonomie annoncés à pleine puissance. Il faut demander combien de jours de substitution routière ont été retenus dans l’étude de trafic, avec les itinéraires et le nombre de passages.
+
+Sources : ilénergie/Dalkia — [S1](/sources#S1) et [S11](/sources#S11) ; VNF — [S28](/sources#S28), [S29](/sources#S29), [S30](/sources#S30), [S31](/sources#S31).
+
+<!-- entry -->
+---
+id: "faq-42"
+question: "Le changement climatique peut-il augmenter les interruptions ?"
+theme: "Les péniches et les camions"
+sourceIds: ["S36", "S37"]
+---
+
+Oui, il peut aggraver les contraintes de navigation : le rapport ONERC décrit notamment un risque de restrictions plus fréquentes si l’eau disponible devient insuffisante. Dans la région, VNF rapporte surtout des arrêts récents liés aux fortes précipitations. Aucune projection publiée retrouvée ne chiffre la fréquence future des interruptions sur le trajet vers Haubourdin.
+
+Sources : VNF — [S36](/sources#S36) ; ONERC — [S37](/sources#S37).
+
+<!-- entry -->
+---
 id: "faq-25"
 question: "Que deviendront les cendres et combien de camions faudra-t-il ?"
 theme: "Les péniches et les camions"
@@ -403,6 +523,18 @@ sourceIds: ["S3", "S4", "S7", "S8"]
 ilénergie/Dalkia porte l’investissement industriel : 90 M€ dans sa présentation et près de 100 M€ dans sa FAQ, avec emprunts et aides. L’ADEME a approuvé 25 M€ pour le développement du réseau, sans ventilation publiée pour Haubourdin dans cette annonce. La MEL a budgété 4,042 M€ pour acheter l’ensemble du site Lever, frais estimés compris. Le financement complet des aménagements et la répartition finale des dépenses restent à préciser. L’investissement du concessionnaire sera financé dans l’économie du service, notamment par les factures et les aides.
 
 Sources : ilénergie/Dalkia — [S3](/sources#S3) ; ilénergie/Dalkia — [S4](/sources#S4) ; MEL — [S7](/sources#S7) (p. 13) ; ADEME — [S8](/sources#S8).
+
+<!-- entry -->
+---
+id: "faq-44"
+question: "Combien la mairie d’Haubourdin devra-t-elle payer ?"
+theme: "Le financement et le contrat"
+sourceIds: ["S6", "S43", "S44", "S45"]
+---
+
+Le montant n’est pas établi dans les sources retrouvées. Il faut un chiffrage bâtiment par bâtiment : travaux intérieurs, frais éventuels de branchement, aides, puissance souscrite, consommation et entretien. Les budgets d’autres communes donnent des exemples, sans permettre de calculer celui d’Haubourdin. Les 366 M€ annoncés concernent le programme global du réseau.
+
+Sources : MEL — [S6](/sources#S6) ; villes — [S43](/sources#S43), [S44](/sources#S44), [S45](/sources#S45).
 
 <!-- entry -->
 ---
@@ -475,3 +607,15 @@ sourceIds: ["S23", "S24", "S25"]
 Deux dossiers sont à distinguer. À Beaunant, sur le secteur Sainte-Foy-lès-Lyon/Francheville, la Métropole annonce le 8 janvier 2025 qu’une récupération de chaleur industrielle à Collonges-au-Mont-d’Or permettra de renoncer à la grande chaufferie bois prévue. À Saint-Genis-Laval, la consultation du 7 janvier au 8 avril 2026 a été suivie d’un avis défavorable de la commissaire enquêtrice, le 29 avril. Mais le préfet a ensuite délivré l’autorisation environnementale, le 30 juillet 2026. Il serait donc inexact de présenter Saint-Genis-Laval comme un projet bloqué par le préfet après consultation.
 
 Sources : Métropole de Lyon, 8 janvier 2025 — [S23](/sources#S23) ; Odile Rocher, conclusion p. 60 — [S24](/sources#S24) ; Préfecture du Rhône, arrêté du 30 juillet 2026 — [S25](/sources#S25).
+
+<!-- entry -->
+---
+id: "faq-45"
+question: "Peut-on utiliser les dossiers de CABE et de Stop Enfumage ?"
+theme: "Les décisions et le suivi"
+sourceIds: ["S46", "S47", "S48", "S49", "S50", "S51"]
+---
+
+Oui, en indiquant clairement qui les publie. Ils servent à comprendre leur position et à préparer des questions. Pour un chiffre technique, remonter au document original, vérifier la date et le périmètre. Les analyses de Citepa et les rapports officiels qu’ils citent peuvent enrichir directement notre corpus.
+
+Sources : CABE — [S46](/sources#S46) et [S47](/sources#S47) ; Stop Enfumage — [S48](/sources#S48), [S49](/sources#S49), [S50](/sources#S50) ; Citepa — [S51](/sources#S51).
