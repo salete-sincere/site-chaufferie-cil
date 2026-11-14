@@ -1,7 +1,7 @@
 .container{width:min(var(--max),calc(100% - 80px));margin-inline:auto}
 .skip{position:absolute;top:-100px;left:16px;z-index:20;padding:12px 20px;background:var(--ink);color:white}.skip:focus{top:12px}
 .topline{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;background:var(--green);color:white;padding:9px 0}
-.topline .container{display:flex;justify-content:space-between;gap:20px}.topline a{text-decoration:none}
+.topline .container{display:flex;justify-content:space-between;gap:20px}.topline a{text-decoration:underline;text-underline-offset:3px}
 .header{padding:24px 0;border-bottom:1px solid var(--line)}
 .headerInner{display:flex;align-items:center;justify-content:space-between;gap:28px}
 .brand{text-decoration:none;display:flex;align-items:center;gap:12px;min-width:220px}.brandMark{width:9px;height:46px;background:var(--green);box-shadow:5px 0 0 var(--yellow);flex:none}.brandText{font-size:17px;line-height:1.15;font-weight:800;letter-spacing:-.045em}.brandText small{display:block;font-size:10px;font-weight:600;letter-spacing:.075em;margin-top:6px;text-transform:uppercase}
@@ -37,3 +37,5 @@
 .panorama{margin:40px 0 64px;padding:28px;background:var(--cream);border-left:3px solid var(--green)}.panorama h2{font-size:28px;margin-bottom:16px}.panorama p{max-width:76ch;font-size:15px;line-height:1.8;margin-bottom:24px}.panorama .subnav{margin-bottom:0}
 
 .complements{max-width:900px;margin-bottom:60px}.complement{padding:32px 0;border-top:2px solid var(--ink)}.complement h2{font-size:28px;line-height:1.3;margin-bottom:22px}.complement .prose h3{border-top:1px solid var(--line);padding-top:22px;line-height:1.4}.complementFoot{display:flex;justify-content:space-between;align-items:start;gap:20px;flex-wrap:wrap;margin-top:28px;font-size:12px}.complementFoot .sourceLinks{flex:1;min-width:220px}.source .prose{margin-bottom:18px}.complement:target{border-color:var(--green)}
+
+.printFlyer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:30px;background:#eef2e5;border-top:4px solid var(--green);margin-bottom:36px}.printFlyer>div{flex:1 1 380px}.printFlyer h2{font-size:28px;line-height:1.2;margin-bottom:14px}.printFlyer p:last-child{font-size:14px;max-width:65ch;margin:0}.printFlyer .eyebrow{margin-bottom:14px}.printFlyer .buttonDark{max-width:100%}

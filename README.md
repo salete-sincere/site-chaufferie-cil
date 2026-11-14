@@ -41,11 +41,15 @@ La sélection reste en mémoire dans la page et disparaît au rechargement. Aucu
 formulaire ne transmet d’adresse, aucun traceur n’est ajouté. Les journaux techniques
 de l’hébergement restent distincts de cette absence de collecte applicative.
 
+Le bandeau « Faites savoir autour de vous » mène aux outils de partage de
+« Je milite ». Cette page propose aussi le tract original fourni par le propriétaire,
+en PDF, à télécharger, imprimer et afficher aux fenêtres. Le téléchargement est
+servi par le site et fonctionne sans JavaScript ni compte Canva.
+
 La palette d’Haubourdin Alternative Citoyenne et la police Open Sans sont utilisées.
-Handelson Four, le logo original et les exports flyer/carrousel seront intégrés
-lorsque les fichiers exploitables seront
-accessibles. La signature textuelle est provisoire ; aucun logo d’Haubourdin
-Alternative Citoyenne n’a été recréé.
+Handelson Four, le logo original pour le site et les exports du carrousel seront
+intégrés lorsque les fichiers exploitables seront accessibles. La signature
+textuelle est provisoire ; aucun logo d’Haubourdin Alternative Citoyenne n’a été recréé.
 L’inscription aux nouvelles, Strapi et PostgreSQL sont hors de cette première version.
 
 Node.js 24 est requis. `npm run build` valide le contenu, produit le visuel de

@@ -33,7 +33,10 @@ dans les comptes rendus en annexe.
 
 **Je milite** vérifie la copie des trois messages et de leurs liens, le partage
 natif, son annulation et les replis lorsque partage ou presse-papiers sont absents
-ou refusés. Cinq profils HTTP d’aperçu lisent les cartes des neuf pages sans
+ou refusés. Un parcours mobile sans JavaScript entre par le bandeau de campagne,
+télécharge réellement le tract PDF, vérifie son type, son nom et ses octets, puis
+retrouve le lien après rechargement. Le PDF n’est pas simulé. Cinq profils HTTP
+d’aperçu lisent les cartes des neuf pages sans
 JavaScript, avec canonical, `og:url`, titres/descriptions et PNG annoncés sur le
 domaine public. Les dimensions et le poids de l’image sont contrôlés. En recette
 réelle, l’URL absolue est récupérée ; en local, son chemin vise le build testé.
@@ -172,7 +175,8 @@ metrics permanentes propres au nouveau site doit être déclarée explicitement.
 
 ### Limites éditoriales de la préversion
 
-Les exports Canva du flyer/carrousel et les fichiers du logo original et de
-Handelson Four ne sont pas disponibles via les accès utilisés. La préversion
-emploie Open Sans et une signature textuelle. Elle ne propose aucun faux bouton
-de téléchargement. La newsletter, Strapi et PostgreSQL restent hors périmètre.
+Le tract PDF original fourni par le propriétaire est disponible dans « Je milite ».
+Les exports du carrousel et les fichiers du logo original pour le site et de
+Handelson Four ne sont pas disponibles via les accès utilisés. Le site emploie
+Open Sans et une signature textuelle. La newsletter, Strapi et PostgreSQL restent
+hors périmètre.
