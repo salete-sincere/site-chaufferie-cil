@@ -1,4 +1,5 @@
 import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { expect, test } from '@playwright/test';
 
 test.describe('Golden Journey — Je milite : télécharger le tract', () => {
@@ -33,6 +34,8 @@ test.describe('Golden Journey — Je milite : télécharger le tract', () => {
     const servedBytes = await response.body();
     expect(servedBytes.subarray(0, 4).toString('ascii')).toBe('%PDF');
     expect(servedBytes.length).toBeGreaterThan(10_000);
+    expect(createHash('sha256').update(servedBytes).digest('hex'))
+      .toBe('0c374b0adc3ec9fc58851251df60a3dae849f06eef87380b9f5b6151d9a3b58f');
     expect((await readFile(downloadedPath)).equals(servedBytes)).toBe(true);
 
     await page.reload();
