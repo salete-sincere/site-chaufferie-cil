@@ -1,6 +1,12 @@
 import { expect, test, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
+// Qualification must never report visits or contact interactions to Cloudflare.
+test.beforeEach(async ({ context }) => {
+  await context.route('https://static.cloudflareinsights.com/**', (route) => route.abort('blockedbyclient'));
+  await context.route('https://cloudflareinsights.com/**', (route) => route.abort('blockedbyclient'));
+});
+
 const recipient = 'haubourdin_alternative_citoyenne@riseup.net';
 const facebookUrl = 'https://www.facebook.com/HaubourdinAlternativeCitoyenne';
 const pressSourceUrl = 'https://docs.google.com/document/d/1PHJvxNW0oxgmq5ryXvIcbhpM9xZVpjjvby2sBQRTNt4/edit?tab=t.tl20vqm2xga5';

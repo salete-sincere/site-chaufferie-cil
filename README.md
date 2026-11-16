@@ -38,7 +38,8 @@ adressé à `haubourdin_alternative_citoyenne@riseup.net`, objet « Comité chau
 Le site ne l’envoie pas : la personne l’envoie depuis sa propre messagerie. Une
 adresse et un message copiables permettent de poursuivre sans client mail configuré.
 La sélection reste en mémoire dans la page et disparaît au rechargement. Aucun
-formulaire ne transmet d’adresse, aucun traceur n’est ajouté. Les journaux techniques
+formulaire ne transmet d’adresse. Cloudflare Web Analytics mesure l’audience
+sans cookies et sans écran d’opt-in lorsque son token est fourni au build. Les journaux techniques
 de l’hébergement restent distincts de cette absence de collecte applicative.
 
 Le bandeau « Faites savoir autour de vous » mène aux outils de partage de
@@ -96,6 +97,12 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/home/ubuntu/.cache/ms-playwright/chromium-1
 Les captures, traces et rapports sont ignorés par Git dans `test-results/` et
 `playwright-report/`. Ouvrir les captures pour la vérification visuelle. Ne jamais
 désactiver la sandbox du navigateur pour résoudre un problème du harnais.
+
+### Mesure d’audience Cloudflare
+
+Le token public fourni est configuré par défaut dans Docker et la CI. Un build
+npm local sans token reste désactivé. La mesure ne change ni les DNS OVH ni le
+proxy. Voir le [guide de configuration et de qualification](documentation/analytics-cloudflare.md).
 
 ### Mettre à jour les contenus
 

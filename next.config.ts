@@ -1,4 +1,7 @@
 import type { NextConfig } from 'next';
+import { analyticsToken } from './lib/analytics.ts';
+
+const analyticsEnabled = Boolean(analyticsToken(process.env.CLOUDFLARE_WEB_ANALYTICS_TOKEN));
 
 const config: NextConfig = {
   output: 'standalone',
@@ -14,7 +17,7 @@ const config: NextConfig = {
       { key: 'X-Frame-Options', value: 'DENY' },
       { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
       { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
-      { key: 'Content-Security-Policy', value: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'none'" },
+      { key: 'Content-Security-Policy', value: `default-src 'self'; script-src 'self' 'unsafe-inline'${analyticsEnabled ? ' https://static.cloudflareinsights.com/beacon.min.js' : ''}; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'${analyticsEnabled ? ' https://cloudflareinsights.com' : ''}; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'none'` },
     ] }];
   },
 };
