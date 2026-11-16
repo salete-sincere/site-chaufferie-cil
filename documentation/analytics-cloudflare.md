@@ -76,6 +76,10 @@ npm run test:e2e
 ```
 
 Les scénarios réservés à l’autre configuration sont explicitement ignorés.
+Pour qualifier une adresse distante, fournir son token attendu avec `E2E_BASE_URL` ;
+le cas d’absence de balise est réservé au build local sans token. Sans token attendu,
+les trois cas analytics sont ignorés à distance ; tous les appels Cloudflare restent
+bloqués avant navigation pour ne pas produire de statistiques réelles.
 Les rapports restent hors Git dans `test-results/` et `playwright-report/` ; rattacher
 les résultats au SHA et au diff réellement testés avant une PR. Pour désactiver,
 construire avec un argument Docker explicitement vide

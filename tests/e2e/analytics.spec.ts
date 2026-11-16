@@ -2,9 +2,17 @@ import { expect, test } from '@playwright/test';
 
 const scriptUrl = 'https://static.cloudflareinsights.com/beacon.min.js';
 const token = process.env.CLOUDFLARE_WEB_ANALYTICS_TOKEN;
+const externalBaseURL = process.env.E2E_BASE_URL;
+
+// Always intercept before navigation, including a remote run without a local token.
+// The enabled integration test installs its more specific simulated routes afterwards.
+test.beforeEach(async ({ context }) => {
+  await context.route('https://static.cloudflareinsights.com/**', (route) => route.abort('blockedbyclient'));
+  await context.route('https://cloudflareinsights.com/**', (route) => route.abort('blockedbyclient'));
+});
 
 test('mesure d’audience désactivée sans token', async ({ page }) => {
-  test.skip(Boolean(token), 'Qualification du build sans token uniquement.');
+  test.skip(Boolean(token) || Boolean(externalBaseURL), 'Absence de balise réservée au build local sans token ; un site distant déclare son token attendu.');
   const requests: string[] = [];
   page.on('request', (request) => {
     if (request.url().includes('cloudflareinsights.com')) requests.push(request.url());
