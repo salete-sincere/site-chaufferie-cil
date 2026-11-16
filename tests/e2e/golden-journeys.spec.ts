@@ -7,6 +7,8 @@ test.beforeEach(async ({ context }) => {
   await context.route('https://cloudflareinsights.com/**', (route) => route.abort('blockedbyclient'));
 });
 
+const stagingNoindex = process.env.E2E_BASE_URL?.includes('chaufferie-cil-staging.saletesincere.fr') ?? false;
+
 const recipient = 'haubourdin_alternative_citoyenne@riseup.net';
 const facebookUrl = 'https://www.facebook.com/HaubourdinAlternativeCitoyenne';
 const pressSourceUrl = 'https://docs.google.com/document/d/1PHJvxNW0oxgmq5ryXvIcbhpM9xZVpjjvby2sBQRTNt4/edit?tab=t.tl20vqm2xga5';
@@ -681,30 +683,32 @@ test.describe('Exploitation du staging', () => {
       await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', expectedImageUrl);
       await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200');
       await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630');
-      await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+      await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(0);
     }
     // Fetch from the tested server, so a configurable metadata URL does not
     // make the local qualification depend on an already published domain.
     const image = await request.get('/partage-20261109.png');
     expect(image.status()).toBe(200);
     expect(image.headers()['content-type']).toMatch(/^image\/png/);
-    expect(image.headers()['x-robots-tag']).toMatch(/noindex/);
+    expect(/noindex/i.test(image.headers()['x-robots-tag'] ?? '')).toBe(stagingNoindex);
     expect((await image.body()).subarray(0, 8)).toEqual(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
   });
 
-  test('liveness et non-indexation des pages, ressources et erreurs', async ({ page, request }) => {
+  test('liveness, indexation publique, protection de la préversion et erreurs', async ({ page, request }) => {
     const health = await request.get('/health');
     expect(health.status()).toBe(200);
     expect(health.headers()['content-type']).toMatch(/application\/json/);
+    expect(health.headers()['x-robots-tag']).toMatch(/noindex/);
     for (const route of ['/', '/informer/faq', '/informer/complements', '/rejoindre', '/communique-de-presse', '/favicon.svg', '/route-inexistante-e2e']) {
       const response = await request.get(route);
       expect(response.status(), route).toBe(route === '/route-inexistante-e2e' ? 404 : 200);
-      expect(response.headers()['x-robots-tag'], route).toMatch(/noindex/i);
+      expect(/noindex/i.test(response.headers()['x-robots-tag'] ?? ''), route).toBe(stagingNoindex);
     }
     await page.goto('/');
-    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+    await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(0);
     const missing = await page.goto('/route-inexistante-e2e');
     expect(missing?.status()).toBe(404);
+    await expect(page.locator('meta[name="robots"][content*="noindex"]').first()).toHaveCount(1);
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     await expect(page.locator('a[href="/"]').first()).toBeVisible();
   });

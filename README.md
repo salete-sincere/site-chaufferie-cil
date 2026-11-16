@@ -8,7 +8,7 @@ Il permet de s’informer, de partager et de préparer un courriel, sans collect
 Next.js sert des contenus Markdown, sans base de données.
 Le site public est `https://stopchaufferiehaubourdin.fr` ; la préversion
 `https://chaufferie-cil-staging.saletesincere.fr` reste accessible.
-Les deux adresses gardent la consigne de non-indexation.
+Le domaine public autorise l’indexation ; la préversion reste non indexée.
 
 ## Synthèse — 3 minutes
 
@@ -64,7 +64,8 @@ Le domaine public est actif depuis le 9 novembre 2026, avec DNS OVH et HTTPS
 vers Penthouse, sans passage par Cloudflare. Les cartes de partage utilisent
 ce domaine pour chaque page et pour leur image PNG 1200 × 630. La préversion
 partage ces mêmes URL canoniques. La [procédure du domaine public](documentation/domaine-public.md)
-décrit DNS, certificat et qualification ; la non-indexation reste active.
+décrit DNS, certificat et qualification. Le [sitemap public](https://stopchaufferiehaubourdin.fr/sitemap.xml)
+répertorie les neuf pages à soumettre à Google Search Console.
 
 ## Annexes
 
@@ -163,9 +164,11 @@ anciens alias restent disponibles. `npm run prepare:assets` régénère les SVG
 et PNG avec les contours Open Sans locaux. Les tests d’aperçus lisent le HTML
 brut et récupèrent l’image annoncée, sans exécuter les scripts du site.
 
-Toutes les réponses portent `X-Robots-Tag: noindex, nofollow, noarchive`.
-`robots.txt` permet le crawl afin que les moteurs puissent lire cette consigne ;
-il ne s’agit pas d’une restriction d’accès.
+Le domaine public autorise l’indexation et `robots.txt` annonce `/sitemap.xml`.
+La préversion conserve `X-Robots-Tag: noindex, nofollow, noarchive` côté application
+et Ingress ; `/health` reste non indexable sur toutes les adresses. Une erreur
+404 conserve sa directive `noindex` native. Voir le [guide d’indexation](documentation/indexation.md).
+Ces consignes ne restreignent pas l’accès et ne garantissent pas l’indexation effective.
 
 ### Références
 

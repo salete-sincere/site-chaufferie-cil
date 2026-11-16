@@ -14,14 +14,14 @@ Les procédures de création et les constats historiques sont conservés ci-dess
 Le propriétaire a autorisé la mise en service du domaine et une notification
 Telegram après validation. Le nom `stopchaufferie.fr`, évoqué auparavant, n’est
 pas inclus. Les serveurs DNS restent ceux d’OVH ; aucune zone ou clé Cloudflare
-n’est nécessaire pour cette émission. La non-indexation reste active.
+n’est nécessaire pour cette émission. L’indexation publique est autorisée depuis la demande du 16 novembre ; la préversion reste non indexée.
 
 Le nouvel `Issuer` est limité à `site-chaufferie-cil`, utilise Let’s Encrypt
 production, HTTP01 et l’adresse technique existante `devs@saletesincere.fr`.
 cert-manager crée un Service `ClusterIP`, un Pod et un Ingress de challenge avec
 la classe `public`. Le certificat couvre uniquement le domaine exact, sans `www`
 ni wildcard. L’Ingress public sert le Service applicatif existant et réutilise
-les middlewares HTTPS et non-indexation. Le ClusterIssuer partagé et l’Ingress
+le middleware HTTPS ; le middleware de non-indexation reste réservé au staging. Le ClusterIssuer partagé et l’Ingress
 staging restent inchangés.
 
 La nouvelle NetworkPolicy sélectionne uniquement les pods de solveur portant
@@ -141,7 +141,7 @@ solveur ; un timeout ne justifie pas de recréer l’Issuer ou de multiplier les
 demandes de certificat. Ne pas exposer les clés des Secrets.
 
 Vérifier l’HTTP vers HTTPS, la chaîne TLS et le nom couvert, le SHA de `/health`,
-la non-indexation et les trois Golden Journeys avec `E2E_BASE_URL`. La révision
+l’indexation publique, le sitemap, la non-indexation du staging et les Golden Journeys avec `E2E_BASE_URL`. La révision
 attendue est celle de l’image réellement activée et qualifiée : un ajout de
 domaine seul ne change ni l’image ni `APP_REVISION`, même si le checkout a avancé.
 Contrôler le couple actif et le comparer au SHA et au digest de la livraison :

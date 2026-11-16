@@ -6,8 +6,8 @@ Décision acceptée le 7 novembre 2026 : utiliser Next.js App Router en producti
 dans un conteneur autonome sur infra-sincere, avec des contenus Markdown versionnés.
 La première version n’a ni PostgreSQL ni CMS. Le contact prépare un courriel côté
 navigateur. Le domaine public retenu est `stopchaufferiehaubourdin.fr`, avec mise en
-service à qualifier et préversion conservée. Les deux adresses restent soumises à
-la consigne de non-indexation.
+service réalisée et préversion conservée. À la demande du 16 novembre 2026,
+le domaine public autorise l’indexation avec un sitemap ; la préversion reste non indexée.
 
 ## Synthèse — 3 minutes
 
@@ -36,7 +36,8 @@ Le domaine public retenu est `https://stopchaufferiehaubourdin.fr`. Son activati
 suit la [procédure dédiée](domaine-public.md), avec DNS OVH vers Penthouse et
 certificat HTTP-01 géré dans le namespace de l’application. La préversion
 `https://chaufferie-cil-staging.saletesincere.fr` est maintenue. Les deux adresses
-doivent rester accessibles sans authentification et conserver la consigne de non-indexation.
+restent accessibles sans authentification. Depuis la demande du 16 novembre,
+le domaine public autorise l’indexation ; la préversion conserve sa directive `noindex`.
 Ce choix permet la relecture par lien mais ne constitue pas une confidentialité.
 
 `SITE_URL` définit les URL absolues des métadonnées lors du build, avec

@@ -51,7 +51,8 @@ efface les choix. Aucun mail réel n’est envoyé par la suite.
 
 Des scénarios supplémentaires vérifient le clavier, le rendu mobile, l’absence de
 débordement, la lecture essentielle sans JavaScript, les violations automatiques
-WCAG 2.1 AA, la page 404 et les en-têtes de non-indexation des pages et assets.
+WCAG 2.1 AA, la page 404, le sitemap des neuf pages, l’absence d’interdiction
+d’indexation publique et les en-têtes de non-indexation du staging et de `/health`.
 Les captures sont inspectées visuellement et restent hors Git.
 
 Les capacités navigateur sont simulées pour exercer les succès, refus et annulations.

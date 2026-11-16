@@ -88,7 +88,7 @@ metadata:
   name: site-chaufferie-cil-public
   namespace: site-chaufferie-cil
   annotations:
-    traefik.ingress.kubernetes.io/router.middlewares: site-chaufferie-cil-https-redirect@kubernetescrd,site-chaufferie-cil-staging-noindex@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: site-chaufferie-cil-https-redirect@kubernetescrd
 spec:
   ingressClassName: public
   rules:

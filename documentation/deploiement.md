@@ -25,8 +25,11 @@ les navigateurs. Une NetworkPolicy bloque les sorties applicatives et n'autorise
 que l'entrée de Traefik. Les accès aux sites sources et à la messagerie partent du
 navigateur des visiteurs.
 
-Le header `X-Robots-Tag: noindex, nofollow, noarchive` est posé par l'application et
-l'ingress, y compris pour les ressources. Cette consigne ne protège pas l'accès :
+Le domaine public autorise l’indexation et annonce son sitemap. La préversion
+conserve `X-Robots-Tag: noindex, nofollow, noarchive` via la règle Host de
+l’application et son middleware Ingress, y compris pour les ressources.
+Le middleware `staging-noindex` ne doit pas être associé à l’Ingress public.
+`/health` reste non indexable sur toutes les adresses. Ces directives ne protègent pas l’accès :
 le site est public. Aucune identité, clé ou configuration privée ne doit entrer
 dans l'image ou dans Git.
 
@@ -117,7 +120,7 @@ sudo -n /snap/bin/microk8s kubectl -n site-chaufferie-cil get deployment/site-ch
 ```
 
 Contrôler aussi le digest `imageID` du pod, les réponses de toutes les routes,
-les en-têtes de non-indexation et l'absence d'écriture/runtime cache sur la racine
+l’indexation publique, le sitemap, la non-indexation du staging et l'absence d'écriture/runtime cache sur la racine
 du conteneur. Conserver la preuve des résultats, limites et éventuelles erreurs.
 
 Le CDN peut modifier le HTML après le serveur : le repli contact sans JavaScript
