@@ -12,6 +12,7 @@ permissions:
 env:
   # Keep published cards on the public origin; repository variables cannot revert them to staging.
   SITE_URL: https://stopchaufferiehaubourdin.fr
+  CLOUDFLARE_WEB_ANALYTICS_TOKEN: ${{ vars.CLOUDFLARE_WEB_ANALYTICS_TOKEN || 'c5996ba1a5044c2bb15e78cbdffb2761' }}
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -81,5 +82,6 @@ jobs:
             REVISION=${{ github.sha }}
             SOURCE=${{ github.server_url }}/${{ github.repository }}
             SITE_URL=${{ env.SITE_URL }}
+            CLOUDFLARE_WEB_ANALYTICS_TOKEN=${{ env.CLOUDFLARE_WEB_ANALYTICS_TOKEN }}
           cache-from: type=gha
           cache-to: type=gha,mode=max

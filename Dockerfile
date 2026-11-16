@@ -7,10 +7,12 @@ RUN npm ci --no-audit --no-fund
 FROM node:24-bookworm-slim AS build
 ARG REVISION=unknown
 ARG SITE_URL=https://stopchaufferiehaubourdin.fr
+ARG CLOUDFLARE_WEB_ANALYTICS_TOKEN=c5996ba1a5044c2bb15e78cbdffb2761
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV APP_REVISION=$REVISION
 ENV SITE_URL=$SITE_URL
+ENV CLOUDFLARE_WEB_ANALYTICS_TOKEN=$CLOUDFLARE_WEB_ANALYTICS_TOKEN
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY . .
 RUN npm run build
