@@ -58,7 +58,7 @@ test.describe('Golden Journey — Je milite : aperçus de partage', () => {
         expect(head.twitterTitle).toEqual(head.title);
         expect(head.twitterDescription).toEqual(head.description);
         expect(head.twitterImage).toEqual(head.image);
-        expect(head.robots[0]).toContain('noindex');
+        expect(head.robots.some(value => /noindex|nofollow/i.test(value ?? ''))).toBe(false);
         announcedImage = head.image[0]!;
       }
       expect(titles.size).toBe(routes.length);

@@ -30,7 +30,9 @@ déjà autorisé via `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`.
 
 La V1 ne collecte pas d’adresses, n’a pas de backend de contact, de Strapi ou de
 PostgreSQL. L’ajout de ces fonctions nécessite une demande explicite. Le domaine
-staging est public et non indexé, sans promesse de confidentialité.
+staging est public et non indexé, sans promesse de confidentialité. Depuis la
+demande du 16 novembre 2026, le domaine public autorise l’indexation et expose
+`/sitemap.xml` avec ses neuf pages canoniques ; ne pas y rétablir `noindex`.
 
 Documentation et preuves suivent Summary / Synthèse / Annexes. Un build seul ne
 prouve pas la réussite des Golden Journeys. Vérifier l’image et le SHA actifs, TLS,
